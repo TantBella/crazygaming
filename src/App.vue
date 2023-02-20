@@ -1,22 +1,25 @@
 <script>
-  import Header from './components/HeaDer.vue'
+  import Headern from './components/HeaDer.vue'
   import Search from './components/SearchField.vue'
   import Navbar from './components/NavBar.vue'
+  import Footern from './components/FoOter.vue'
 
   export default {
     components: {
-      Header,
+      Headern,
       Search,
-      Navbar
+      Navbar,
+      Footern
     }
   }
 </script>
 
 <template>
-  <Header />
+  <Headern />
   <Navbar />
   <Search />
   <main>
     <RouterView />
   </main>
+  <Footern />
 </template>
