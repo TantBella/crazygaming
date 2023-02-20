@@ -31,6 +31,7 @@
 
   body {
     background-image: linear-gradient(#9857c2, #4361ee, #9857c2);
+    overflow-x: hidden;
   }
   #wrapper {
     margin: 0 auto;

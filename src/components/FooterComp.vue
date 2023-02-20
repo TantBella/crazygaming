@@ -37,8 +37,8 @@
       </ul>
     </div>
     <div class="disclaimer">
+      <h5>Disclaimer:</h5>
       <p>
-        <strong> Disclaimer: </strong>
         Pictures are taken from Webhallen.com (This site is a school project
         only)
       </p>
@@ -98,6 +98,10 @@
   h4 {
     text-decoration: underline;
   }
+  h5 {
+    font-size: smaller;
+    margin-bottom: 1px;
+  }
   li {
     list-style: none;
   }
@@ -110,5 +114,6 @@
   }
   .disclaimer p {
     font-size: x-small;
+    margin-bottom: 30px;
   }
 </style>
