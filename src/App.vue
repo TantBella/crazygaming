@@ -1,8 +1,8 @@
 <script>
-  import Headern from './components/HeaDer.vue'
+  import Headern from './components/HeaderComp.vue'
   import Search from './components/SearchField.vue'
   import Navbar from './components/NavBar.vue'
-  import Footern from './components/FoOter.vue'
+  import Footern from './components/FooterComp.vue'
 
   export default {
     components: {
