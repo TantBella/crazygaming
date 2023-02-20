@@ -15,15 +15,11 @@
   </div> -->
 </template>
 
-<style>
+<style lang="scss" scoped>
   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
-
-  body {
-    padding: 20px;
   }
 
   input {
@@ -40,15 +36,17 @@
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     cursor: pointer;
     margin-bottom: 25px;
+    margin: 0 auto 10px auto;
   }
 
-  .searchitem {
+  /* .searchitem {
     width: 350px;
-    /* margin: 0 auto 10px auto; */
+
+    margin: 20px auto;
     padding: 10px 20px;
     color: white;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
       rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  }
+  } */
 </style>
