@@ -7,6 +7,9 @@
         <RouterLink to="/">Hem</RouterLink>
       </li>
       <li>
+        <RouterLink to="/products">Products</RouterLink>
+      </li>
+      <li>
         <RouterLink to="/about">Om</RouterLink>
       </li>
       <li>
