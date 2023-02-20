@@ -15,11 +15,19 @@
 </script>
 
 <template>
-  <Headern />
-  <Navbar />
-  <Search />
-  <main>
-    <RouterView />
-  </main>
-  <Footern />
+  <div id="wrapper">
+    <Headern />
+    <Navbar />
+    <Search />
+    <main>
+      <RouterView />
+    </main>
+    <Footern />
+  </div>
 </template>
+
+<style lang="scss">
+  #wrapper {
+    background-color: linear-gradient(0deg, #9857c2, #4361ee 40%, #9857c2);
+  }
+</style>
