@@ -4,10 +4,29 @@ import AboutView from './views/AboutView.vue'
 import ContactView from './views/ContactView.vue'
 import HomeView from './views/HomeView.vue'
 import ProductView from './views/ProductView.vue'
+import ShoppingCart from './views/ShoppingCart.vue'
+import UserProfile from './views/UserProfile.vue'
+import Categories from './views/ContactView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
+    {
+      component: HomeView,
+      path: '/'
+    },
+    {
+      component: Categories,
+      path: '/categories'
+    },
+    {
+      component: ShoppingCart,
+      path: '/shoppingcart'
+    },
+    {
+      component: UserProfile,
+      path: '/user'
+    },
     {
       component: AboutView,
       path: '/about'
@@ -15,10 +34,6 @@ export default createRouter({
     {
       component: ContactView,
       path: '/contact'
-    },
-    {
-      component: HomeView,
-      path: '/'
     },
     {
       component: ProductView,
