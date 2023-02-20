@@ -1,34 +1,21 @@
 <script>
-  import CitiesList from './components/CitiesList.vue'
-  import CounterButton from './components/CounterButton.vue'
-  import HelloWorld from './components/HelloWorld.vue'
+  import Header from './components/HeaDer.vue'
+  import Search from './components/SearchField.vue'
+  import Navbar from './components/NavBar.vue'
 
   export default {
     components: {
-      CitiesList,
-      CounterButton,
-      HelloWorld
+      Header,
+      Search,
+      Navbar
     }
   }
 </script>
 
 <template>
-  <nav>
-    <ul>
-      <li>
-        <RouterLink to="/">Hem</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/about">Om</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/contact">Kontakt</RouterLink>
-      </li>
-    </ul>
-  </nav>
-  <HelloWorld msg="Hello World!" />
-  <CitiesList />
-  <CounterButton />
+  <Header />
+  <Navbar />
+  <Search />
   <main>
     <RouterView />
   </main>
