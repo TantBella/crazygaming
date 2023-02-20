@@ -25,7 +25,7 @@ function alldata(request, response) {
   response.send(products)
   console.log(products)
 }
-app.get('/products/:element/', searchProducts)
+app.get('/products/:products/', searchProducts)
 
 function searchProducts(request, response) {
   var word = request.params.products
@@ -34,7 +34,7 @@ function searchProducts(request, response) {
   if (products[word]) {
     var reply = products[word]
   } else {
-    var reply = {
+    reply = {
       status: 'Not Found'
     }
   }
