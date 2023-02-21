@@ -16,12 +16,12 @@
 <template>
   <div id="menuBox" class="collapse" :class="{ show: showMenu }">
     <h2>Categories</h2>
-    <h3><RouterLink to="">Xbox</RouterLink></h3>
+    <h3><RouterLink to="/products/Xbox">Xbox</RouterLink></h3>
     <h3>
-      <RouterLink to="/">Playstation</RouterLink>
+      <RouterLink to="/products/Playstation">Playstation</RouterLink>
     </h3>
-    <h3><RouterLink to="/">Nintendo</RouterLink></h3>
-    <h3><RouterLink to="/">PC</RouterLink></h3>
+    <h3><RouterLink to="/products/Nintendo">Nintendo</RouterLink></h3>
+    <h3><RouterLink to="/products/PC">PC</RouterLink></h3>
   </div>
   <nav>
     <div>
