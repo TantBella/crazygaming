@@ -75,7 +75,7 @@
 <style lang="scss" scoped>
   nav {
     display: flex;
-    background-color: rgb(237, 214, 251);
+    background-color: rgba(255, 255, 255, 0.172);
     justify-content: space-around;
     list-style-type: none;
     overflow: hidden;

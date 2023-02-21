@@ -7,10 +7,15 @@ import ProductView from './views/ProductView.vue'
 import ShoppingCart from './views/ShoppingCart.vue'
 import UserProfile from './views/UserProfile.vue'
 import Categories from './views/ContactView.vue'
+import PrivCook from './views/PrivCook.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
+    {
+      component: PrivCook,
+      path: '/cookies'
+    },
     {
       component: HomeView,
       path: '/'
