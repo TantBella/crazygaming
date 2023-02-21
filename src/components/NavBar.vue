@@ -1,6 +1,28 @@
-<script></script>
+<script>
+  export default {
+    data() {
+      return {
+        showMenu: false
+      }
+    },
+    methods: {
+      toggleMenu() {
+        this.showMenu = !this.showMenu
+      }
+    }
+  }
+</script>
 
 <template>
+  <div id="menuBox" class="collapse" :class="{ show: showMenu }">
+    <h2>Categories</h2>
+    <h3><RouterLink to="/products/Xbox">Xbox</RouterLink></h3>
+    <h3>
+      <RouterLink to="/products/Playstation">Playstation</RouterLink>
+    </h3>
+    <h3><RouterLink to="/products/Nintendo">Nintendo</RouterLink></h3>
+    <h3><RouterLink to="/products/PC">PC</RouterLink></h3>
+  </div>
   <nav>
     <div>
       <ul>
@@ -19,8 +41,8 @@
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/categories"
-            ><svg
+          <button class="navbar-toggler" type="button" @click="toggleMenu">
+            <svg
               height="32"
               viewBox="0 0 32 32"
               width="32"
@@ -32,8 +54,9 @@
               <path d="m7.17 16-2.58 2.58 1.41 1.42 4-4-4-4-1.42 1.41z" />
               <path d="m14 5h14v2h-14z" />
               <path d="m7.17 6-2.58 2.58 1.41 1.42 4-4-4-4-1.42 1.41z" />
-              <path d="m0 0h32v32h-32z" fill="none" /></svg
-          ></RouterLink>
+              <path d="m0 0h32v32h-32z" fill="none" />
+            </svg>
+          </button>
         </li>
         <li>
           <RouterLink to="/shoppingcart"
@@ -46,8 +69,9 @@
               <path d="m0 0h32v32h-32z" fill="none" />
               <path
                 d="m12 2a6 6 0 0 1 6 6v1h4v2h-1.167l-.757 9.083a1 1 0 0 1 -.996.917h-14.16a1 1 0 0 1 -.996-.917l-.758-9.083h-1.166v-2h4v-1a6 6 0 0 1 6-6zm6.826 9h-13.653l.667 8h12.319zm-5.826 2v4h-2v-4zm-4 0v4h-2v-4zm8 0v4h-2v-4zm-5-9a4 4 0 0 0 -3.995 3.8l-.005.2v1h8v-1a4 4 0 0 0 -3.8-3.995z"
-              /></svg
-          ></RouterLink>
+              />
+            </svg>
+          </RouterLink>
         </li>
         <li>
           <RouterLink to="/user"
@@ -64,8 +88,9 @@
             >
               <path
                 d="M22 11 C22 16 19 20 16 20 13 20 10 16 10 11 10 6 12 3 16 3 20 3 22 6 22 11 Z M4 30 L28 30 C28 21 22 20 16 20 10 20 4 21 4 30 Z"
-              /></svg
-          ></RouterLink>
+              />
+            </svg>
+          </RouterLink>
         </li>
       </ul>
     </div>
@@ -73,6 +98,18 @@
 </template>
 
 <style lang="scss" scoped>
+  #menuBox {
+    color: #fff;
+    text-align: center;
+  }
+  .router-link-active,
+  .router-link-exact-active {
+    color: #fff;
+  }
+  h3 {
+    padding: 2 rem;
+  }
+
   nav {
     display: flex;
     background-color: rgba(255, 255, 255, 0.172);

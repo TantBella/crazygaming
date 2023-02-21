@@ -12,6 +12,15 @@
       <img src="assets/search-icon.png" alt="Search icon" />
     </button>
   </div>
+
+  <input
+    type="text"
+    v-model="input"
+    placeholder="Sök efter de bästa spelen..."
+  /><button type="submit">
+    <img src="assets/search-icon.png" alt="buttonpng" border="0" />
+  </button>
+
   <!-- Nedan behövs först skapas en funktion som heter searchlist -->
   <!-- <div class="searchitem" v-for="game in searchList()" :key="game">
     <p>{{ game.name }}</p>
@@ -32,6 +41,7 @@
     display: block;
     padding: 10px 45px;
     background: rgba(255, 255, 255, 0.172);
+    background: rgba(255, 255, 255, 0.172) no-repeat 15px center;
     background-size: 15px 15px;
     font-size: 16px;
     border: none;
@@ -41,6 +51,24 @@
     cursor: pointer;
     margin-bottom: 25px;
     margin: 0 auto 10px auto;
+    width: 70vw;
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+    transition: transform 0.7s ease-in-out;
+  }
+
+  button:hover {
+    transform: rotate(360deg);
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
   }
   input[type='text'] {
     text-align: left;
