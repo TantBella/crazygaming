@@ -5,6 +5,9 @@
     <div class="mail">
       <h2>Subscribe To Our Newsletter</h2>
       <input class="email" placeholder="example@mail.com" />
+      <button type="submit">
+        <img src="assets/email-icon.png" alt="buttonpng" border="0" />
+      </button>
       <p>Subscribe to our newsletter to get exclusive offers!</p>
     </div>
     <div class="footcontainer">
@@ -93,13 +96,28 @@
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border: none;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.172) url('assets/email-icon.png')
-      no-repeat 15px center;
+    background: rgba(255, 255, 255, 0.172) no-repeat 15px center;
     background-size: 15px 15px;
     display: block;
     font-size: 16px;
     padding: 10px 45px;
-    width: 350px;
+    width: 70vw;
+  }
+  button {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+    transition: transform 0.7s ease-in-out;
+  }
+
+  button:hover {
+    transform: rotate(360deg);
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
   }
 
   .footcontainer {
@@ -109,9 +127,10 @@
     justify-content: space-around;
     text-align: left;
   }
-  // .footcontainer
+
   p {
     font-size: smaller;
+    padding: 10px 10px 3px 10px;
   }
 
   h2 {
