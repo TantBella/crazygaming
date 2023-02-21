@@ -3,40 +3,42 @@
 <template>
   <div class="foot">
     <div class="mail">
-      <h3>Subscribe To Our Newsletter</h3>
+      <h2>Subscribe To Our Newsletter</h2>
       <input class="email" placeholder="example@mail.com" />
       <p>Subscribe to our newsletter to get exclusive offers!</p>
     </div>
-    <div class="needhelp">
-      <h4>Need help?</h4>
-      <ul>
-        <li><RouterLink to="/contact"> Contact </RouterLink></li>
-        <li>
-          <RouterLink to="/"> Track Your Order </RouterLink>
-        </li>
-        <li><RouterLink to="/"> Feedback </RouterLink></li>
-      </ul>
-    </div>
-    <div class="profile">
-      <h4>My profile</h4>
-      <ul>
-        <li><RouterLink to="/user"> My Account </RouterLink></li>
-        <li><RouterLink to="/">My Wishlist </RouterLink></li>
-        <li><RouterLink to="/"> Purchases </RouterLink></li>
-      </ul>
-    </div>
-    <div class="crazy">
-      <h4>Crazy Gaming</h4>
-      <ul>
-        <li>
-          <RouterLink to="/about">About Us </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">Careers</RouterLink>
-        </li>
-        <li><RouterLink to="/cookies">Privacy & Cookies</RouterLink></li>
-        <li><RouterLink to="/">Terms & Conditions</RouterLink></li>
-      </ul>
+    <div class="footcontainer">
+      <div class="needhelp">
+        <h3>Need help?</h3>
+        <ul>
+          <li><RouterLink to="/contact"> Contact </RouterLink></li>
+          <li>
+            <RouterLink to="/"> Track Your Order </RouterLink>
+          </li>
+          <li><RouterLink to="/"> Feedback </RouterLink></li>
+        </ul>
+      </div>
+      <div class="profile">
+        <h3>My profile</h3>
+        <ul>
+          <li><RouterLink to="/user"> My Account </RouterLink></li>
+          <li><RouterLink to="/">My Wishlist </RouterLink></li>
+          <li><RouterLink to="/"> Purchases </RouterLink></li>
+        </ul>
+      </div>
+      <div class="crazy">
+        <h3>Crazy Gaming</h3>
+        <ul>
+          <li>
+            <RouterLink to="/about">About Us </RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/">Careers</RouterLink>
+          </li>
+          <li><RouterLink to="/cookies">Privacy & Cookies</RouterLink></li>
+          <li><RouterLink to="/">Terms & Conditions</RouterLink></li>
+        </ul>
+      </div>
     </div>
     <div class="disclaimer">
       <h5>Disclaimer:</h5>
@@ -74,7 +76,7 @@
   // }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .foot {
     border-top: solid 2px white;
     color: white;
@@ -99,9 +101,27 @@
     padding: 10px 45px;
     width: 350px;
   }
-  h4 {
+
+  .footcontainer {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
+    text-align: left;
+  }
+  // .footcontainer
+  p {
+    font-size: smaller;
+  }
+
+  h2 {
+    font-size: small;
+  }
+
+  h3 {
     padding: 10px 10px 3px 10px;
     text-decoration: underline;
+    font-size: small;
   }
   h5 {
     padding: 10px 10px 3px 10px;
@@ -113,11 +133,13 @@
   }
   a {
     text-decoration: none;
+    font-size: small;
   }
   a:hover {
     color: #d9d9d9;
     font-weight: bold;
   }
+
   .disclaimer p {
     padding: 10px 10px 3px 10px;
     font-size: x-small;
