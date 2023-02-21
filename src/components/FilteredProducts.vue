@@ -39,13 +39,16 @@
 <style scoped>
   div {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   img {
     max-width: 300px;
     max-height: 300px;
+    margin-bottom: 10px;
   }
 
   h1 {
