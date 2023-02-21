@@ -12,15 +12,6 @@
       <img src="assets/search-icon.png" alt="Search icon" />
     </button>
   </div>
-
-  <input
-    type="text"
-    v-model="input"
-    placeholder="Sök efter de bästa spelen..."
-  /><button type="submit">
-    <img src="assets/search-icon.png" alt="buttonpng" border="0" />
-  </button>
-
   <!-- Nedan behövs först skapas en funktion som heter searchlist -->
   <!-- <div class="searchitem" v-for="game in searchList()" :key="game">
     <p>{{ game.name }}</p>
