@@ -6,8 +6,9 @@ import HomeView from './views/HomeView.vue'
 import ProductView from './views/ProductView.vue'
 import ShoppingCart from './views/ShoppingCart.vue'
 import UserProfile from './views/UserProfile.vue'
-import Categories from './views/ContactView.vue'
+import Categories from './views/CategoryView.vue'
 import PrivCook from './views/PrivCook.vue'
+import Products from './components/FilteredProducts.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -43,6 +44,10 @@ export default createRouter({
     {
       component: ProductView,
       path: '/products'
+    },
+    {
+      component: Products,
+      path: '/products/:brand'
     }
   ]
 })

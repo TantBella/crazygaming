@@ -1,13 +1,11 @@
 <script>
   import Headern from './components/HeaderComp.vue'
-  import Search from './components/SearchField.vue'
   import Navbar from './components/NavBar.vue'
   import Footern from './components/FooterComp.vue'
 
   export default {
     components: {
       Headern,
-      Search,
       Navbar,
       Footern
     }
@@ -18,7 +16,6 @@
   <div id="wrapper">
     <Headern />
     <Navbar />
-    <Search />
     <main>
       <RouterView />
     </main>
@@ -39,5 +36,8 @@
   }
   li a {
     color: white;
+  }
+  li {
+    list-style: none;
   }
 </style>
