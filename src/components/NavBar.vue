@@ -16,12 +16,16 @@
 <template>
   <div id="menuBox" class="collapse" :class="{ show: showMenu }">
     <h2>Categories</h2>
-    <h3><RouterLink to="/products/Xbox">Xbox</RouterLink></h3>
+    <h3><RouterLink class="links" to="/products/Xbox">Xbox</RouterLink></h3>
     <h3>
-      <RouterLink to="/products/Playstation">Playstation</RouterLink>
+      <RouterLink class="links" to="/products/Playstation"
+        >Playstation</RouterLink
+      >
     </h3>
-    <h3><RouterLink to="/products/Nintendo">Nintendo</RouterLink></h3>
-    <h3><RouterLink to="/products/PC">PC</RouterLink></h3>
+    <h3>
+      <RouterLink class="links" to="/products/Nintendo">Nintendo</RouterLink>
+    </h3>
+    <h3><RouterLink class="links" to="/products/PC">PC</RouterLink></h3>
   </div>
   <nav>
     <div>
@@ -102,17 +106,27 @@
     color: #fff;
     text-align: center;
   }
-  .router-link-active,
-  .router-link-exact-active {
+  .links {
     color: #fff;
+    text-decoration: none;
+  }
+  .links:hover {
+    color: #aaa;
+  }
+  h2 {
+    font-size: 35px;
+    font-weight: normal;
+    padding-bottom: 1.3rem;
   }
   h3 {
-    padding: 2 rem;
+    padding: 1.3rem;
+    font-size: 30px;
+    font-weight: normal;
   }
 
   nav {
     display: flex;
-    background-color: rgba(255, 255, 255, 0.172);
+    background-color: rgba(255, 255, 255, 0.7);
     justify-content: space-around;
     list-style-type: none;
     overflow: hidden;
