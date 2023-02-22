@@ -84,7 +84,7 @@
     }
     #user {
       width: 30px;
-      margin-left: 1.5em;
+      margin-left: 1.6em;
       margin-right: 5em;
     }
     #basket {
