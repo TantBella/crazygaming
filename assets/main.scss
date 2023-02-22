@@ -2,6 +2,11 @@ $body-bg: #111;
 
 $body-color: rgba(255, 255, 255, 0.9);
 
+$input-colors: (
+  'input-background': rgba(50, 50, 93, 0.25),
+  'input-boxshadow': rgba(50, 50, 93, 0.25)
+);
+
 $theme-colors: (
   'primary': #9857C2,
   'secondary': #3A0CA3,
