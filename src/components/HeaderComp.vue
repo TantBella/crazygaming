@@ -28,17 +28,6 @@
       <RouterLink to="/products/PC">PC</RouterLink>
     </div>
   </header>
-
-  <div id="logo">
-    <img src="/assets/Logo.png" alt="Crazy Gaming logo." />
-  </div>
-  <Search />
-  <div id="category">
-    <RouterLink to="/products/Xbox">Xbox</RouterLink>
-    <RouterLink to="/products/Playstation">Playstation</RouterLink>
-    <RouterLink to="/products/Nintendo">Nintendo</RouterLink>
-    <RouterLink to="/products/PC">PC</RouterLink>
-  </div>
 </template>
 
 <style lang="scss" scoped>
