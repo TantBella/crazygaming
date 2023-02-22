@@ -17,30 +17,18 @@
   <div id="menuBox" class="collapse" :class="{ show: showMenu }">
     <h2>Categories</h2>
     <h3>
-      <RouterLink class="links" to="/products/Xbox" @click.native="toggleMenu"
-        >Xbox</RouterLink
-      >
+      <RouterLink class="links" to="/products/Xbox">Xbox</RouterLink>
     </h3>
     <h3>
-      <RouterLink
-        class="links"
-        to="/products/Playstation"
-        @click.native="toggleMenu"
+      <RouterLink class="links" to="/products/Playstation"
         >Playstation</RouterLink
       >
     </h3>
     <h3>
-      <RouterLink
-        class="links"
-        to="/products/Nintendo"
-        @click.native="toggleMenu"
-        >Nintendo</RouterLink
-      >
+      <RouterLink class="links" to="/products/Nintendo">Nintendo</RouterLink>
     </h3>
     <h3>
-      <RouterLink class="links" to="/products/PC" @click.native="toggleMenu"
-        >PC</RouterLink
-      >
+      <RouterLink class="links" to="/products/PC">PC</RouterLink>
     </h3>
   </div>
   <nav>
