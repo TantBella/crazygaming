@@ -13,10 +13,11 @@
     <img src="/assets/Logo.png" alt="Crazy Gaming logo." />
   </div>
   <Search />
-  <!-- <RouterLink to=""> -->
-  <main>
-    <RouterView />
-  </main>
+  <RouterLink to="">
+    <main>
+      <RouterView />
+    </main>
+  </RouterLink>
 </template>
 
 <style lang="scss">
