@@ -2,11 +2,13 @@
   import Headern from './components/HeaderComp.vue'
   import Navbar from './components/NavBar.vue'
   import Footern from './components/FooterComp.vue'
+  import NewsCarousel from './components/NewsCarousel.vue'
 
   export default {
     components: {
       Headern,
       Navbar,
+      NewsCarousel,
       Footern
     }
   }
@@ -18,6 +20,7 @@
       <Headern />
       <Navbar />
     </div>
+    <NewsCarousel />
     <main>
       <RouterView />
     </main>
