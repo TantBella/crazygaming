@@ -43,6 +43,7 @@
     margin-bottom: 25px;
     margin: 0 auto 10px auto;
     width: 70vw;
+    height: 30px;
   }
 
   img {
@@ -77,5 +78,10 @@
     justify-content: center;
     align-items: center;
     margin: 0;
+  }
+  @media (min-width: 600px) {
+    #search {
+      width: 30vw;
+    }
   }
 </style>
