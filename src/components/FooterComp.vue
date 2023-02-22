@@ -1,13 +1,25 @@
-<script></script>
-
 <template>
   <div class="foot">
     <div class="mail">
       <h2>Subscribe To Our Newsletter</h2>
-      <input class="email" placeholder="example@mail.com" />
-      <button type="submit">
-        <img src="assets/email-icon.png" alt="buttonpng" border="0" />
-      </button>
+      <form class="mailinputbtn">
+        <input
+          @keyup.enter="submitMail()"
+          type="email"
+          class="email"
+          v-model="inputMail"
+          placeholder="example@mail.com"
+          name="email"
+          required
+        />
+        <button
+          @click="($event) => submitMail()"
+          type="submit"
+          :disabled="!inputMail"
+        >
+          <img src="assets/email-icon.png" alt="buttonpng" border="0" />
+        </button>
+      </form>
       <p>Subscribe to our newsletter to get exclusive offers!</p>
     </div>
     <div class="footcontainer">
@@ -19,14 +31,6 @@
             <RouterLink to="/"> Track Your Order </RouterLink>
           </li>
           <li><RouterLink to="/"> Feedback </RouterLink></li>
-        </ul>
-      </div>
-      <div class="profile">
-        <h3>My profile</h3>
-        <ul>
-          <li><RouterLink to="/user"> My Account </RouterLink></li>
-          <li><RouterLink to="/">My Wishlist </RouterLink></li>
-          <li><RouterLink to="/"> Purchases </RouterLink></li>
         </ul>
       </div>
       <div class="crazy">
@@ -42,9 +46,17 @@
           <li><RouterLink to="/">Terms & Conditions</RouterLink></li>
         </ul>
       </div>
+      <div class="profile">
+        <h3>My profile</h3>
+        <ul>
+          <li><RouterLink to="/user"> My Account </RouterLink></li>
+          <li><RouterLink to="/">My Wishlist </RouterLink></li>
+          <li><RouterLink to="/"> Purchases </RouterLink></li>
+        </ul>
+      </div>
     </div>
     <div class="disclaimer">
-      <h5>Disclaimer:</h5>
+      <h4>Disclaimer:</h4>
       <p>
         Pictures are taken from Webhallen.com (This site is a school project
         only)
@@ -53,30 +65,35 @@
   </div>
 </template>
 
-<!--
-      v-model="form.email" @input="$v.form.email.$touch"
-      :state="$v.form.email.$dirty ? !$v.form.email.$error : null" -->
-
 <script>
-  // import { required, email } from 'vuelidate/lib/validators'
-
-  // export default {
-  //   data() {
-  //     return {
-  //       form: {
-  //         email: null
-  //       }
-  //     }
-  //   },
-  //   validations: {
-  //     form: {
-  //       email: {
-  //         required,
-  //         email
-  //       }
-  //     }
-  //   }
-  // }
+  export default {
+    methods: {
+      submitMail() {
+        alert("Thanks for Joining! You're in good company.")
+      }
+    },
+    data() {
+      return {
+        inputMail: null
+      }
+    },
+    // form: {
+    //   email: null
+    // }
+    // validations: {
+    //   form: {
+    //     email: {
+    //       required,
+    //       email
+    //     }
+    //   }
+    // }
+    watch: {
+      inputMail(t) {
+        console.log(`Användaren har angett denna mail: ${t}, för nyhetsbrev.`)
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -89,6 +106,12 @@
   .mail {
     padding: 20px;
     margin: 20px auto;
+    text-align: center;
+  }
+
+  .mailinputbtn {
+    display: flex;
+    flex-direction: row;
   }
 
   .email {
@@ -100,9 +123,11 @@
     background-size: 15px 15px;
     display: block;
     font-size: 16px;
-    padding: 10px 45px;
+    padding: 10px 35px;
     width: 70vw;
+    margin: 10px;
   }
+
   button {
     border: none;
     cursor: pointer;
@@ -116,8 +141,8 @@
   }
 
   img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
   }
 
   .footcontainer {
@@ -125,32 +150,39 @@
     flex-direction: row;
     align-items: baseline;
     justify-content: space-around;
-    text-align: left;
+    padding: 5px;
   }
 
+  .profile {
+    margin-right: 5px;
+    padding-right: 3px;
+  }
   p {
     font-size: smaller;
     padding: 10px 10px 3px 10px;
   }
 
   h2 {
-    font-size: small;
+    font-size: medium;
   }
 
   h3 {
-    padding: 10px 10px 3px 10px;
+    padding-left: 33px;
+    // padding: 10px 10px 3px 10px;
     text-decoration: underline;
     font-size: small;
   }
-  h5 {
+  h4 {
     padding: 10px 10px 3px 10px;
     font-size: smaller;
     margin-bottom: 1px;
   }
+
   li {
     list-style: none;
   }
   a {
+    text-align: left;
     text-decoration: none;
     font-size: small;
   }
