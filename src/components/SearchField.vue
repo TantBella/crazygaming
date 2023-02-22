@@ -4,8 +4,8 @@
   <div id="container">
     <input
       id="search"
-      type="text"
       v-model="input"
+      type="text"
       placeholder="Sök efter de bästa spelen..."
     />
     <button type="submit">
@@ -43,18 +43,6 @@
     margin-bottom: 25px;
     margin: 0 auto 10px auto;
     width: 70vw;
-  }
-
-  button {
-    border: none;
-    cursor: pointer;
-    appearance: none;
-    background-color: inherit;
-    transition: transform 0.7s ease-in-out;
-  }
-
-  button:hover {
-    transform: rotate(360deg);
   }
 
   img {

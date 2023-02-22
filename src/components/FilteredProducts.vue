@@ -31,7 +31,7 @@
       v-for="game in filteredProducts"
       :key="game.id"
       :src="game.image"
-      alt="alt text"
+      :alt="game.name"
     />
   </div>
 </template>
