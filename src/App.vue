@@ -18,9 +18,9 @@
   <div id="wrapper">
     <div class="first">
       <Headern />
+      <NewsCarousel />
       <Navbar />
     </div>
-    <NewsCarousel />
     <main>
       <RouterView />
     </main>

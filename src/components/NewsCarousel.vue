@@ -1,29 +1,26 @@
 <template>
-  <div>
+  <div class="carousel">
     <b-carousel
-      id="carousel-1"
+      id="carousel"
       v-model="slide"
       :interval="4000"
       controls
       indicators
-      background="#ababab"
       img-width="1024"
       img-height="480"
-      style="text-shadow: 1px 1px 2px #333"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
-      <b-carousel-slide img-src="/assets/hogwarts.webp" />
-
-      <b-carousel-slide img-src="/assets/gow.webp" />
-
-      <b-carousel-slide img-src="/assets/cod.jpg" />
+      <b-carousel-slide class="desktopImage" img-src="/assets/hogwarts.avif" />
+      <b-carousel-slide class="desktopImage" img-src="/assets/gow.webp" />
+      <b-carousel-slide class="desktopImage" img-src="/assets/cod.jpg" />
+      <b-carousel-slide
+        class="mobileImage"
+        img-src="/assets/hogwartsmobile.jpg"
+      />
+      <b-carousel-slide class="mobileImage" img-src="/assets/gowmobile.jpg" />
+      <b-carousel-slide class="mobileImage" img-src="/assets/codmobile.jpg" />
     </b-carousel>
-
-    <p class="mt-4">
-      Slide #: {{ slide }}<br />
-      Sliding: {{ sliding }}
-    </p>
   </div>
 </template>
 
@@ -45,3 +42,16 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  @media (min-width: 400px) and (max-width: 1200px) {
+    .carousel {
+      width: 90vw;
+      height: 480px;
+      margin: 0 auto;
+      margin-top: 1rem;
+    }
+  }
+  @media (max-width: 399px) {
+  }
+</style>
