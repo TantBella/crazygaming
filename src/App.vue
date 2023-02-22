@@ -14,8 +14,10 @@
 
 <template>
   <div id="wrapper">
-    <Headern />
-    <Navbar />
+    <div class="first">
+      <Headern />
+      <Navbar />
+    </div>
     <main>
       <RouterView />
     </main>
