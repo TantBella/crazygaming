@@ -8,6 +8,9 @@
     methods: {
       toggleMenu() {
         this.showMenu = !this.showMenu
+      },
+      hideMenu() {
+        this.showMenu = false
       }
     }
   }
@@ -17,18 +20,24 @@
   <div id="menuBox" class="collapse" :class="{ show: showMenu }">
     <h2>Categories</h2>
     <h3>
-      <RouterLink class="links" to="/products/Xbox">Xbox</RouterLink>
+      <RouterLink class="links" to="/products/Xbox" @click="hideMenu"
+        >Xbox</RouterLink
+      >
     </h3>
     <h3>
-      <RouterLink class="links" to="/products/Playstation"
+      <RouterLink class="links" to="/products/Playstation" @click="hideMenu"
         >Playstation</RouterLink
       >
     </h3>
     <h3>
-      <RouterLink class="links" to="/products/Nintendo">Nintendo</RouterLink>
+      <RouterLink class="links" to="/products/Nintendo" @click="hideMenu"
+        >Nintendo</RouterLink
+      >
     </h3>
     <h3>
-      <RouterLink class="links" to="/products/PC">PC</RouterLink>
+      <RouterLink class="links" to="/products/PC" @click="hideMenu"
+        >PC</RouterLink
+      >
     </h3>
   </div>
   <nav>
@@ -111,9 +120,11 @@
   .links {
     color: #fff;
     text-decoration: none;
+    padding: 0 10%;
   }
   .links:hover {
-    color: #aaa;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
   }
   h2 {
     font-size: 35px;
@@ -133,7 +144,6 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    visibility: vis;
   }
   ul {
     display: flex;
