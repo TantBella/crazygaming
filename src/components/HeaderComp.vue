@@ -33,11 +33,6 @@
     <img src="/assets/Logo.png" alt="Crazy Gaming logo." />
   </div>
   <Search />
-  <RouterLink to="">
-    <main>
-      <RouterView />
-    </main>
-  </RouterLink>
   <div id="category">
     <RouterLink to="/products/Xbox">Xbox</RouterLink>
     <RouterLink to="/products/Playstation">Playstation</RouterLink>
