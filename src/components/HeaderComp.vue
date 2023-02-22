@@ -59,6 +59,7 @@
   }
   @media (min-width: 600px) {
     header {
+      margin-bottom: 0.5em;
       border-bottom: solid 2px rgba(255, 255, 255, 0.5);
     }
     #logo {
