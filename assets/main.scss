@@ -1,4 +1,4 @@
-$body-bg: #111;
+$body-bg: #11111103;
 
 $body-color: rgba(255, 255, 255, 0.9);
 
@@ -11,11 +11,12 @@ $theme-colors: (
   'primary': #9857C2,
   'secondary': #3A0CA3,
   'success': #4361EE,
-  'info': #4CC9F0,
+  'info': #630e856b,
   'warning': #ac5b2c,
   'danger': #88193a,
   'light': #c8c8c8,
-  'dark': #2f2f2f
+  'dark': #2f2f2f,
+  'other': #4CC9F0
 );
 
 @import 'bootstrap/scss/bootstrap';
