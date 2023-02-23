@@ -17,44 +17,57 @@
           type="submit"
           :disabled="!inputMail"
         >
-          <img src="assets/email-icon.png" alt="buttonpng" border="0" />
+          <img src="/assets/email-icon.png" alt="buttonpng" border="0" />
         </button>
       </form>
       <p>Subscribe to our newsletter to get exclusive offers!</p>
     </div>
+
     <div class="footcontainer">
-      <div class="needhelp">
-        <h3>Need help?</h3>
-        <ul>
-          <li><RouterLink to="/contact"> Contact </RouterLink></li>
-          <li>
-            <RouterLink to="/"> Track Your Order </RouterLink>
-          </li>
-          <li><RouterLink to="/"> Feedback </RouterLink></li>
-        </ul>
-      </div>
-      <div class="crazy">
-        <h3>Crazy Gaming</h3>
-        <ul>
-          <li>
-            <RouterLink to="/about">About Us </RouterLink>
-          </li>
-          <li>
-            <RouterLink to="/">Careers</RouterLink>
-          </li>
-          <li><RouterLink to="/cookies">Privacy & Cookies</RouterLink></li>
-          <li><RouterLink to="/">Terms & Conditions</RouterLink></li>
-        </ul>
-      </div>
-      <div class="profile">
-        <h3>My profile</h3>
-        <ul>
-          <li><RouterLink to="/user"> My Account </RouterLink></li>
-          <li><RouterLink to="/">My Wishlist </RouterLink></li>
-          <li><RouterLink to="/"> Purchases </RouterLink></li>
-        </ul>
+      <!-- Kodref: https://bootstrap-vue.github.io/bootstrap-vue-next/components/Collapse.html#hiding-and-showing-content-in-the-toggle-button-based-on-collapse-state -->
+      <div class="tabMenu">
+        <b-button v-b-toggle.collapse-1>Need help?</b-button>
+        <b-collapse id="collapse-1" class="mt-2">
+          <b-card>
+            <ul class="card-text">
+              <li><RouterLink to="/contact"> Contact </RouterLink></li>
+              <li>
+                <RouterLink to="/"> Track Your Order </RouterLink>
+              </li>
+              <li><RouterLink to="/"> Feedback </RouterLink></li>
+            </ul>
+          </b-card>
+        </b-collapse>
+        <b-button v-b-toggle.collapse-1>Crazy Gaming</b-button>
+        <b-collapse id="collapse-2" class="mt-2">
+          <b-card>
+            <ul class="card-text">
+              <li>
+                <RouterLink to="/about">About Us </RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/">Careers</RouterLink>
+              </li>
+              <li>
+                <RouterLink to="/cookies">Privacy & Cookies</RouterLink>
+              </li>
+              <li><RouterLink to="/">Terms & Conditions</RouterLink></li>
+            </ul>
+          </b-card>
+        </b-collapse>
+        <b-button v-b-toggle.collapse-1>My Profile</b-button>
+        <b-collapse id="collapse-3" class="mt-2">
+          <b-card>
+            <ul class="card-text">
+              <li><RouterLink to="/user"> My Account </RouterLink></li>
+              <li><RouterLink to="/">My Wishlist </RouterLink></li>
+              <li><RouterLink to="/"> Purchases </RouterLink></li>
+            </ul>
+          </b-card>
+        </b-collapse>
       </div>
     </div>
+
     <div class="disclaimer">
       <h4>Disclaimer:</h4>
       <p>
@@ -70,24 +83,22 @@
     methods: {
       submitMail() {
         alert("Thanks for Joining! You're in good company.")
+      },
+      linkClass(idx) {
+        if (this.tabIndex === idx) {
+          return ['bg-primary', 'text-light']
+        } else {
+          return ['bg-light', 'text-info']
+        }
       }
     },
     data() {
       return {
-        inputMail: null
+        inputMail: null,
+        tabIndex: 0
       }
     },
-    // form: {
-    //   email: null
-    // }
-    // validations: {
-    //   form: {
-    //     email: {
-    //       required,
-    //       email
-    //     }
-    //   }
-    // }
+
     watch: {
       inputMail(t) {
         console.log(`Användaren har angett denna mail: ${t}, för nyhetsbrev.`)
@@ -97,6 +108,27 @@
 </script>
 
 <style lang="scss" scoped>
+  .footcontainer {
+    width: 100%;
+    background-color: #d9d9d93b;
+    padding: 5px;
+  }
+  // Nedan gör så tabmeny-alternativen hamnar ovanför varandra
+  .tabMenu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tabMenu button {
+    text-decoration: underline;
+    background-color: #9757c254;
+    text-align: left;
+  }
+
+  .tabMenu button:hover {
+    font-weight: bold;
+  }
+
   .foot {
     border-top: solid 2px white;
     color: white;
@@ -128,7 +160,7 @@
     margin: 10px;
   }
 
-  button {
+  .mail button {
     border: none;
     cursor: pointer;
     appearance: none;
@@ -136,7 +168,7 @@
     transition: transform 0.7s ease-in-out;
   }
 
-  button:hover {
+  .mail button:hover {
     transform: rotate(360deg);
   }
 
@@ -145,18 +177,6 @@
     height: 20px;
   }
 
-  .footcontainer {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-around;
-    padding: 5px;
-  }
-
-  .profile {
-    margin-right: 5px;
-    padding-right: 3px;
-  }
   p {
     font-size: smaller;
     padding: 10px 10px 3px 10px;
@@ -166,12 +186,6 @@
     font-size: medium;
   }
 
-  h3 {
-    padding-left: 33px;
-    // padding: 10px 10px 3px 10px;
-    text-decoration: underline;
-    font-size: small;
-  }
   h4 {
     padding: 10px 10px 3px 10px;
     font-size: smaller;
@@ -195,5 +209,12 @@
     padding: 10px 10px 3px 10px;
     font-size: x-small;
     margin-bottom: 30px;
+
+    @media (min-width: 600px) {
+      .tabMenu {
+        display: flex;
+        flex-direction: row;
+      }
+    }
   }
 </style>

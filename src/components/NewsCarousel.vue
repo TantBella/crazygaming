@@ -1,19 +1,33 @@
 <template>
-  <div class="carousel">
+  <div class="carousel1">
     <b-carousel
-      id="carousel"
+      id="carousel1"
       v-model="slide"
       :interval="4000"
       controls
       indicators
-      img-width="1024"
-      img-height="480"
+      img-width="1600"
+      img-height="650"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
       <b-carousel-slide class="desktopImage" img-src="/assets/hogwarts.avif" />
       <b-carousel-slide class="desktopImage" img-src="/assets/gow.webp" />
       <b-carousel-slide class="desktopImage" img-src="/assets/cod.jpg" />
+    </b-carousel>
+  </div>
+  <div class="carousel2">
+    <b-carousel
+      id="carousel2"
+      v-model="slide"
+      :interval="4000"
+      controls
+      indicators
+      img-width="400"
+      img-height="500"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"
+    >
       <b-carousel-slide
         class="mobileImage"
         img-src="/assets/hogwartsmobile.jpg"
@@ -44,14 +58,33 @@
 </script>
 
 <style lang="scss" scoped>
-  @media (min-width: 400px) and (max-width: 1200px) {
-    .carousel {
-      width: 90vw;
-      height: 480px;
-      margin: 0 auto;
-      margin-top: 1rem;
+  .carousel1 {
+    width: 90vw;
+    max-width: 1600px;
+    height: 650px;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+  .carousel2 {
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 0;
+  }
+
+  @media (min-width: 600px) and (max-width: 2500px) {
+    .carousel1 {
+      display: block;
+    }
+    .carousel2 {
+      display: none;
     }
   }
-  @media (max-width: 399px) {
+  @media (max-width: 599px) {
+    .carousel1 {
+      display: none;
+    }
+    .carousel2 {
+      display: block;
+    }
   }
 </style>

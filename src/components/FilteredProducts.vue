@@ -27,12 +27,13 @@
 <template>
   <h1>{{ $route.params.brand }}</h1>
   <div>
-    <img
+    <router-link
       v-for="game in filteredProducts"
       :key="game.id"
-      :src="game.image"
-      :alt="game.name"
-    />
+      :to="`/product/${game.id}`"
+    >
+      <img :src="game.image" :alt="game.name" />
+    </router-link>
   </div>
 </template>
 
