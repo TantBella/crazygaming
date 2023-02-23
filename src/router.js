@@ -9,6 +9,7 @@ import UserProfile from './views/UserProfile.vue'
 import Categories from './views/CategoryView.vue'
 import PrivCook from './views/PrivCook.vue'
 import Products from './components/FilteredProducts.vue'
+import Confirmation from './views/ConfirmationView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -48,6 +49,10 @@ export default createRouter({
     {
       component: Products,
       path: '/products/:brand'
+    },
+    {
+      component: Confirmation,
+      path: '/confirmation'
     }
   ]
 })

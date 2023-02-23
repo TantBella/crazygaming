@@ -1,8 +1,12 @@
 <script>
   import useVuelidate from '@vuelidate/core'
   import { required, email } from '@vuelidate/validators'
+  import Confirmation from '../views/ConfirmationView.vue'
 
   export default {
+    components() {
+      Confirmation
+    },
     setup() {
       return { v$: useVuelidate() }
     },
@@ -12,13 +16,13 @@
         lastname: '',
         email: '',
         message: '',
-        check: true,
-        error: ''
+        check: true
       }
     },
     methods: {
       formcheck() {
         console.log(this.firstname)
+        alert('du lyckades')
       }
     },
     validations() {
@@ -34,11 +38,14 @@
 </script>
 
 <template>
-  <p class="question">
-    Do you have any questions? Don't hesitate to call us, or send us a email
-    down below!
-  </p>
-  <form @submit="validations">
+  <div>
+    <p class="question">
+      Do you have any questions? Don't hesitate to call us, or send us a email
+      down below!
+    </p>
+  </div>
+
+  <form>
     <p>
       <label for="first-name"> Your firstname:</label>
       <input v-model="firstname" name="first-name" />
@@ -69,7 +76,7 @@
       >
       <input v-model="check" name="check" type="checkbox" />
     </p>
-    <button type="submit">Send</button>
+    <button><RouterLink to="/confirmation">Send</RouterLink></button>
   </form>
   <div>
     <h2>Call us!</h2>
@@ -124,6 +131,10 @@
   }
   button:hover {
     background-color: rgb(102, 102, 153);
+  }
+  a {
+    text-decoration: none;
+    color: white;
   }
 
   @media (min-width: 400px) {
