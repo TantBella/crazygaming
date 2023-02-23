@@ -76,7 +76,7 @@
           </button>
         </li>
         <li>
-          <RouterLink to="/shoppingcart"
+          <RouterLink to="/checkout"
             ><svg
               width="45"
               height="37"
