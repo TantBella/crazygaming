@@ -1,16 +1,51 @@
-<script></script>
+<!-- inspo: https://blog.logrocket.com/create-search-bar-vue/ -->
+<script>
+  export default {
+    data() {
+      return {
+        products: [],
+        search: ''
+      }
+    },
+    created() {
+      fetch('/products.json')
+        .then((response) => response.json())
+        .then((result) => {
+          this.products = result.products
+          console.log('hej2' + this.products + this.products[0].name)
+        })
+    },
+    methods: {
+      filtered() {
+        if (this.search !== '') {
+          return this.products.filter((product) => {
+            return product.name
+              .toLowerCase()
+              .includes(this.search.toLowerCase())
+          })
+        }
+      }
+    }
+  }
+</script>
 
 <template>
   <div id="container">
     <input
       id="search"
-      v-model="input"
+      v-model="search"
       type="text"
       placeholder="Sök efter de bästa spelen..."
     />
     <button type="submit">
-      <img src="assets/search-icon.png" alt="Search icon" />
+      <img src="/assets/search-icon.png" alt="Search icon" />
     </button>
+  </div>
+  <div :key="product" v-for="product in filtered()">
+    <p>{{ product.name }}</p>
+  </div>
+  <div class="search error" v-if="search && !filtered().length">
+    <p>No results found!</p>
   </div>
   <!-- Nedan behövs först skapas en funktion som heter searchlist -->
   <!-- <div class="searchitem" v-for="game in searchList()" :key="game">
@@ -78,6 +113,10 @@
     justify-content: center;
     align-items: center;
     margin: 0;
+  }
+  .search {
+    background-color: rgba(255, 255, 255, 0.172);
+    color: red;
   }
   @media (min-width: 600px) {
     #search {
