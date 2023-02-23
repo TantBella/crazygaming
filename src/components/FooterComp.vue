@@ -17,7 +17,7 @@
           type="submit"
           :disabled="!inputMail"
         >
-          <img src="assets/email-icon.png" alt="buttonpng" border="0" />
+          <img src="/assets/email-icon.png" alt="buttonpng" border="0" />
         </button>
       </form>
       <p>Subscribe to our newsletter to get exclusive offers!</p>

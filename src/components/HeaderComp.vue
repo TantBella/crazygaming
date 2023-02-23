@@ -15,7 +15,7 @@
         <RouterLink to="/">
           <img
             src="/assets/Logo.png"
-            srcset="assets/Logo.png 200w, assets/Logo.png 100w"
+            srcset="/assets/Logo.png 200w, /assets/Logo.png 100w"
             sizes="(max-width: 600px) 200px, 150px"
             alt="Crazy Gaming logo."
         /></RouterLink>
@@ -27,12 +27,12 @@
         <RouterLink to="/shoppingcart">
           <img
             id="basket"
-            src="assets/basket-icon-white.png"
+            src="/assets/basket-icon-white.png"
             alt="basket icon"
           />
         </RouterLink>
         <RouterLink to="/user">
-          <img id="user" src="assets/user-icon-white.png" alt="User icon" />
+          <img id="user" src="/assets/user-icon-white.png" alt="User icon" />
         </RouterLink>
       </div>
     </div>
