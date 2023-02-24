@@ -2,12 +2,14 @@
   import Headern from './components/HeaderComp.vue'
   import Navbar from './components/NavBar.vue'
   import Footern from './components/FooterComp.vue'
+  import Shipping from './components/FreeShipping.vue'
 
   export default {
     components: {
       Headern,
       Navbar,
-      Footern
+      Footern,
+      Shipping
     }
   }
 </script>
@@ -16,6 +18,7 @@
   <div id="wrapper">
     <div class="first">
       <Headern />
+      <Shipping />
     </div>
     <Navbar />
     <main>
@@ -29,7 +32,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
   #wrapper {
-    background-image: linear-gradient(#9857c2, #4361ee, #9857c2);
+    background-image: linear-gradient(#9857c2, #4361ee 10%, #9857c2);
     overflow-x: hidden;
     // max-width: 980px;
   }

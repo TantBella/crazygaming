@@ -10,7 +10,7 @@
 
 <template>
   <header>
-    <div id="desktop">
+    <div id="container">
       <div id="logo">
         <RouterLink to="/">
           <img
@@ -24,7 +24,7 @@
         <Search />
       </div>
       <div id="icons">
-        <RouterLink to="/shoppingcart">
+        <RouterLink to="/checkout">
           <img
             id="basket"
             src="/assets/basket-icon-white.png"
@@ -46,6 +46,9 @@
 </template>
 
 <style lang="scss" scoped>
+  #container {
+    height: 150px;
+  }
   #logo {
     display: flex;
     justify-content: center;
@@ -64,22 +67,28 @@
     }
     #logo {
       float: left;
-      width: 15%;
+      width: 200px;
+      height: 80px;
       margin-left: 1em;
-      margin-right: 20vw;
+      // margin-right: 10vw;
     }
-    #desktop {
+    #container {
       display: flex;
       justify-content: left;
     }
     #search {
       width: 100%;
+      height: 40px;
       display: flex;
+      justify-content: center;
+      align-self: flex-start;
+      margin-top: 30px;
     }
     #icons {
+      width: 140px;
       display: flex;
       justify-items: right;
-
+      align-items: flex-start;
       visibility: visible;
       margin-top: 35px;
     }

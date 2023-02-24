@@ -12,7 +12,6 @@
         .then((response) => response.json())
         .then((result) => {
           this.products = result.products
-          console.log('hej2' + this.products + this.products[0].name)
         })
     },
     methods: {
@@ -47,13 +46,6 @@
   <div class="search error" v-if="search && !filtered().length">
     <p>No results found!</p>
   </div>
-  <!-- Nedan behövs först skapas en funktion som heter searchlist -->
-  <!-- <div class="searchitem" v-for="game in searchList()" :key="game">
-    <p>{{ game.name }}</p>
-  </div>
-  <div class="searchitem error" v-if="input && !searchList().length">
-    <p>No results found!</p>
-  </div> -->
 </template>
 
 <style lang="scss" scoped>
