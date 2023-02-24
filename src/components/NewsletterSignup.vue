@@ -52,7 +52,7 @@
   }
 </script>
 
-<style>
+<style lang="scss" scoped>
   .mail {
     padding: 20px;
     margin: 20px auto;

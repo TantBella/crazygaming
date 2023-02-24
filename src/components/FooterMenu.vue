@@ -45,7 +45,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
   .footcontainer {
     width: 100%;
     background-color: #d9d9d93b;
@@ -65,12 +65,6 @@
 
   .tabMenu button:hover {
     font-weight: bold;
-  }
-
-  .foot {
-    border-top: solid 2px white;
-    color: white;
-    margin-top: 20px;
   }
 
   li {

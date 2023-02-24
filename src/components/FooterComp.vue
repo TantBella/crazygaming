@@ -29,6 +29,12 @@
     font-size: smaller;
     margin-bottom: 1px;
   }
+
+  .foot {
+    border-top: solid 2px white;
+    color: white;
+    margin-top: 20px;
+  }
   .disclaimer p {
     padding: 2px 10px 3px 10px;
     font-size: x-small;
