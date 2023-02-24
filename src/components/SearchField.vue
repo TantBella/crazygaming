@@ -34,17 +34,23 @@
       id="search"
       v-model="search"
       type="text"
-      placeholder="Sök efter de bästa spelen..."
+      placeholder="Search for a game..."
     />
     <button type="submit">
       <img src="/assets/search-icon.png" alt="Search icon" />
     </button>
   </div>
-  <div :key="product" v-for="product in filtered()">
-    <p>{{ product.name }}</p>
-  </div>
-  <div class="search error" v-if="search && !filtered().length">
-    <p>No results found!</p>
+  <div class="searchResult">
+    <ul class="searchedGame" :key="product" v-for="product in filtered()">
+      <li>
+        <RouterLink :to="`/product/${product.id}`">{{
+          product.name
+        }}</RouterLink>
+      </li>
+    </ul>
+    <div class="search error" v-if="search && !filtered().length">
+      <p>No results found!</p>
+    </div>
   </div>
 </template>
 
@@ -104,15 +110,54 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
   }
   .search {
-    background-color: rgba(255, 255, 255, 0.172);
     color: red;
   }
+
+  .searchResult {
+    border-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: static;
+    position: absolute;
+    left: 14%;
+    top: 22%;
+    overflow: hidden;
+    max-height: 100px;
+    width: 65%;
+    padding-left: 0.5em;
+  }
+  // ^inspo: https://stackoverflow.com/questions/65252244/aligning-search-results-under-search-bar
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+  .searchedGame {
+    padding-top: 0.7px;
+    padding-bottom: 0.4px;
+  }
+
   @media (min-width: 600px) {
     #search {
       width: 30vw;
+    }
+    .searchResult {
+      background-color: rgba(255, 255, 255, 0.4);
+      display: static;
+      position: absolute;
+      left: 37%;
+      top: 13%;
+      overflow: hidden;
+      max-height: 73px;
+      width: 29%;
+      padding-left: 1em;
+    }
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    a:hover {
+      color: rgb(72, 70, 70);
     }
   }
 </style>
