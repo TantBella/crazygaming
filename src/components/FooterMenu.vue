@@ -2,9 +2,41 @@
   <div class="footcontainer">
     <!-- Kodref: https://bootstrap-vue.github.io/bootstrap-vue-next/components/Collapse.html#hiding-and-showing-content-in-the-toggle-button-based-on-collapse-state -->
     <div class="tabMenu">
-      <b-button v-b-toggle.collapse-1>Need help?</b-button>
+      <b-button v-b-toggle.collapse-3
+        >My Profile
+        <img
+          src="/assets/down_arrow.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowdown"
+      /></b-button>
+      <b-collapse id="collapse-3" class="mt-2">
+        <b-card
+          no-body
+          class="overflow-hidden"
+          style="background-color: #9757c215"
+        >
+          <ul class="card-text">
+            <li><RouterLink to="/user"> My Account </RouterLink></li>
+            <li><RouterLink to="/">My Wishlist </RouterLink></li>
+            <li><RouterLink to="/"> Purchases </RouterLink></li>
+          </ul>
+        </b-card>
+      </b-collapse>
+      <b-button v-b-toggle.collapse-1
+        >Need help?
+        <img
+          src="/assets/down_arrow.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowdown"
+      /></b-button>
       <b-collapse id="collapse-1" class="mt-2">
-        <b-card>
+        <b-card
+          no-body
+          class="overflow-hidden"
+          style="background-color: #9757c215"
+        >
           <ul class="card-text">
             <li><RouterLink to="/contact"> Contact </RouterLink></li>
             <li>
@@ -14,9 +46,20 @@
           </ul>
         </b-card>
       </b-collapse>
-      <b-button v-b-toggle.collapse-2>Crazy Gaming</b-button>
+      <b-button v-b-toggle.collapse-2
+        >Crazy Gaming
+        <img
+          src="/assets/down_arrow.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowdown"
+      /></b-button>
       <b-collapse id="collapse-2" class="mt-2">
-        <b-card>
+        <b-card
+          no-body
+          class="overflow-hidden"
+          style="background-color: #9757c215"
+        >
           <ul class="card-text">
             <li>
               <RouterLink to="/about">About Us </RouterLink>
@@ -28,16 +71,6 @@
               <RouterLink to="/cookies">Privacy & Cookies</RouterLink>
             </li>
             <li><RouterLink to="/">Terms & Conditions</RouterLink></li>
-          </ul>
-        </b-card>
-      </b-collapse>
-      <b-button v-b-toggle.collapse-3>My Profile</b-button>
-      <b-collapse id="collapse-3" class="mt-2">
-        <b-card>
-          <ul class="card-text">
-            <li><RouterLink to="/user"> My Account </RouterLink></li>
-            <li><RouterLink to="/">My Wishlist </RouterLink></li>
-            <li><RouterLink to="/"> Purchases </RouterLink></li>
           </ul>
         </b-card>
       </b-collapse>
@@ -57,10 +90,17 @@
     flex-direction: column;
   }
 
+  .arrowdown {
+    width: 19px;
+    padding-left: 10px;
+  }
+
   .tabMenu button {
     text-decoration: underline;
     background-color: #9757c215;
     text-align: left;
+    margin: 0;
+    border: 0;
   }
 
   .tabMenu button:hover {

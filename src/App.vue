@@ -3,13 +3,15 @@
   import Navbar from './components/NavBar.vue'
   import Footern from './components/FooterComp.vue'
   import Shipping from './components/FreeShipping.vue'
+  import ArrowUp from './components/ArrowUp.vue'
 
   export default {
     components: {
       Headern,
       Navbar,
       Footern,
-      Shipping
+      Shipping,
+      ArrowUp
     }
   }
 </script>
@@ -24,6 +26,7 @@
     <main>
       <RouterView />
     </main>
+    <ArrowUp />
     <Footern />
   </div>
 </template>
@@ -34,9 +37,6 @@
   #wrapper {
     background-image: linear-gradient(#9857c2, #4361ee 10%, #9857c2);
     overflow-x: hidden;
-    // max-width: 980px;
-  }
-  #wrapper {
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
   }
