@@ -16,8 +16,8 @@
   <div id="wrapper">
     <div class="first">
       <Headern />
-      <Navbar />
     </div>
+    <Navbar />
     <main>
       <RouterView />
     </main>
@@ -28,9 +28,10 @@
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-  body {
+  #wrapper {
     background-image: linear-gradient(#9857c2, #4361ee, #9857c2);
     overflow-x: hidden;
+    max-width: 980px;
   }
   #wrapper {
     margin: 0 auto;
