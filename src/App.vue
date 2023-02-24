@@ -31,7 +31,7 @@
   #wrapper {
     background-image: linear-gradient(#9857c2, #4361ee, #9857c2);
     overflow-x: hidden;
-    max-width: 980px;
+    // max-width: 980px;
   }
   #wrapper {
     margin: 0 auto;
