@@ -51,8 +51,22 @@
             </b-card-text>
             <b-row style="justify-content: center; align-items: center">
               <b-col md="6">
-                <b-card-text style="line-height: 2.4; text-align: center">
-                  {{ filteredProductByID.price }} €
+                <b-card-text
+                  v-if="filteredProductByID.sale_price"
+                  style="line-height: 2.4; text-align: center"
+                >
+                  <span class="sales"
+                    >{{ filteredProductByID.sale_price }}€</span
+                  >
+                  <span class="line-throw"
+                    >{{ filteredProductByID.price }}€</span
+                  >
+                </b-card-text>
+                <b-card-text
+                  v-else
+                  style="line-height: 2.4; text-align: center"
+                >
+                  {{ filteredProductByID.price }}€
                 </b-card-text>
               </b-col>
               <b-col md="6" style="text-align: center">
@@ -69,5 +83,12 @@
 <style scoped>
   img {
     max-width: 300px;
+  }
+  .sales {
+    color: red;
+    padding-right: 10px;
+  }
+  .line-throw {
+    text-decoration: line-through;
   }
 </style>
