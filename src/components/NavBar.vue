@@ -1,11 +1,19 @@
 <script>
+  import ShoppingCart from './ShoppingCart.vue'
   export default {
+    components: {
+      ShoppingCart
+    },
     data() {
       return {
-        showMenu: false
+        showMenu: false,
+        showCart: false
       }
     },
     methods: {
+      toggleCart() {
+        this.showCart = !this.showCart
+      },
       toggleMenu() {
         this.showMenu = !this.showMenu
       },
@@ -17,6 +25,9 @@
 </script>
 
 <template>
+  <Transition name="slide">
+    <ShoppingCart v-if="showCart" />
+  </Transition>
   <div id="menuBox" class="collapse" :class="{ show: showMenu }">
     <h2>Categories</h2>
     <h3>
@@ -76,8 +87,8 @@
           </button>
         </li>
         <li>
-          <RouterLink to="/checkout"
-            ><svg
+          <button class="navbar-toggler" @click="toggleCart">
+            <svg
               width="45"
               height="37"
               viewBox="0 0 45 37"
@@ -89,7 +100,7 @@
                 fill="black"
               />
             </svg>
-          </RouterLink>
+          </button>
         </li>
         <li>
           <RouterLink to="/user"
@@ -113,6 +124,19 @@
 </template>
 
 <style lang="scss" scoped>
+  .slide-enter-active {
+    transition: all 0.2s ease-out;
+  }
+
+  .slide-leave-active {
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  .slide-enter-from,
+  .slide-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+  }
   #menuBox {
     color: #fff;
     text-align: center;
@@ -153,11 +177,5 @@
   }
   li {
     padding-top: 0.5rem;
-  }
-
-  @media (min-width: 600px) {
-    nav {
-      visibility: hidden;
-    }
   }
 </style>
