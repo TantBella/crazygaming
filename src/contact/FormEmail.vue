@@ -1,7 +1,7 @@
 <script>
   import useVuelidate from '@vuelidate/core'
   import { required, email } from '@vuelidate/validators'
-  import Confirmation from '../views/ConfirmationView.vue'
+  import Confirmation from './ConfirmationView.vue'
 
   export default {
     components() {

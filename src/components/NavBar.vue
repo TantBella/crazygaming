@@ -1,5 +1,5 @@
 <script>
-  import ShoppingCart from './ShoppingCart.vue'
+  import ShoppingCart from '../shopping/ShoppingCart.vue'
   export default {
     components: {
       ShoppingCart
