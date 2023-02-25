@@ -15,6 +15,7 @@
 <script>
   import NewsletterSignup from './NewsletterSignup.vue'
   import FooterMenu from './FooterMenu.vue'
+
   export default {
     components: {
       NewsletterSignup,
