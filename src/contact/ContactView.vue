@@ -1,6 +1,6 @@
 <script>
-  import FormEmail from './FormEmail.vue'
-  import Maps from './GoogleMaps.vue'
+  import FormEmail from '../contact/FormEmail.vue'
+  import Maps from '../contact/GoogleMaps.vue'
 
   export default {
     components: {

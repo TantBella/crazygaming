@@ -1,5 +1,5 @@
 <script>
-  import Maps from '../components/GoogleMaps.vue'
+  import Maps from '../contact/GoogleMaps.vue'
 
   export default {
     components: {
