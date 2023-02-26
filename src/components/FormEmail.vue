@@ -1,28 +1,40 @@
+<!-- referenser/inspiration -->
+<!-- 1.https://vuelidate-next.netlify.app/validators.html#macaddress
+2.https://vuelidate-next.netlify.app/
+3.https://www.youtube.com/watch?v=2BR6Vvjw3wQ&t=15s
+4.https://router.vuejs.org/guide/essentials/navigation.html -->
+
 <script>
   import useVuelidate from '@vuelidate/core'
-  import { required, email } from '@vuelidate/validators'
+  import { required, email, sameAs } from '@vuelidate/validators'
   import Confirmation from '../views/ConfirmationView.vue'
 
   export default {
     components() {
       Confirmation
     },
-    setup() {
-      return { v$: useVuelidate() }
-    },
     data() {
       return {
+        v$: useVuelidate(),
         firstname: '',
         lastname: '',
         email: '',
         message: '',
-        check: true
+        check: false,
+        errors: false
       }
     },
     methods: {
       formcheck() {
+        this.v$.$validate()
+        console.log(this.v$)
         console.log(this.firstname)
-        alert('du lyckades')
+        if (!this.v$.$error) {
+          this.errors = false
+          this.$router.push({ path: '/confirmation' })
+        } else {
+          this.errors = true
+        }
       }
     },
     validations() {
@@ -31,7 +43,7 @@
         lastname: { required },
         email: { required, email },
         message: { required },
-        check: true
+        check: { required, sameAS: sameAs(true) }
       }
     }
   }
@@ -46,17 +58,25 @@
   </div>
 
   <form>
+    <h2>Send us a email!</h2>
     <p>
       <label for="first-name"> Your firstname:</label>
       <input v-model="firstname" name="first-name" />
+      <span id="inline-errors" v-if="v$.firstname.$error"
+        >Firstname required.</span
+      >
     </p>
     <p>
       <label for="last-name"> Your lastname:</label>
       <input v-model="lastname" name="last-name" />
+      <span id="inline-errors" v-if="v$.lastname.$error"
+        >Lastname required.</span
+      >
     </p>
     <p>
       <label for="email"> Your emailadress:</label>
       <input v-model="email" name="email" />
+      <span id="inline-errors" v-if="v$.email.$error">Email required.</span>
     </p>
     <p>
       <label for="message"> Your message:</label>
@@ -69,14 +89,32 @@
         rows="10"
       />
     </p>
+    <span id="inline-errors" v-if="v$.message.$error">Message required</span>
     <p>
       <label for="check">
         I understand that Crazy Gaming only uses my emailadress for contact
         purposes only</label
       >
       <input v-model="check" name="check" type="checkbox" />
+      <span id="inline-errors" v-if="v$.check.$error"
+        >Please check the checkbox</span
+      >
     </p>
-    <button><RouterLink to="/confirmation">Send</RouterLink></button>
+    <button @click.prevent="formcheck">Send</button>
+
+    <div class="errors" v-show="errors">
+      <h3>
+        Oh no! Looks like you missed a few steps in the form, please correct the
+        mistakes.
+      </h3>
+      <ul>
+        <li v-if="v$.firstname.$error">Please fill out your firstname</li>
+        <li v-if="v$.lastname.$error">Please fill out your lastname</li>
+        <li v-if="v$.email.$error">Please fill out your emailadress</li>
+        <li v-if="v$.message.$error">You need to write a message for us!</li>
+        <li v-if="v$.check.$error">Please check the checkbox</li>
+      </ul>
+    </div>
   </form>
   <div>
     <h2>Call us!</h2>
@@ -97,6 +135,29 @@
     margin: 10px;
     color: white;
     box-sizing: border-box;
+  }
+  #inline-errors {
+    text-decoration: underline;
+    color: rgb(112, 13, 13);
+    font-weight: bold;
+  }
+  .errors {
+    display: block;
+    color: rgb(112, 13, 13);
+    background-color: rgb(252, 245, 245);
+    width: 450px;
+    border: 2px solid rgb(112, 13, 13);
+    margin: 10px;
+    padding: 10px;
+  }
+  .errors li {
+    list-style-type: disc;
+    text-decoration: underline;
+    font-weight: bolder;
+  }
+  .errors h3 {
+    text-decoration: none;
+    font-size: 20px;
   }
   .question,
   h1,
