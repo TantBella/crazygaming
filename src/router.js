@@ -1,16 +1,15 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 import AboutView from './views/AboutView.vue'
-import ContactView from './views/ContactView.vue'
+import ContactView from './contact/ContactView.vue'
 import HomeView from './views/HomeView.vue'
-import ProductView from './views/ProductView.vue'
-import CheckOut from './views/CheckOut.vue'
+import CheckOut from './shopping/CheckOut.vue'
 import UserProfile from './views/UserProfile.vue'
-import Categories from './views/CategoryView.vue'
+import Categories from './products/CategoryView.vue'
 import PrivCook from './views/PrivCook.vue'
-import Products from './components/FilteredProducts.vue'
-import Confirmation from './views/ConfirmationView.vue'
-import ProductPage from './components/ProductPage.vue'
+import Products from './products/FilteredProducts.vue'
+import Confirmation from './contact/ConfirmationView.vue'
+import ProductPage from './products/ProductPage.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -42,10 +41,6 @@ export default createRouter({
     {
       component: ContactView,
       path: '/contact'
-    },
-    {
-      component: ProductView,
-      path: '/products'
     },
     {
       component: Products,

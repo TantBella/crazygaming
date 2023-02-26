@@ -1,7 +1,7 @@
 <script>
-  import Headern from './components/HeaderComp.vue'
+  import Headern from './header/HeaderComp.vue'
   import Navbar from './components/NavBar.vue'
-  import Footern from './components/FooterComp.vue'
+  import Footern from './footer/FooterComp.vue'
   import Shipping from './components/FreeShipping.vue'
   import ArrowUp from './components/ArrowUp.vue'
 

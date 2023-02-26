@@ -1,14 +1,16 @@
 <script>
-  import NewsCarousel from '../components/NewsCarousel.vue'
+  import NewsCarousel from '../products/NewsCarousel.vue'
+  import ProductPage from '../products/Productview.vue'
 
   export default {
     components: {
-      NewsCarousel
+      NewsCarousel,
+      ProductPage
     }
   }
 </script>
 
 <template>
   <NewsCarousel />
-  <h1>Hem</h1>
+  <ProductPage />
 </template>

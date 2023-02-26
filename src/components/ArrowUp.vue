@@ -1,11 +1,20 @@
 <template>
-  <button>
-    <img src="/assets/upward_arrow.png" alt="buttonpng" border="0" />
-  </button>
+  <div id="upbtn">
+    <button @click="moveUp">
+      <img src="/assets/upward_arrow.png" alt="buttonpng" border="0" />
+    </button>
+  </div>
 </template>
 
 <script>
   // funktion som skickar en högst upp på sidan?
+  export default {
+    methods: {
+      moveUp() {
+        scrollTo(0, 0)
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -14,10 +23,11 @@
   }
   button {
     background-color: #d9d9d900;
-    border: none;
+    border: solid 1px white;
+    border-radius: 20px;
     bottom: 65px;
-    float: right;
-    padding: 10px;
+    right: 50px;
+    padding: 5px;
     position: fixed;
   }
 </style>
