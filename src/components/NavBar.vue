@@ -168,6 +168,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 101;
   }
   ul {
     display: flex;
