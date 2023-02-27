@@ -40,20 +40,21 @@
 <style scoped>
   div {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
-    margin-left: 20px;
-    margin-right: 20px;
   }
 
   img {
-    max-width: 300px;
-    max-height: 300px;
+    width: 290px;
+    height: 290px;
     margin-bottom: 10px;
+    margin-right: 40px;
+    margin-bottom: 20px;
   }
 
   h1 {
     text-align: center;
     color: #fff;
+    margin-bottom: 10px;
   }
 </style>

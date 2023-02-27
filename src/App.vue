@@ -1,13 +1,22 @@
 <script>
-  import Headern from './components/HeaderComp.vue'
+  import Headern from './header/HeaderComp.vue'
   import Navbar from './components/NavBar.vue'
-  import Footern from './components/FooterComp.vue'
+  import Footern from './footer/FooterComp.vue'
+  import Shipping from './components/FreeShipping.vue'
+  import ArrowUp from './components/ArrowUp.vue'
 
   export default {
     components: {
       Headern,
       Navbar,
-      Footern
+      Footern,
+      Shipping,
+      ArrowUp
+    },
+    methods: {
+      cart(products) {
+        console.log(products)
+      }
     }
   }
 </script>
@@ -16,11 +25,13 @@
   <div id="wrapper">
     <div class="first">
       <Headern />
+      <Shipping />
     </div>
     <Navbar />
     <main>
-      <RouterView />
+      <RouterView @cart="cart" />
     </main>
+    <ArrowUp />
     <Footern />
   </div>
 </template>
@@ -29,11 +40,8 @@
   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
   #wrapper {
-    background-image: linear-gradient(#9857c2, #4361ee, #9857c2);
+    background-image: linear-gradient(#9857c2, #4361ee 10%, #9857c2);
     overflow-x: hidden;
-    // max-width: 980px;
-  }
-  #wrapper {
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
   }

@@ -3,7 +3,7 @@
     <h2>Want to talk in person?</h2>
     <p>
       Do you want to visit us instead? Our school is located in Gothenburg. The
-      adress is Ebbe Lieberathsgatan 18C. Join us for a coffe, will ya?
+      address is Ebbe Lieberathsgatan 18C. Join us for a coffee, will ya?
     </p>
   </div>
   <div id="computer">

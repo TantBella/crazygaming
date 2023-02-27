@@ -1,16 +1,31 @@
 <script>
   import Search from './SearchField.vue'
+  import ShoppingCart from '../shopping/ShoppingCart.vue'
 
   export default {
     components: {
-      Search
+      Search,
+      ShoppingCart
+    },
+    data() {
+      return {
+        cart: false
+      }
+    },
+    methods: {
+      PopUpCart() {
+        this.cart = !this.cart
+      }
     }
   }
 </script>
 
 <template>
   <header>
-    <div id="desktop">
+    <Transition name="slide">
+      <ShoppingCart v-if="cart" />
+    </Transition>
+    <div id="container">
       <div id="logo">
         <RouterLink to="/">
           <img
@@ -24,13 +39,14 @@
         <Search />
       </div>
       <div id="icons">
-        <RouterLink to="/shoppingcart">
+        <button class="navbar-toggler" @click="PopUpCart">
           <img
             id="basket"
             src="/assets/basket-icon-white.png"
             alt="basket icon"
           />
-        </RouterLink>
+        </button>
+
         <RouterLink to="/user">
           <img id="user" src="/assets/user-icon-white.png" alt="User icon" />
         </RouterLink>
@@ -46,6 +62,9 @@
 </template>
 
 <style lang="scss" scoped>
+  #container {
+    height: 150px;
+  }
   #logo {
     display: flex;
     justify-content: center;
@@ -64,22 +83,28 @@
     }
     #logo {
       float: left;
-      width: 15%;
+      width: 200px;
+      height: 80px;
       margin-left: 1em;
-      margin-right: 20vw;
+      // margin-right: 10vw;
     }
-    #desktop {
+    #container {
       display: flex;
       justify-content: left;
     }
     #search {
       width: 100%;
+      height: 40px;
       display: flex;
+      justify-content: center;
+      align-self: flex-start;
+      margin-top: 30px;
     }
     #icons {
+      width: 140px;
       display: flex;
       justify-items: right;
-
+      align-items: flex-start;
       visibility: visible;
       margin-top: 35px;
     }
@@ -89,7 +114,7 @@
       margin-right: 5em;
     }
     #basket {
-      width: 30px;
+      width: 35px;
       margin-left: 1em;
     }
     #category {
@@ -106,6 +131,20 @@
     #category a:hover {
       color: #fff;
       background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .slide-enter-active {
+      transition: all 0.2s ease-out;
+    }
+
+    .slide-leave-active {
+      transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+
+    .slide-enter-from,
+    .slide-leave-to {
+      transform: translateX(20px);
+      opacity: 0;
     }
   }
 </style>

@@ -1,5 +1,5 @@
 <script>
-  import ShoppingCart from './ShoppingCart.vue'
+  import ShoppingCart from '../shopping/ShoppingCart.vue'
   export default {
     components: {
       ShoppingCart
@@ -168,6 +168,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 101;
   }
   ul {
     display: flex;

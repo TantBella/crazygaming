@@ -3,14 +3,13 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import AboutView from './views/AboutView.vue'
 import ContactView from './views/ContactView.vue'
 import HomeView from './views/HomeView.vue'
-import ProductView from './views/ProductView.vue'
-import CheckOut from './views/CheckOut.vue'
-import UserProfile from './views/UserProfile.vue'
-import Categories from './views/CategoryView.vue'
-import PrivCook from './views/PrivCook.vue'
-import Products from './components/FilteredProducts.vue'
+import CheckOut from './shopping/CheckOut.vue'
+import UserProfile from './views/UserView.vue'
+import PrivCook from './views/CookiesView.vue'
+import Products from './products/FilteredProducts.vue'
 import Confirmation from './views/ConfirmationView.vue'
-import ProductPage from './components/ProductPage.vue'
+import ProductPage from './products/ProductPage.vue'
+import SignIn from './views/SignInView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -22,10 +21,6 @@ export default createRouter({
     {
       component: HomeView,
       path: '/'
-    },
-    {
-      component: Categories,
-      path: '/categories'
     },
     {
       component: CheckOut,
@@ -44,10 +39,6 @@ export default createRouter({
       path: '/contact'
     },
     {
-      component: ProductView,
-      path: '/products'
-    },
-    {
       component: Products,
       path: '/products/:brand'
     },
@@ -58,6 +49,10 @@ export default createRouter({
     {
       component: ProductPage,
       path: '/product/:id'
+    },
+    {
+      component: SignIn,
+      path: '/sign-in'
     }
   ]
 })
