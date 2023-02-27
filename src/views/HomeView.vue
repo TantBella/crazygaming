@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import NewsCarousel from '../products/NewsCarousel.vue'
   import ProductPage from '../products/Productview.vue'
 
@@ -27,4 +27,4 @@
   .prodcontainer {
     background-color: rgba(240, 248, 255, 0.111);
   }
-</style>
+</style> -->
