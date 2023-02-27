@@ -9,6 +9,7 @@ import PrivCook from './views/CookiesView.vue'
 import Products from './products/FilteredProducts.vue'
 import Confirmation from './views/ConfirmationView.vue'
 import ProductPage from './products/ProductPage.vue'
+import SignIn from './views/SignInView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -48,6 +49,10 @@ export default createRouter({
     {
       component: ProductPage,
       path: '/product/:id'
+    },
+    {
+      component: SignIn,
+      path: '/sign-in'
     }
   ]
 })
