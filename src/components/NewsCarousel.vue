@@ -71,7 +71,7 @@
     margin-top: 0;
   }
 
-  @media (min-width: 600px) and (max-width: 2500px) {
+  @media (min-width: 600px) and (max-width: 4500px) {
     .carousel1 {
       display: block;
     }
