@@ -70,7 +70,7 @@
                 </b-card-text>
               </b-col>
               <b-col md="6" style="text-align: center">
-                <b-button>Add to cart</b-button>
+                <!-- <b-button @click="$emit('cart', this.filteredProductByID)">Add to cart</b-button> -->
               </b-col>
             </b-row>
           </b-card-body>
