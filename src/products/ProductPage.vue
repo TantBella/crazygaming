@@ -1,6 +1,7 @@
 <script>
   import axios from 'axios'
   export default {
+    emits: ['cart'],
     computed: {
       filteredProductByID() {
         if (this.products === null) {
@@ -70,7 +71,9 @@
                 </b-card-text>
               </b-col>
               <b-col md="6" style="text-align: center">
-                <!-- <b-button @click="$emit('cart', this.filteredProductByID)">Add to cart</b-button> -->
+                <b-button @click="$emit('cart', filteredProductByID)"
+                  >Add to cart</b-button
+                >
               </b-col>
             </b-row>
           </b-card-body>
