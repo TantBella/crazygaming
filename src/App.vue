@@ -12,6 +12,11 @@
       Footern,
       Shipping,
       ArrowUp
+    },
+    methods: {
+      cart(products) {
+        console.log(products)
+      }
     }
   }
 </script>
@@ -24,7 +29,7 @@
     </div>
     <Navbar />
     <main>
-      <RouterView />
+      <RouterView @cart="cart" />
     </main>
     <ArrowUp />
     <Footern />

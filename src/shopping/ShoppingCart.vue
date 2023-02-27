@@ -18,7 +18,7 @@
     },
     data() {
       return {
-        products: null,
+        products: 1,
         openCart: true
       }
     },
