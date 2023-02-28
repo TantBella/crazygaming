@@ -26,19 +26,20 @@
 
 <template>
   <h1>{{ $route.params.brand }}</h1>
-  <div>
-    <router-link
-      v-for="game in filteredProducts"
-      :key="game.id"
-      :to="`/product/${game.id}`"
-    >
-      <img :src="game.image" :alt="game.name" />
-    </router-link>
+  <div class="flex-container">
+    <div v-for="game in filteredProducts" :key="game.id">
+      <router-link :to="`/product/${game.id}`">
+        <img :src="game.image" :alt="game.name" />
+      </router-link>
+      <p>
+        {{ game.name }} <span>{{ game.price }}€</span>
+      </p>
+    </div>
   </div>
 </template>
 
 <style scoped>
-  div {
+  .flex-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -56,5 +57,9 @@
     text-align: center;
     color: #fff;
     margin-bottom: 10px;
+  }
+
+  p {
+    color: #fff;
   }
 </style>
