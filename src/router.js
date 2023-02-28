@@ -8,6 +8,7 @@ import PrivCook from './views/CookiesView.vue'
 import Products from './products/FilteredProducts.vue'
 import Confirmation from './views/ConfirmationView.vue'
 import ProductPage from './products/ProductPage.vue'
+import AllGames from './products/AllGames.vue'
 import SignIn from './views/SignInView.vue'
 import CheckoutView from './views/CheckoutView.vue'
 
@@ -49,6 +50,10 @@ export default createRouter({
     {
       component: SignIn,
       path: '/sign-in'
+    },
+    {
+      component: AllGames,
+      path: '/all-products'
     },
     {
       component: CheckoutView,

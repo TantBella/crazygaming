@@ -31,6 +31,11 @@
   <div id="menuBox" class="collapse" :class="{ show: showMenu }">
     <h2>Categories</h2>
     <h3>
+      <RouterLink class="links" to="/all-products" @click="hideMenu"
+        >All Games</RouterLink
+      >
+    </h3>
+    <h3>
       <RouterLink class="links" to="/products/Xbox" @click="hideMenu"
         >Xbox</RouterLink
       >

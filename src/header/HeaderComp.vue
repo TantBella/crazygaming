@@ -53,6 +53,7 @@
       </div>
     </div>
     <div id="category">
+      <RouterLink to="/all-products">All Games</RouterLink>
       <RouterLink to="/products/Xbox">Xbox</RouterLink>
       <RouterLink to="/products/Playstation">Playstation</RouterLink>
       <RouterLink to="/products/Nintendo">Nintendo</RouterLink>
@@ -124,7 +125,6 @@
       margin-bottom: 0.3em;
     }
     #category a {
-      padding: 0 10%;
       color: #fff;
       text-decoration: none;
     }
