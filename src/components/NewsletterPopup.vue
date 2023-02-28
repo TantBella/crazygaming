@@ -21,7 +21,7 @@
       window.onload = function () {
         setTimeout(function () {
           newsletterPopup.style.display = 'block'
-        }, 100000)
+        }, 1000000)
       }
 
       closeBtn.onclick = function () {
@@ -44,7 +44,7 @@
   }
 
   .newsletter-popup-content {
-    display: none; //block
+    display: block; //block
     position: absolute;
     top: 50%;
     left: 50%;
@@ -57,7 +57,7 @@
   }
 
   .close-btn {
-    display: none; //block
+    display: block; //block
     position: absolute;
     top: 10px;
     right: 10px;
