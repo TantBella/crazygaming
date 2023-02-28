@@ -1,5 +1,5 @@
 <script>
-  import NewsCarousel from '../components/NewsCarousel.vue'
+  import NewsCarousel from '../products/NewsCarousel.vue'
   import NewsletterPopup from '../components/NewsletterPopup.vue'
 
   export default {
