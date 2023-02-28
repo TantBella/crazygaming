@@ -108,6 +108,8 @@
 
   input[type='submit']:hover {
     background-color: #4361ee;
+    border: #fffdfa;
+    border-color: #fffdfa;
   }
 
   @media (max-width: 599px) {
