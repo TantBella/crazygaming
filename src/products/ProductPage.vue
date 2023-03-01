@@ -1,29 +1,38 @@
 <script>
   import axios from 'axios'
+  import ShoppingCart from '../shopping/ShoppingCart.vue'
   export default {
-    emits: ['cart'],
+    components: {
+      ShoppingCart
+    },
     computed: {
       filteredProductByID() {
-        if (this.products === null) {
+        if (this.dataResult === null) {
           return []
         }
-        return this.products.find((obj) => obj.id === +this.$route.params.id)
+
+        return this.dataResult.find((obj) => obj.id === +this.$route.params.id)
       }
     },
     created() {
       axios.get('/products.json').then((result) => {
-        this.products = result.data.products
+        this.dataResult = result.data.products
       })
     },
     data() {
-      return {
-        products: null
+      return { dataResult: null }
+    },
+    methods: {
+      addToCart() {
+        this.$store.commit('addToCart', this.filteredProductByID)
+        this.$store.commit('openCart')
       }
     }
   }
 </script>
 
 <template>
+  <ShoppingCart />
   <b-card
     no-body
     class="overflow-hidden"
@@ -71,9 +80,7 @@
                 </b-card-text>
               </b-col>
               <b-col md="6" style="text-align: center">
-                <b-button @click="$emit('cart', filteredProductByID)"
-                  >Add to cart</b-button
-                >
+                <b-button @click="addToCart">Add to cart</b-button>
               </b-col>
             </b-row>
           </b-card-body>
@@ -87,10 +94,12 @@
   img {
     max-width: 300px;
   }
+
   .sales {
     color: red;
     padding-right: 10px;
   }
+
   .line-throw {
     text-decoration: line-through;
   }

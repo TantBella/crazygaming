@@ -13,9 +13,16 @@
       Shipping,
       ArrowUp
     },
+
+    data: function () {
+      return {
+        products: []
+      }
+    },
+
     methods: {
-      cart(products) {
-        console.log(products)
+      addToCart(product) {
+        this.products.push(product)
       }
     }
   }
@@ -29,7 +36,7 @@
     </div>
     <Navbar />
     <main>
-      <RouterView @cart="cart" />
+      <RouterView />
     </main>
     <ArrowUp />
     <Footern />
@@ -45,9 +52,11 @@
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
   }
+
   li a {
     color: white;
   }
+
   li {
     list-style: none;
   }

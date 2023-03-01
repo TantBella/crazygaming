@@ -6,14 +6,10 @@
     },
     data() {
       return {
-        showMenu: false,
-        showCart: false
+        showMenu: false
       }
     },
     methods: {
-      toggleCart() {
-        this.showCart = !this.showCart
-      },
       toggleMenu() {
         this.showMenu = !this.showMenu
       },
@@ -26,8 +22,9 @@
 
 <template>
   <Transition name="slide">
-    <ShoppingCart v-if="showCart" />
+    <ShoppingCart />
   </Transition>
+
   <div id="menuBox" class="collapse" :class="{ show: showMenu }">
     <h2>Categories</h2>
     <h3>
@@ -92,7 +89,10 @@
           </button>
         </li>
         <li>
-          <button class="navbar-toggler" @click="toggleCart">
+          <button
+            class="navbar-toggler"
+            @click="this.$store.commit('toggleCart')"
+          >
             <svg
               width="45"
               height="37"
@@ -142,24 +142,29 @@
     transform: translateX(20px);
     opacity: 0;
   }
+
   #menuBox {
     color: #fff;
     text-align: center;
   }
+
   .links {
     color: #fff;
     text-decoration: none;
     padding: 0 10%;
   }
+
   .links:hover {
     color: #fff;
     background-color: rgba(255, 255, 255, 0.1);
   }
+
   h2 {
     font-size: 35px;
     font-weight: normal;
     padding-bottom: 1.3rem;
   }
+
   h3 {
     padding: 1.3rem;
     font-size: 30px;
@@ -175,12 +180,14 @@
     width: 100%;
     z-index: 101;
   }
+
   ul {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-bottom: 0;
   }
+
   li {
     padding-top: 0.5rem;
   }

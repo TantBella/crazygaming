@@ -1,36 +1,28 @@
 <script>
-  import axios from 'axios'
   export default {
-    computed: {
-      filteredProducts() {
-        if (this.products === null) {
-          return []
-        }
-        return this.products.filter(
-          (brands) => brands.brand === this.$route.params.brand
-        )
-      }
-    },
     created() {
-      axios.get('/products.json').then((result) => {
-        this.products = result.data.products
-      })
+      console.log(this.$store.state.products)
     },
-    data() {
-      return {
-        products: 1,
-        openCart: true
+
+    computed: {
+      productsInCart() {
+        return this.$store.state.products
+      },
+      cartIsOpen() {
+        return this.$store.state.cartIsOpen
       }
     },
+
     methods: {
       closeCart() {
-        this.openCart = false
+        this.$store.commit('closeCart')
       }
     }
   }
 </script>
+
 <template>
-  <div id="cartBox" :class="{ cart: !openCart }">
+  <div id="cartBox" :class="{ cart: !cartIsOpen }">
     <div id="cart">
       <div id="cartTop">
         <h2>Your cart</h2>
@@ -49,17 +41,23 @@
           </svg>
         </button>
       </div>
-      <p>You have 0 items in your cart</p>
-      <div class="productBox">
-        <div>
-          <img :src="products[1].image" class="productPicture" />
-        </div>
-        <div>
-          <h3>{{ products[1].name }}</h3>
-          <p>{{ products[1].price }} €</p>
+
+      <p>You have {{ this.$store.state.products.length }} items in your cart</p>
+
+      <div v-for="product in this.$store.state.products" :key="product.id">
+        <div class="productBox">
+          <div>
+            <p>product image</p>
+          </div>
+          <div>
+            <h3>{{ product.name }}</h3>
+            <h3>
+              <p>{{ product.price }} €</p>
+            </h3>
+          </div>
         </div>
       </div>
-      <h3>Total Price: {{ products[1].price }} €</h3>
+      <h3>Total Price: €</h3>
       <button>
         <RouterLink to="/checkout">Coutinue to checkout</RouterLink>
       </button>
@@ -71,13 +69,16 @@
   .cart {
     display: none;
   }
+
   .productPicture {
     width: 6rem;
     padding-right: 1rem;
   }
+
   .productPrice {
     text-align: right;
   }
+
   .productBox {
     background-color: rgb(211, 211, 211);
     border-radius: 5px;
@@ -85,17 +86,21 @@
     margin-bottom: 1rem;
     display: flex;
   }
+
   h3 {
     font-size: 15px;
   }
+
   h2 {
     font-size: 35px;
     font-weight: normal;
   }
+
   #cartTop {
     display: flex;
     justify-content: space-between;
   }
+
   #cartBox {
     background-color: #fff;
     position: fixed;
@@ -105,9 +110,11 @@
     height: 100vh;
     z-index: 100;
   }
+
   #cart {
     padding: 5%;
   }
+
   @media (min-width: 600px) {
     #cartBox {
       width: 400px;
