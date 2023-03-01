@@ -25,7 +25,9 @@
         this.v$.$validate()
         if (!this.v$.$error) {
           alert('Right')
-        } else alert('Wrong')
+        } else {
+          alert('Wrong')
+        }
       }
     }
   }
