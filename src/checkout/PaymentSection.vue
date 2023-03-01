@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    emits: ['next-section'],
     methods: {
       nextSection(section) {
         this.$emit('next-section', section)
