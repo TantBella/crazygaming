@@ -27,7 +27,7 @@
     },
     data() {
       return {
-        products: null
+        products: []
       }
     }
   }
