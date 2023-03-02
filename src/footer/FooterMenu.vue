@@ -68,7 +68,7 @@
           >
             <ul class="card-text">
               <li>
-                <RouterLink to="/about">About Us </RouterLink>
+                <RouterLink to="/about">Our Team </RouterLink>
               </li>
               <li>
                 <RouterLink to="/">Careers</RouterLink>
