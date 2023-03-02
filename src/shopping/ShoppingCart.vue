@@ -47,19 +47,20 @@
       <div v-for="product in this.$store.state.products" :key="product.id">
         <div class="productBox">
           <div>
-            <p>product image</p>
+            <img :src="product.image" :alt="product.name" />
           </div>
-          <div>
+          <div class="productInfo">
             <h3>{{ product.name }}</h3>
             <h3>
-              <p>{{ product.price }} €</p>
+              <p class="productPrice">{{ product.price }} €</p>
             </h3>
           </div>
         </div>
       </div>
-      <h3>Total Price: €</h3>
       <button>
-        <RouterLink to="/checkout">Coutinue to checkout</RouterLink>
+        <RouterLink @click="closeCart" to="/checkout"
+          >Coutinue to checkout</RouterLink
+        >
       </button>
     </div>
   </div>
@@ -70,13 +71,19 @@
     display: none;
   }
 
-  .productPicture {
-    width: 6rem;
+  img {
+    max-width: 100px;
     padding-right: 1rem;
   }
 
   .productPrice {
     text-align: right;
+    margin: 0;
+  }
+  .productInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .productBox {
@@ -85,6 +92,7 @@
     padding: 1rem;
     margin-bottom: 1rem;
     display: flex;
+    justify-content: space-between;
   }
 
   h3 {

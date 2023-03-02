@@ -191,4 +191,9 @@
   li {
     padding-top: 0.5rem;
   }
+  @media (min-width: 600px) {
+    nav {
+      display: none;
+    }
+  }
 </style>
