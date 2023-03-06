@@ -5,7 +5,8 @@ const store = createStore({
     return {
       counter: 0,
       cartIsOpen: false,
-      products: []
+      products: [],
+      product: true
     }
   },
 
@@ -21,6 +22,11 @@ const store = createStore({
     },
     toggleCart(state) {
       state.cartIsOpen = !state.cartIsOpen
+    },
+    deleteProduct(state, product) {
+      state.products = state.products.filter((pro) => {
+        return pro != product
+      })
     }
   }
 })
