@@ -5,8 +5,8 @@
     <div class="disclaimer">
       <h4>Disclaimer:</h4>
       <p>
-        Pictures are taken from Webhallen.com (This site is a school project
-        only)
+        Pictures are taken from Webhallen.com and Elgiganten.se (This site is a
+        school project only)
       </p>
     </div>
   </div>
