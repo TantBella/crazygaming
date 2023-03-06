@@ -3,7 +3,6 @@
     created() {
       console.log(this.$store.state.products)
     },
-
     computed: {
       productsInCart() {
         return this.$store.state.products
@@ -16,6 +15,9 @@
     methods: {
       closeCart() {
         this.$store.commit('closeCart')
+      },
+      deleteButton(product) {
+        this.$store.commit('deleteProduct', product)
       },
       getTotalPrice() {
         let totalPrice = 0
@@ -61,6 +63,9 @@
             <h3>
               <p class="productPrice">{{ product.price }} €</p>
             </h3>
+            <button id="removeButton" @click="deleteButton(product)">
+              Remove item
+            </button>
           </div>
         </div>
       </div>
@@ -199,6 +204,9 @@
   @media (min-width: 600px) {
     #cartBox {
       width: 400px;
+    }
+    #removeButton {
+      width: 110px;
     }
   }
 </style>
