@@ -3,7 +3,7 @@
     <div class="newsletter-popup-content">
       <span class="close-btn" @click="hidePopup">&times;</span>
       <img id="logo" src="/assets/Logo.png" alt="Crazy Gaming logo." />
-      <h2>Subscribe to our Newsletter to get 10% off your next purchase!</h2>
+      <p>Subscribe to our Newsletter to get 10% off your next purchase!</p>
       <form action="#" method="post">
         <input
           type="email"
@@ -28,7 +28,7 @@
     mounted() {
       setTimeout(() => {
         this.showPopup = true
-      }, 60000)
+      }, 30000)
     },
     methods: {
       hidePopup() {
@@ -57,7 +57,7 @@
   .newsletter-popup-content {
     background-image: linear-gradient(#9857c2, #4361ee, #9857c2);
     padding: 1.25rem;
-    border-radius: 0.3rem;
+    border-radius: 1rem;
     position: relative;
     max-width: 500px;
   }
@@ -74,9 +74,8 @@
     display: flex;
     margin: 0 auto;
   }
-  h2 {
+  p {
     margin-top: 0.5rem;
-    font-size: 1rem;
     text-align: center;
     color: #fffdfa;
   }

@@ -95,7 +95,7 @@
         I understand that Crazy Gaming only uses my emailadress for contact
         purposes only</label
       >
-      <input v-model="check" name="check" type="checkbox" />
+      <input v-model="check" id="check" type="checkbox" />
       <span id="inline-errors" v-if="v$.check.$error"
         >Please check the checkbox</span
       >
