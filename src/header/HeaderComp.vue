@@ -36,9 +36,9 @@
         >
           <div
             id="counterProducts"
-            v-if="this.$store.state.products.length != 0"
+            v-if="Object.keys(this.$store.state.products).length != 0"
           >
-            {{ this.$store.state.products.length }}
+            {{ Object.keys(this.$store.state.products).length }}
           </div>
           <img
             id="basket"
@@ -131,7 +131,7 @@
     #counterProducts {
       float: left;
       position: absolute;
-      color: rgb(19, 100, 249);
+      color: #4361ee;
       background-color: #fff;
       width: 20px;
       height: 16px;

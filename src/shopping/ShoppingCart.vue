@@ -61,7 +61,10 @@
           </svg>
         </button>
       </div>
-      <div id="shipping" v-if="this.$store.state.products.length >= 1">
+      <div
+        id="shipping"
+        v-if="Object.keys(this.$store.state.products).length >= 1"
+      >
         <p id="untilText">
           <img
             id="shippingIcon"
