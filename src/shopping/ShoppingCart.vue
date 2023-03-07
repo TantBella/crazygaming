@@ -1,8 +1,5 @@
 <script>
   export default {
-    created() {
-      console.log(this.$store.state.products)
-    },
     computed: {
       productsInCart() {
         return this.$store.state.products
