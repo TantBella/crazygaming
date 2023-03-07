@@ -5,13 +5,18 @@ const store = createStore({
     return {
       counter: 0,
       cartIsOpen: false,
-      products: []
+      products: {}
     }
   },
 
   mutations: {
     addToCart(state, inputProduct) {
-      state.products.push(inputProduct)
+      const productId = inputProduct.id
+      if (state.products[productId]) {
+        state.products[productId].quantity++
+      } else {
+        state.products[productId] = { ...inputProduct, quantity: 1 }
+      }
     },
     openCart(state) {
       state.cartIsOpen = true
@@ -22,12 +27,22 @@ const store = createStore({
     toggleCart(state) {
       state.cartIsOpen = !state.cartIsOpen
     },
-    deleteProduct(state, index) {
-      state.products.splice(index, 1)
-
-      // state.products = state.products.filter((pro) => {
-      //   return pro != index
-      // })
+    deleteProduct(state, productId) {
+      delete state.products[productId]
+    },
+    decreaseProduct(state, productId) {
+      const product = state.products[productId]
+      if (product.quantity > 1) {
+        product.quantity--
+      } else {
+        delete state.products[productId]
+      }
+    },
+    increaseProduct(state, productId) {
+      const product = state.products[productId]
+      {
+        product.quantity++
+      }
     }
   }
 })
