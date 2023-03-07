@@ -69,20 +69,10 @@
         </label>
       </div>
     </form>
-    <button class="btn" @click="nextSection('shipping')">Next</button>
   </div>
 </template>
 
-<script>
-  export default {
-    emits: ['next-section'],
-    methods: {
-      nextSection(section) {
-        this.$emit('next-section', section)
-      }
-    }
-  }
-</script>
+<script></script>
 
 <style lang="scss" scoped>
   .details-section {
@@ -91,7 +81,6 @@
     padding: 2rem;
     background-color: #3a0ca370;
     border-radius: 25px;
-
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     color: #fff;
@@ -116,7 +105,7 @@
   input[type='tel'] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
     border-radius: 5px;
   }
 
@@ -129,11 +118,16 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: large;
+    font-size: 1rem;
+    width: 6rem;
+  }
+  .button-group {
+    display: flex;
+    justify-content: space-between;
   }
 
   .btn:hover {
-    background-color: #9857c2;
+    transform: scale(1.1);
   }
   @media (max-width: 599px) {
     .details-section {
