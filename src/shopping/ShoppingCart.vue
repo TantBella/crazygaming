@@ -6,6 +6,9 @@
       },
       cartIsOpen() {
         return this.$store.state.cartIsOpen
+      },
+      productCount() {
+        return Object.keys(this.$store.state.products).length
       }
     },
 
@@ -16,12 +19,23 @@
       deleteButton(index) {
         this.$store.commit('deleteProduct', index)
       },
+      decreaseButton(index) {
+        this.$store.commit('decreaseProduct', index)
+      },
+      increaseButton(index) {
+        this.$store.commit('increaseProduct', index)
+      },
       getTotalPrice() {
-        let totalPrice = 0
-        this.$store.state.products.forEach((product) => {
-          totalPrice += product.price
-        })
-        return totalPrice
+        let total = 0
+        const products = this.$store.state.products
+        for (const productId in products) {
+          const product = products[productId]
+          const productQuantity = product.quantity
+          total += product.price * productQuantity
+          console.log(product.quantity)
+        }
+
+        return total
       }
     }
   }
@@ -71,7 +85,10 @@
             <h3>{{ product.name }}</h3>
             <h3>
               <p class="productPrice">{{ product.price }} €</p>
+              <p class="productPrice">{{ product.quantity }}</p>
             </h3>
+            <button @click="increaseButton(index)">Increse</button>
+            <button @click="decreaseButton(index)">Decrese</button>
             <img
               src="/assets/trash-icon.png"
               id="removeButton"
@@ -80,17 +97,10 @@
           </div>
         </div>
       </div>
-      <p v-if="this.$store.state.products.length > 0">
-        Total price: {{ getTotalPrice() }} €
-      </p>
-      <p v-if="this.$store.state.products.length < 1">
-        You have no items in your shopping cart.
-      </p>
+      <p v-if="productCount > 0">Total price: {{ getTotalPrice() }} €</p>
+      <p v-if="productCount < 1">You have no items in your shopping cart.</p>
       <div id="buttons">
-        <button
-          v-if="this.$store.state.products.length > 0"
-          id="checkoutButton"
-        >
+        <button v-if="productCount > 0" id="checkoutButton">
           <RouterLink @click="closeCart" to="/checkout">Checkout</RouterLink>
         </button>
         <button id="continueButton" @click="closeCart">
