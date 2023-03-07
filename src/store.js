@@ -5,8 +5,7 @@ const store = createStore({
     return {
       counter: 0,
       cartIsOpen: false,
-      products: [],
-      product: true
+      products: []
     }
   },
 
@@ -23,10 +22,12 @@ const store = createStore({
     toggleCart(state) {
       state.cartIsOpen = !state.cartIsOpen
     },
-    deleteProduct(state, product) {
-      state.products = state.products.filter((pro) => {
-        return pro != product
-      })
+    deleteProduct(state, index) {
+      state.products.splice(index, 1)
+
+      // state.products = state.products.filter((pro) => {
+      //   return pro != index
+      // })
     }
   }
 })

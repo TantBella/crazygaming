@@ -15,6 +15,11 @@
         })
     },
     methods: {
+      clickedSearched(s) {
+        if (s.length >= 1) {
+          this.search = ''
+        }
+      },
       filtered() {
         if (this.search !== '') {
           return this.products.filter((product) => {
@@ -41,7 +46,12 @@
     </button>
   </div>
   <div class="searchResult">
-    <ul class="searchedGame" :key="product" v-for="product in filtered()">
+    <ul
+      class="searchedGame"
+      :key="product"
+      v-for="product in filtered()"
+      @click="clickedSearched(search)"
+    >
       <li>
         <RouterLink :to="`/product/${product.id}`">{{
           product.name

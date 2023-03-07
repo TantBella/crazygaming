@@ -23,7 +23,8 @@
           new: '',
           same: ''
         },
-        conditions: false
+        conditions: false,
+        errors: false
       }
     },
     validations() {
@@ -65,46 +66,98 @@
     <p>
       <label for="firstname">Firstname:</label>
       <input id="firstname" v-model="firstname" />
+      <span id="inline-errors" v-if="v$.firstname.$error"
+        >Firstname required</span
+      >
     </p>
 
     <p>
       <label for="lastname">Lastname:</label>
       <input id="lastname" v-model="lastname" />
+      <span id="inline-errors" v-if="v$.lastname.$error"
+        >Lastname required</span
+      >
     </p>
 
     <p>
       <label for="email">Email:</label>
       <input id="email" v-model="email" />
+      <span id="inline-errors" v-if="v$.email.$error">Email required</span>
     </p>
 
     <p>
       <label for="adress">Adress:</label>
       <input id="adress" v-model="adress" />
+      <span id="inline-errors" v-if="v$.adress.$error">Adress required</span>
     </p>
     <p>
       <label for="birthday">Date of birth:</label>
       <input id="birthday" v-model="birthday" />
+      <span id="inline-errors" v-if="v$.birthday.$error">{{
+        v$.birthday.$errors[0].$message
+      }}</span>
     </p>
     <p>
       <label for="id">ID/ personnumber:</label>
       <input id="id" v-model="id" />
+      <span id="inline-errors" v-if="v$.id.$error">{{
+        v$.id.$errors[0].$message
+      }}</span>
     </p>
     <p>
       <label for="new-password">New password:</label>
       <input type="password" id="new-password" v-model="password.new" />
+      <span id="inline-errors" v-if="v$.password.new.$error"
+        >Password required</span
+      >
     </p>
     <p>
       <label for="same-password">Repeat password:</label>
       <input type="password" id="same-password" v-model="password.same" />
+      <span id="inline-errors" v-if="v$.password.same.$error">{{
+        v$.password.same.$errors[0].$message
+      }}</span>
     </p>
     <p>
       <label for="conditions">I accept the terms and conditions:</label>
       <input type="checkbox" id="conditions" v-model="conditions" />
+      <span id="inline-errors" v-if="v$.conditions.$error"
+        >You need to accept the terms and conditions to become a member.</span
+      >
     </p>
+    <div class="errors" v-show="this.v$.$error">
+      <h3>
+        Oh no! Looks like you missed a few steps trying to register, please
+        correct the mistakes.
+      </h3>
+      <ul>
+        <li v-if="v$.firstname.$error">Firstname required</li>
+        <li v-if="v$.lastname.$error">Lastname required</li>
+        <li v-if="v$.email.$error">Email required</li>
+        <li id="inline-errors" v-if="v$.adress.$error">Adress required</li>
+        <li id="inline-errors" v-if="v$.birthday.$error">
+          Date of birth required
+        </li>
+        <li id="inline-errors" v-if="v$.id.$error">ID required</li>
+        <li id="inline-errors" v-if="v$.password.new.$error">
+          Password required
+        </li>
+        <li id="inline-errors" v-if="v$.password.same.$error">
+          Repeat/same password required
+        </li>
+        <li id="inline-errors" v-if="v$.conditions.$error">
+          You need to accept the terms and conditions to become a member.
+        </li>
+      </ul>
+    </div>
     <div>
       <button @click.prevent="register">Register</button>
     </div>
   </form>
+  <pre>
+      {{ v$ }}
+    </pre
+  >
 </template>
 
 <style lang="scss" scoped>
