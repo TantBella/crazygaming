@@ -16,8 +16,8 @@
       closeCart() {
         this.$store.commit('closeCart')
       },
-      deleteButton(product) {
-        this.$store.commit('deleteProduct', product)
+      deleteButton(index) {
+        this.$store.commit('deleteProduct', index)
       }
     }
   }
@@ -46,7 +46,10 @@
 
       <p>You have {{ this.$store.state.products.length }} items in your cart</p>
 
-      <div v-for="product in this.$store.state.products" :key="product.id">
+      <div
+        v-for="(product, index) in this.$store.state.products"
+        :key="product.id"
+      >
         <div class="productBox">
           <div>
             <img :src="product.image" :alt="product.name" />
@@ -56,7 +59,7 @@
             <h3>
               <p class="productPrice">{{ product.price }} €</p>
             </h3>
-            <button id="removeButton" @click="deleteButton(product)">
+            <button id="removeButton" @click="deleteButton(index)">
               Remove item
             </button>
           </div>
