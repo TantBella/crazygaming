@@ -31,6 +31,7 @@
   div {
     margin: 20px auto;
     padding: 20px;
+    color: white;
   }
 
   a {
