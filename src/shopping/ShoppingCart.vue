@@ -66,9 +66,11 @@
             <h3>
               <p class="productPrice">{{ product.price }} €</p>
             </h3>
-            <button id="removeButton" @click="deleteButton(index)">
-              Remove item
-            </button>
+            <img
+              src="/assets/trash-icon.png"
+              id="removeButton"
+              @click="deleteButton(index)"
+            />
           </div>
         </div>
       </div>
@@ -209,7 +211,8 @@
       width: 400px;
     }
     #removeButton {
-      width: 110px;
+      width: 30px;
+      cursor: pointer;
     }
   }
 </style>
