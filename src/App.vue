@@ -46,6 +46,10 @@
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+  body {
+    min-height: 100vh;
+  }
+
   #wrapper {
     background-image: linear-gradient(#9857c2, #4361ee 10%, #9857c2);
     overflow-x: hidden;

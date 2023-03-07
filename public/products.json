@@ -527,6 +527,102 @@
       "sale_price": false,
       "image": "https://cdn.webhallen.com/images/product/302238?trim",
       "rating": null
+    },
+    {
+      "id": 44,
+      "name": "The Sims 4 -Growing Together",
+      "description": "Strengthen family bonds, make friends or enemies and discover your Sims truest selves with The Sims 4 Growing Together Expansion Pack. The ways your Sims relate to those around them — from family members to Sims theyve just met — are evolving. Both planned events like sleepovers and unexpected milestones like having a midlife crisis will shape your Sims and their relationships. ",
+      "price": 18,
+      "category": "Simulator",
+      "brand": "Playstation",
+      "items_available": 50,
+      "sale_price": false,
+      "image": "https://www.elgiganten.se/image/dv_web_D18000100263825/PS4SIMS4/the-sims-4-ps4--pdp_zoom-3000.jpg",
+      "rating": null
+    },
+    {
+      "id": 45,
+      "name": "The Sims 4 -Growing Together",
+      "description": "Strengthen family bonds, make friends or enemies and discover your Sims truest selves with The Sims 4 Growing Together Expansion Pack. The ways your Sims relate to those around them — from family members to Sims theyve just met — are evolving. Both planned events like sleepovers and unexpected milestones like having a midlife crisis will shape your Sims and their relationships. ",
+      "price": 18,
+      "category": "Simulator",
+      "brand": "Xbox",
+      "items_available": 50,
+      "sale_price": false,
+      "image": "https://www.elgiganten.se/image/dv_web_D18000100282373/XONESIMS4/the-sims-4-xone--pdp_zoom-3000--pdp_main-960.jpg",
+      "rating": null
+    },
+    {
+      "id": 46,
+      "name": "Broken pieces",
+      "description": " ",
+      "price": 30,
+      "category": "Action",
+      "brand": "Playstation",
+      "items_available": 50,
+      "sale_price": false,
+      "image": "https://cdn.webhallen.com/images/product/356946?trim",
+      "rating": null
+    },
+    {
+      "id": 47,
+      "name": "Sackboy A Big Adventure",
+      "description": " ",
+      "price": 68,
+      "category": "Adventure",
+      "brand": "Playstation",
+      "items_available": 50,
+      "sale_price": false,
+      "image": "https://cdn.webhallen.com/images/product/325381?trim",
+      "rating": null
+    },
+    {
+      "id": 48,
+      "name": "Octopath Traveler II",
+      "description": " ",
+      "price": 60,
+      "category": "Adventure",
+      "brand": "Playstation",
+      "items_available": 50,
+      "sale_price": false,
+      "image": "https://cdn.webhallen.com/images/product/353177?trim",
+      "rating": null
+    },
+    {
+      "id": 49,
+      "name": "KeyWe",
+      "description": " ",
+      "price": 32,
+      "category": "Adventure",
+      "brand": "Xbox",
+      "items_available": 50,
+      "sale_price": false,
+      "image": "https://cdn.webhallen.com/images/product/333701?trim",
+      "rating": null
+    },
+    {
+      "id": 50,
+      "name": "LEGO Ninjago",
+      "description": " ",
+      "price": 20,
+      "category": "Adventure",
+      "brand": "Xbox",
+      "items_available": 50,
+      "sale_price": 13,
+      "image": "https://cdn.webhallen.com/images/product/271842?trim",
+      "rating": null
+    },
+    {
+      "id": 51,
+      "name": "Puyo Puyo Tetris 2 (Limited Edition)",
+      "description": " ",
+      "price": 40,
+      "category": "Adventure",
+      "brand": "Xbox",
+      "items_available": 50,
+      "sale_price": false,
+      "image": "https://cdn.webhallen.com/images/product/324217?trim",
+      "rating": null
     }
   ]
 }

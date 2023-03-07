@@ -3,7 +3,7 @@
     <b-carousel
       id="carousel1"
       v-model="slide"
-      :interval="4000"
+      :interval="8000"
       controls
       indicators
       img-width="1600"
@@ -20,7 +20,7 @@
     <b-carousel
       id="carousel2"
       v-model="slide"
-      :interval="4000"
+      :interval="8000"
       controls
       indicators
       img-width="400"
@@ -60,10 +60,11 @@
 <style lang="scss" scoped>
   .carousel1 {
     width: 90vw;
-    max-width: 1600px;
+    max-width: 1200px;
     height: 650px;
     margin: 0 auto;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   .carousel2 {
     width: 90vw;
@@ -71,7 +72,7 @@
     margin-top: 0;
   }
 
-  @media (min-width: 600px) and (max-width: 4500px) {
+  @media (min-width: 600px) and (max-width: 6000px) {
     .carousel1 {
       display: block;
     }
