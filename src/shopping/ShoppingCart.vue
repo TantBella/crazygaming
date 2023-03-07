@@ -47,7 +47,16 @@
           </svg>
         </button>
       </div>
-
+      <div id="shipping" v-if="this.$store.state.products.length >= 1">
+        <p id="untilText">
+          <img
+            id="shippingIcon"
+            src="/assets/Shipping-icon.png"
+            alt="Shipping truck icon"
+          />
+          {{ 75 - getTotalPrice() }} € left until free shipping
+        </p>
+      </div>
       <!-- <p>You have {{ this.$store.state.products.length }} items in your cart</p> -->
 
       <div
@@ -202,14 +211,26 @@
   #continueButton:hover {
     cursor: pointer;
   }
+  #removeButton {
+    width: 30px;
+    cursor: pointer;
+  }
+  #untilText {
+    font-size: 14px;
+    height: 17px;
+  }
+  #shippingIcon {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+  }
 
   @media (min-width: 600px) {
     #cartBox {
       width: 400px;
     }
-    #removeButton {
-      width: 30px;
-      cursor: pointer;
+    #untilText {
+      height: 19px;
     }
   }
 </style>

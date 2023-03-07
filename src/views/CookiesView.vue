@@ -1,17 +1,23 @@
 <template>
   <div>
-    <a href="https://www.arla.se/recept/chocolate-chip-cookies/">Cookies</a>
-    <ul>
-      <li>Arla® Svenskt Smör 100 g</li>
-      <li>Strösocker 1 dl</li>
-      <li>Farinsocker ½ dl</li>
-      <li>Ägg 1</li>
-      <li>Vetemjöl 2 dl</li>
-      <li>Bikarbonat ½ tsk</li>
-      <li>Salt ½ tsk</li>
-      <li>Vaniljsocker ½ tsk</li>
-      <li>Mörk choklad 100 g</li>
-    </ul>
+    <h1>
+      <a href="https://www.arla.se/recept/chocolate-chip-cookies/"
+        >Privacy & Cookies</a
+      >
+    </h1>
+    <div id="recept">
+      <ul>
+        <li>Arla® Svenskt Smör 100 g</li>
+        <li>Strösocker 1 dl</li>
+        <li>Farinsocker ½ dl</li>
+        <li>Ägg 1</li>
+        <li>Vetemjöl 2 dl</li>
+        <li>Bikarbonat ½ tsk</li>
+        <li>Salt ½ tsk</li>
+        <li>Vaniljsocker ½ tsk</li>
+        <li>Mörk choklad 100 g</li>
+      </ul>
+    </div>
     <h1>Gör så här</h1>
     <p>
       Smält smöret långsamt i en kastrull, ta det från plattan så fort det har
@@ -32,6 +38,10 @@
     margin: 20px auto;
     padding: 20px;
     color: white;
+  }
+  #recept {
+    display: flex;
+    justify-content: center;
   }
 
   a {
