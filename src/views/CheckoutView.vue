@@ -12,6 +12,8 @@
     <div v-else-if="currentSection === 'payment'">
       <PaymentSection @next-section="setCurrentSection" />
     </div>
+    <button v-if="previousSection" @click="goToPreviousSection">Go back</button>
+    <button v-if="nextSection" @click="goToNextSection">Next</button>
   </div>
 </template>
 
@@ -30,12 +32,49 @@
     },
     data() {
       return {
-        currentSection: 'cart'
+        currentSection: 'cart',
+        previousSection: null,
+        nextSection: 'details'
       }
     },
     methods: {
-      setCurrentSection(section) {
-        this.currentSection = section
+      setCurrentSection(sectionName) {
+        this.previousSection = this.currentSection
+        this.currentSection = sectionName
+        if (sectionName === 'cart') {
+          this.nextSection = 'details'
+        } else if (sectionName === 'details') {
+          this.nextSection = 'shipping'
+        } else if (sectionName === 'shipping') {
+          this.nextSection = 'payment'
+        } else {
+          this.nextSection = null
+        }
+      },
+      goToPreviousSection() {
+        const tempSection = this.currentSection
+        this.currentSection = this.previousSection
+        this.previousSection = tempSection
+        if (this.currentSection === 'cart') {
+          this.nextSection = 'details'
+        } else if (this.currentSection === 'details') {
+          this.nextSection = 'shipping'
+        } else if (this.currentSection === 'shipping') {
+          this.nextSection = 'payment'
+        }
+      },
+      goToNextSection() {
+        this.previousSection = this.currentSection
+        this.currentSection = this.nextSection
+        if (this.currentSection === 'cart') {
+          this.nextSection = 'details'
+        } else if (this.currentSection === 'details') {
+          this.nextSection = 'shipping'
+        } else if (this.currentSection === 'shipping') {
+          this.nextSection = 'payment'
+        } else {
+          this.nextSection = null
+        }
       }
     }
   }
@@ -52,5 +91,20 @@
     margin: 0 auto;
     display: flex;
     justify-content: center;
+  }
+  .btn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    width: 7rem;
+  }
+  .btn:hover {
+    transform: scale(1.1);
   }
 </style>

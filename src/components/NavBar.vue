@@ -93,6 +93,12 @@
             class="navbar-toggler"
             @click="this.$store.commit('toggleCart')"
           >
+            <div
+              id="counterProducts"
+              v-if="this.$store.state.products.length != 0"
+            >
+              {{ this.$store.state.products.length }}
+            </div>
             <svg
               width="45"
               height="37"
@@ -190,6 +196,15 @@
 
   li {
     padding-top: 0.5rem;
+  }
+  #counterProducts {
+    float: left;
+    position: absolute;
+    color: #fff;
+    background-color: #43a2ea;
+    width: 20px;
+    height: 16px;
+    border-radius: 40%;
   }
   @media (min-width: 600px) {
     nav {
