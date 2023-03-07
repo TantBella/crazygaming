@@ -34,6 +34,7 @@
 
 <script>
   export default {
+    emits: ['next-section'],
     data() {
       return {
         name: '',
