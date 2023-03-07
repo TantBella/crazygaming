@@ -74,17 +74,23 @@
           </div>
           <div class="productInfo">
             <h3>{{ product.name }}</h3>
-            <h3>
+            <div id="cartBoxBottom">
+              <div id="productButtons">
+                <button class="creaseButtons" @click="increaseButton(index)">
+                  +
+                </button>
+                <p class="productPrice">{{ product.quantity }}</p>
+                <button class="creaseButtons" @click="decreaseButton(index)">
+                  -
+                </button>
+                <img
+                  src="/assets/trash-icon.png"
+                  id="removeButton"
+                  @click="deleteButton(index)"
+                />
+              </div>
               <p class="productPrice">{{ product.price }} €</p>
-              <p class="productPrice">{{ product.quantity }}</p>
-            </h3>
-            <button @click="increaseButton(index)">Increse</button>
-            <button @click="decreaseButton(index)">Decrese</button>
-            <img
-              src="/assets/trash-icon.png"
-              id="removeButton"
-              @click="deleteButton(index)"
-            />
+            </div>
           </div>
         </div>
       </div>
@@ -154,7 +160,6 @@
 
   #cartTop {
     display: flex;
-    justify-content: space-between;
   }
 
   #cartBox {
@@ -176,6 +181,19 @@
   }
   #cart {
     padding: 5%;
+  }
+  #cartBoxBottom {
+    display: flex;
+    flex-direction: row;
+  }
+  #ProductButtons {
+    display: flex;
+  }
+  .creaseButtons {
+    border-radius: 16px;
+    width: 29px;
+    height: 29px;
+    border: none;
   }
   #buttons {
     display: flex;
