@@ -73,9 +73,12 @@
     font-size: inherit;
     margin: 10px;
   }
-  form {
+  form,
+  label {
     margin: 10px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
   }
   button {
     background-color: rgb(50, 50, 93);
@@ -88,14 +91,14 @@
   button:hover {
     background-color: rgb(102, 102, 153);
   }
-  @media (min-width: 400px) {
+  @media (min-width: 375px) and (max-width: 500px) {
     form,
     p,
     h2 {
       display: flex;
       flex-direction: column;
-      align-items: left;
-      margin-left: 30px;
+      margin-left: 10px;
+      align-items: normal;
     }
     input {
       display: inline-block;
@@ -103,7 +106,7 @@
     }
     button,
     h2 {
-      margin-bottom: 30px;
+      margin: 15px;
     }
   }
 </style>
