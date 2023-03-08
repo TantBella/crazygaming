@@ -263,7 +263,7 @@
     #cartBox {
       width: 400px;
     }
-    #untilText {
+    .untilText {
       height: 19px;
     }
   }
