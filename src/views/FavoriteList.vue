@@ -78,6 +78,7 @@
   p {
     text-align: center;
     padding-top: 10px;
+    color: #000;
   }
 
   h1 {
