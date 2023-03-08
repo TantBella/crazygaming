@@ -6,6 +6,9 @@
       },
       cartIsOpen() {
         return this.$store.state.cartIsOpen
+      },
+      productCount() {
+        return Object.keys(this.$store.state.products).length
       }
     },
 
@@ -16,12 +19,23 @@
       deleteButton(index) {
         this.$store.commit('deleteProduct', index)
       },
+      decreaseButton(index) {
+        this.$store.commit('decreaseProduct', index)
+      },
+      increaseButton(index) {
+        this.$store.commit('increaseProduct', index)
+      },
       getTotalPrice() {
-        let totalPrice = 0
-        this.$store.state.products.forEach((product) => {
-          totalPrice += product.price
-        })
-        return totalPrice
+        let total = 0
+        const products = this.$store.state.products
+        for (const productId in products) {
+          const product = products[productId]
+          const productQuantity = product.quantity
+          total += product.price * productQuantity
+          console.log(product.quantity)
+        }
+
+        return total
       }
     }
   }
@@ -47,7 +61,22 @@
           </svg>
         </button>
       </div>
-
+      <div
+        id="shipping"
+        v-if="Object.keys(this.$store.state.products).length >= 1"
+      >
+        <p class="untilText" v-if="getTotalPrice() < 75">
+          <img
+            id="shippingIcon"
+            src="/assets/Shipping-icon.png"
+            alt="Shipping truck icon"
+          />
+          {{ 75 - getTotalPrice() }} € left until free shipping
+        </p>
+        <p class="untilText" v-if="getTotalPrice() >= 75">
+          Free shipping available
+        </p>
+      </div>
       <!-- <p>You have {{ this.$store.state.products.length }} items in your cart</p> -->
 
       <div
@@ -60,28 +89,30 @@
           </div>
           <div class="productInfo">
             <h3>{{ product.name }}</h3>
-            <h3>
+            <div id="cartBoxBottom">
+              <div id="productButtons">
+                <button class="creaseButtons" @click="increaseButton(index)">
+                  +
+                </button>
+                <p class="productPrice">{{ product.quantity }}</p>
+                <button class="creaseButtons" @click="decreaseButton(index)">
+                  -
+                </button>
+                <img
+                  src="/assets/trash-icon.png"
+                  id="removeButton"
+                  @click="deleteButton(index)"
+                />
+              </div>
               <p class="productPrice">{{ product.price }} €</p>
-            </h3>
-            <img
-              src="/assets/trash-icon.png"
-              id="removeButton"
-              @click="deleteButton(index)"
-            />
+            </div>
           </div>
         </div>
       </div>
-      <p v-if="this.$store.state.products.length > 0">
-        Total price: {{ getTotalPrice() }} €
-      </p>
-      <p v-if="this.$store.state.products.length < 1">
-        You have no items in your shopping cart.
-      </p>
+      <p v-if="productCount > 0">Total price: {{ getTotalPrice() }} €</p>
+      <p v-if="productCount < 1">You have no items in your shopping cart.</p>
       <div id="buttons">
-        <button
-          v-if="this.$store.state.products.length > 0"
-          id="checkoutButton"
-        >
+        <button v-if="productCount > 0" id="checkoutButton">
           <RouterLink @click="closeCart" to="/checkout">Checkout</RouterLink>
         </button>
         <button id="continueButton" @click="closeCart">
@@ -144,7 +175,6 @@
 
   #cartTop {
     display: flex;
-    justify-content: space-between;
   }
 
   #cartBox {
@@ -166,6 +196,19 @@
   }
   #cart {
     padding: 5%;
+  }
+  #cartBoxBottom {
+    display: flex;
+    flex-direction: row;
+  }
+  #ProductButtons {
+    display: flex;
+  }
+  .creaseButtons {
+    border-radius: 16px;
+    width: 29px;
+    height: 29px;
+    border: none;
   }
   #buttons {
     display: flex;
@@ -202,6 +245,19 @@
   #continueButton:hover {
     cursor: pointer;
   }
+  #removeButton {
+    width: 30px;
+    cursor: pointer;
+  }
+  .untilText {
+    font-size: 14px;
+    height: 17px;
+  }
+  #shippingIcon {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+  }
 
   #removeButton {
     width: 30px;
@@ -212,5 +268,11 @@
     #cartBox {
       width: 400px;
     }
+<<<<<<< HEAD
+=======
+    .untilText {
+      height: 19px;
+    }
+>>>>>>> 5b04bf5f576cbc5b9691eed56f155f2428b9ada4
   }
 </style>

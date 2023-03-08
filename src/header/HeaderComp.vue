@@ -34,6 +34,12 @@
           class="navbar-toggler"
           @click="this.$store.commit('toggleCart')"
         >
+          <div
+            id="counterProducts"
+            v-if="Object.keys(this.$store.state.products).length != 0"
+          >
+            {{ Object.keys(this.$store.state.products).length }}
+          </div>
           <img
             id="basket"
             src="/assets/basket-icon-white.png"
@@ -120,7 +126,16 @@
 
     #basket {
       width: 35px;
-      margin-left: 1em;
+      margin-left: 0.5em;
+    }
+    #counterProducts {
+      float: left;
+      position: absolute;
+      color: #4361ee;
+      background-color: #fff;
+      width: 20px;
+      height: 16px;
+      border-radius: 50%;
     }
 
     #category {

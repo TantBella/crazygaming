@@ -59,5 +59,13 @@ export default createRouter({
       component: CheckoutView,
       path: '/checkout'
     }
-  ]
+  ],
+  // https://router.vuejs.org/guide/advanced/navigation-guards.html
+  scrollBehavior(t, f, s) {
+    if (s) {
+      return s
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }
 })
