@@ -9,8 +9,9 @@ import Products from './products/FilteredProducts.vue'
 import Confirmation from './views/ConfirmationView.vue'
 import ProductPage from './products/ProductPage.vue'
 import AllGames from './products/AllGames.vue'
-import SignIn from './views/SignInView.vue'
 import CheckoutView from './views/CheckoutView.vue'
+import RegisterUser from './views/RegisterUserView.vue'
+import MyPages from './views/MyPagesView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -48,8 +49,8 @@ export default createRouter({
       path: '/product/:id'
     },
     {
-      component: SignIn,
-      path: '/sign-in'
+      component: RegisterUser,
+      path: '/register-user'
     },
     {
       component: AllGames,
@@ -58,6 +59,10 @@ export default createRouter({
     {
       component: CheckoutView,
       path: '/checkout'
+    },
+    {
+      component: MyPages,
+      path: '/my-pages'
     }
   ],
   // https://router.vuejs.org/guide/advanced/navigation-guards.html
