@@ -5,7 +5,8 @@ const store = createStore({
     return {
       counter: 0,
       cartIsOpen: false,
-      products: {}
+      products: {},
+      favorites: []
     }
   },
 
@@ -43,6 +44,22 @@ const store = createStore({
       {
         product.quantity++
       }
+    },
+    addToFavorites(state, someObject) {
+      if (state.favorites.indexOf(someObject) === -1) {
+        state.favorites.push(someObject)
+      } else {
+        const findIndex = state.favorites
+          .map((item) => item.id)
+          .indexOf(someObject)
+        state.favorites.splice(findIndex, 1)
+      }
+    },
+    removeFavorites(state, objectID) {
+      const findObjectIDToRemove = state.favorites
+        .map((item) => item.id)
+        .indexOf(objectID)
+      state.favorites.splice(findObjectIDToRemove, 1)
     }
   }
 })
