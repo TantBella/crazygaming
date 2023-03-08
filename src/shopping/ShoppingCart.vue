@@ -268,11 +268,8 @@
     #cartBox {
       width: 400px;
     }
-<<<<<<< HEAD
-=======
     .untilText {
       height: 19px;
     }
->>>>>>> 5b04bf5f576cbc5b9691eed56f155f2428b9ada4
   }
 </style>
