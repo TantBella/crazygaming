@@ -203,13 +203,14 @@
     cursor: pointer;
   }
 
+  #removeButton {
+    width: 30px;
+    cursor: pointer;
+  }
+
   @media (min-width: 600px) {
     #cartBox {
       width: 400px;
-    }
-    #removeButton {
-      width: 30px;
-      cursor: pointer;
     }
   }
 </style>
