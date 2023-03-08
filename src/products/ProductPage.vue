@@ -20,12 +20,19 @@
       })
     },
     data() {
-      return { dataResult: null }
+      return {
+        dataResult: null,
+        isFavorite: false
+      }
     },
     methods: {
       addToCart() {
         this.$store.commit('addToCart', this.filteredProductByID)
         this.$store.commit('openCart')
+      },
+      changeButton() {
+        this.$store.commit('addToFavorites', this.filteredProductByID)
+        this.isFavorite = this.isFavorite ? false : true
       }
     }
   }
@@ -81,6 +88,16 @@
               </b-col>
               <b-col md="6" style="text-align: center">
                 <b-button @click="addToCart">Add to cart</b-button>
+                <b-button
+                  @click="changeButton"
+                  class="heart"
+                  :class="{ active: isFavorite }"
+                >
+                  &#9825;
+                  {{
+                    !isFavorite ? 'Add to favorites' : 'Remove from favorites'
+                  }}
+                </b-button>
               </b-col>
             </b-row>
           </b-card-body>
@@ -91,6 +108,13 @@
 </template>
 
 <style scoped>
+  .btn.active {
+    background-color: red;
+  }
+  .heart {
+    margin-left: 10px;
+  }
+
   img {
     max-width: 300px;
   }
