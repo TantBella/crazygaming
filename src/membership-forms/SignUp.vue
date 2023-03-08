@@ -51,9 +51,7 @@
       register() {
         this.v$.$validate()
         if (!this.v$.$error) {
-          alert('Right')
-        } else {
-          alert('Wrong')
+          this.$router.push({ path: '/my-pages' })
         }
       }
     }
@@ -120,7 +118,12 @@
     </p>
     <p>
       <label for="conditions">I accept the terms and conditions:</label>
-      <input type="checkbox" id="conditions" v-model="conditions" />
+      <input
+        class="check"
+        type="checkbox"
+        id="conditions"
+        v-model="conditions"
+      />
       <span id="inline-errors" v-if="v$.conditions.$error"
         >You need to accept the terms and conditions to become a member.</span
       >
@@ -134,18 +137,12 @@
         <li v-if="v$.firstname.$error">Firstname required</li>
         <li v-if="v$.lastname.$error">Lastname required</li>
         <li v-if="v$.email.$error">Email required</li>
-        <li id="inline-errors" v-if="v$.adress.$error">Adress required</li>
-        <li id="inline-errors" v-if="v$.birthday.$error">
-          Date of birth required
-        </li>
-        <li id="inline-errors" v-if="v$.id.$error">ID required</li>
-        <li id="inline-errors" v-if="v$.password.new.$error">
-          Password required
-        </li>
-        <li id="inline-errors" v-if="v$.password.same.$error">
-          Repeat/same password required
-        </li>
-        <li id="inline-errors" v-if="v$.conditions.$error">
+        <li v-if="v$.adress.$error">Adress required</li>
+        <li v-if="v$.birthday.$error">Date of birth required</li>
+        <li v-if="v$.id.$error">ID required</li>
+        <li v-if="v$.password.new.$error">Password required</li>
+        <li v-if="v$.password.same.$error">Repeat/same password required</li>
+        <li v-if="v$.conditions.$error">
           You need to accept the terms and conditions to become a member.
         </li>
       </ul>
@@ -154,10 +151,6 @@
       <button @click.prevent="register">Register</button>
     </div>
   </form>
-  <pre>
-      {{ v$ }}
-    </pre
-  >
 </template>
 
 <style lang="scss" scoped>
@@ -172,7 +165,6 @@
     font-weight: bold;
   }
   .errors {
-    display: block;
     color: rgb(112, 13, 13);
     background-color: rgb(252, 245, 245);
     width: 450px;
@@ -188,6 +180,15 @@
   .errors h3 {
     text-decoration: none;
     font-size: 20px;
+  }
+  p,
+  div,
+  button,
+  .errors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   h2 {
     text-align: center;
@@ -209,6 +210,11 @@
     font-size: inherit;
     margin: 10px;
   }
+  .check {
+    width: 40px;
+    height: 25px;
+    border-color: white;
+  }
   button {
     background-color: rgb(50, 50, 93);
     border-radius: 5px;
@@ -225,15 +231,19 @@
     color: white;
   }
 
-  @media (min-width: 400px) {
+  @media (min-width: 375px) and (max-width: 500px) {
     form,
     p,
-    h1 {
+    h1,
+    div,
+    .errors {
       display: flex;
-      justify-content: center;
       flex-direction: column;
-      align-items: center;
+      align-items: left;
       margin: 10px;
+    }
+    .errors {
+      width: auto;
     }
     input {
       display: inline-block;

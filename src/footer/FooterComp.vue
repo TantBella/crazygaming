@@ -39,6 +39,11 @@
   .disclaimer p {
     padding: 2px 10px 3px 10px;
     font-size: x-small;
-    margin-bottom: 30px;
+    margin-bottom: 55px;
+  }
+  @media (min-width: 600px) {
+    .disclaimer p {
+      margin-bottom: 15px;
+    }
   }
 </style>

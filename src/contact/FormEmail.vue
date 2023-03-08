@@ -30,10 +30,7 @@
         console.log(this.v$)
         console.log(this.firstname)
         if (!this.v$.$error) {
-          this.errors = false
           this.$router.push({ path: '/confirmation' })
-        } else {
-          this.errors = true
         }
       }
     },
@@ -95,14 +92,14 @@
         I understand that Crazy Gaming only uses my emailadress for contact
         purposes only</label
       >
-      <input v-model="check" id="check" type="checkbox" />
+      <input class="check" v-model="check" id="check" type="checkbox" />
       <span id="inline-errors" v-if="v$.check.$error"
         >Please check the checkbox</span
       >
     </p>
     <button @click.prevent="formcheck">Send</button>
 
-    <div class="errors" v-show="errors">
+    <div class="errors" v-show="this.v$.$error">
       <h3>
         Oh no! Looks like you missed a few steps in the form, please correct the
         mistakes.
@@ -125,9 +122,6 @@
   </div>
 </template>
 
-<!-- v-on submit på knappen -->
-
-<!-- en ny sida dyker upp -->
 <!-- nya sidan innehåller en knapp som går tillbaka till hemsidan -->
 
 <style lang="scss" scoped>
@@ -196,6 +190,11 @@
   a {
     text-decoration: none;
     color: white;
+  }
+  .check {
+    width: 40px;
+    height: 25px;
+    border-color: white;
   }
 
   @media (min-width: 400px) {
