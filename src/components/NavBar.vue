@@ -95,9 +95,9 @@
           >
             <div
               id="counterProducts"
-              v-if="this.$store.state.products.length != 0"
+              v-if="Object.keys(this.$store.state.products).length != 0"
             >
-              {{ this.$store.state.products.length }}
+              {{ Object.keys(this.$store.state.products).length }}
             </div>
             <svg
               width="45"
