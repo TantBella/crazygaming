@@ -121,6 +121,15 @@
 </template>
 
 <style lang="scss" scoped>
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
   .cart {
     display: none;
   }
@@ -136,7 +145,6 @@
   }
 
   .productPrice {
-    text-align: right;
     margin: 0;
     color: #000;
   }
@@ -152,26 +160,31 @@
     padding: 1rem;
     margin-bottom: 1rem;
     display: flex;
-    justify-content: space-between;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
-  p {
-    color: #fffdfa;
-  }
-
-  h3 {
-    font-size: 15px;
-  }
-
-  h2 {
-    font-size: 28px;
-    font-weight: normal;
-    color: #fffdfa;
-    text-transform: uppercase;
-  }
-
   #cartTop {
     display: flex;
+    justify-content: space-between;
+  }
+  #cart {
+    padding: 5%;
+  }
+  #cartBoxBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  #productButtons {
+    display: flex;
+    align-items: center;
+  }
+  .creaseButtons {
+    border-radius: 16px;
+    width: 29px;
+    height: 29px;
+    border: none;
+    margin: 0rem 0.3rem;
   }
 
   #cartBox {
@@ -187,26 +200,24 @@
   #cartBox::-webkit-scrollbar {
     display: none;
   }
+  p {
+    color: #fffdfa;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  h2 {
+    color: #fffdfa;
+    text-transform: uppercase;
+  }
+
   a {
     text-decoration: none;
     color: #000;
   }
-  #cart {
-    padding: 5%;
-  }
-  #cartBoxBottom {
-    display: flex;
-    flex-direction: row;
-  }
-  #ProductButtons {
-    display: flex;
-  }
-  .creaseButtons {
-    border-radius: 16px;
-    width: 29px;
-    height: 29px;
-    border: none;
-  }
+
   #buttons {
     display: flex;
     flex-direction: column;
