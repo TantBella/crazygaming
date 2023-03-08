@@ -209,6 +209,7 @@
 
   h3 {
     font-size: 15px;
+    color: #000;
   }
 
   h2 {

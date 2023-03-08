@@ -45,7 +45,7 @@
       border: 1px solid #000;
     "
   >
-    <b-container>
+    <b-container class="productPage">
       <b-row class="g-0">
         <b-col md="4">
           <b-card-img
@@ -91,6 +91,10 @@
 </template>
 
 <style scoped>
+  .productPage {
+    color: #000;
+  }
+
   img {
     max-width: 300px;
   }
