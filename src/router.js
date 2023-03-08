@@ -12,6 +12,7 @@ import AllGames from './products/AllGames.vue'
 import CheckoutView from './views/CheckoutView.vue'
 import RegisterUser from './views/RegisterUserView.vue'
 import MyPages from './views/MyPagesView.vue'
+import FavoriteList from './views/FavoriteList.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -63,6 +64,10 @@ export default createRouter({
     {
       component: MyPages,
       path: '/my-pages'
+    },
+    {
+      component: FavoriteList,
+      path: '/favorites'
     }
   ],
   // https://router.vuejs.org/guide/advanced/navigation-guards.html
