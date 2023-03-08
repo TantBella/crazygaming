@@ -65,13 +65,16 @@
         id="shipping"
         v-if="Object.keys(this.$store.state.products).length >= 1"
       >
-        <p id="untilText">
+        <p class="untilText" v-if="getTotalPrice() < 75">
           <img
             id="shippingIcon"
             src="/assets/Shipping-icon.png"
             alt="Shipping truck icon"
           />
           {{ 75 - getTotalPrice() }} € left until free shipping
+        </p>
+        <p class="untilText" v-if="getTotalPrice() >= 75">
+          Free shipping available
         </p>
       </div>
       <!-- <p>You have {{ this.$store.state.products.length }} items in your cart</p> -->
@@ -246,7 +249,7 @@
     width: 30px;
     cursor: pointer;
   }
-  #untilText {
+  .untilText {
     font-size: 14px;
     height: 17px;
   }
