@@ -6,7 +6,15 @@ const store = createStore({
       counter: 0,
       cartIsOpen: false,
       products: {},
-      favorites: []
+      favorites: [],
+      registeredUser: {
+        firstname: '',
+        lastname: '',
+        adress: '',
+        email: '',
+        birthday: '',
+        password: ''
+      }
     }
   },
 
@@ -61,6 +69,9 @@ const store = createStore({
         .map((item) => item.id)
         .indexOf(objectID)
       state.favorites.splice(findObjectIDToRemove, 1)
+    },
+    registerUser(state, registeredUser) {
+      state.registeredUser = registeredUser
     }
   }
 })
