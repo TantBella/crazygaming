@@ -1,6 +1,6 @@
 <template>
   <div class="newsletter-popup" v-show="showPopup">
-    <div class="newsletter-popup-content">
+    <div v-click-outside="onClickOutside" class="newsletter-popup-content">
       <span class="close-btn" @click="hidePopup">&times;</span>
       <img id="logo" src="/assets/Logo.png" alt="Crazy Gaming logo." />
       <p>Subscribe to our Newsletter to get 10% off your next purchase!</p>
@@ -19,7 +19,11 @@
 </template>
 
 <script>
+  import vClickOutside from 'click-outside-vue3'
   export default {
+    directives: {
+      clickOutside: vClickOutside.directive
+    },
     data() {
       return {
         showPopup: false
@@ -32,6 +36,9 @@
     },
     methods: {
       hidePopup() {
+        this.showPopup = false
+      },
+      onClickOutside() {
         this.showPopup = false
       }
     }

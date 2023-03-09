@@ -1,9 +1,5 @@
 <script>
-  import ShoppingCart from '../shopping/ShoppingCart.vue'
   export default {
-    components: {
-      ShoppingCart
-    },
     data() {
       return {
         showMenu: false
@@ -21,8 +17,6 @@
 </script>
 
 <template>
-  <ShoppingCart />
-
   <div id="menuBox" class="collapse" :class="{ show: showMenu }">
     <h2>Categories</h2>
     <h3>

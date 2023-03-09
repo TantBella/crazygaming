@@ -1,10 +1,6 @@
 <script>
   import axios from 'axios'
-  import ShoppingCart from '../shopping/ShoppingCart.vue'
   export default {
-    components: {
-      ShoppingCart
-    },
     computed: {
       filteredProductByID() {
         if (this.dataResult === null) {
@@ -71,7 +67,6 @@
 </script>
 
 <template>
-  <ShoppingCart />
   <b-card
     no-body
     class="overflow-hidden"

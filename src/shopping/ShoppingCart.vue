@@ -1,5 +1,9 @@
 <script>
+  import vClickOutside from 'click-outside-vue3'
   export default {
+    directives: {
+      clickOutside: vClickOutside.directive
+    },
     computed: {
       productsInCart() {
         return this.$store.state.products
@@ -13,6 +17,9 @@
     },
 
     methods: {
+      onClickOutside() {
+        this.$store.commit('closeCart')
+      },
       closeCart() {
         this.$store.commit('closeCart')
       },
@@ -45,7 +52,11 @@
 </script>
 
 <template>
-  <div id="cartBox" :class="{ cart: !cartIsOpen }">
+  <div
+    id="cartBox"
+    :class="{ cart: !cartIsOpen }"
+    v-click-outside="onClickOutside"
+  >
     <div id="cart">
       <div id="cartTop">
         <h2>Your cart</h2>
@@ -122,7 +133,9 @@
         </div>
       </div>
 
-      <p id="totalPrice">Total price: {{ getTotalPrice() }} €</p>
+      <p id="totalPrice" v-if="productCount > 0">
+        Total price: {{ getTotalPrice() }} €
+      </p>
 
       <p v-if="productCount < 1">You have no items in your shopping cart.</p>
       <div id="buttons">
