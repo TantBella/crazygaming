@@ -1,13 +1,6 @@
 <script>
   import useVuelidate from '@vuelidate/core'
-  import {
-    required,
-    email,
-    sameAs,
-    numeric,
-    maxLength,
-    minLength
-  } from '@vuelidate/validators'
+  import { required, email, sameAs, numeric } from '@vuelidate/validators'
 
   export default {
     data() {
@@ -34,12 +27,6 @@
         email: { required, email },
         adress: { required },
         birthday: { required, numeric },
-        id: {
-          required,
-          numeric,
-          minLength: minLength(10),
-          maxLength: maxLength(12)
-        },
         password: {
           new: { required },
           same: { required, sameAs: sameAs(this.password.new) }
@@ -51,6 +38,13 @@
       register() {
         this.v$.$validate()
         if (!this.v$.$error) {
+          this.$store.commit('registerUser', {
+            firstname: this.firstname,
+            lastname: this.lastname,
+            email: this.email,
+            birthday: this.birthday,
+            password: this.password.same
+          })
           this.$router.push({ path: '/my-pages' })
         }
       }
