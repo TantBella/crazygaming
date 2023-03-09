@@ -22,7 +22,12 @@
     data() {
       return {
         dataResult: null,
-        isFavorite: false
+        isFavorite: false,
+        reviewFlag1: 'black',
+        reviewFlag2: 'black',
+        reviewFlag3: 'black',
+        reviewFlag4: 'black',
+        reviewFlag5: 'black'
       }
     },
     methods: {
@@ -33,6 +38,33 @@
       addOrRemoveToFavorites() {
         this.$store.commit('addToFavorites', this.filteredProductByID)
         this.isFavorite = this.isFavorite ? false : true
+      },
+      review(i) {
+        /* eslint-disable no-fallthrough */
+        switch (i) {
+          case 4:
+            this.reviewFlag5 = '#9857C2'
+          case 3:
+            this.reviewFlag4 = '#9857C2'
+          case 2:
+            this.reviewFlag3 = '#9857C2'
+          case 1:
+            this.reviewFlag2 = '#9857C2'
+          case 0:
+            this.reviewFlag1 = '#9857C2'
+        }
+
+        switch (i) {
+          case 0:
+            this.reviewFlag2 = 'black'
+          case 1:
+            this.reviewFlag3 = 'black'
+          case 2:
+            this.reviewFlag4 = 'black'
+          case 3:
+            this.reviewFlag5 = 'black'
+        }
+        /* eslint-enable no-fallthrough */
       }
     }
   }
@@ -104,6 +136,41 @@
         </b-col>
       </b-row>
     </b-container>
+    <div>
+      <p id="rate">Rate this game:</p>
+      <div>
+        <span>
+          <i
+            @click="review(0)"
+            :style="'color: ' + this.reviewFlag1"
+            class="bi bi-controller"
+        /></span>
+        <span>
+          <i
+            @click="review(1)"
+            :style="'color: ' + this.reviewFlag2"
+            class="bi bi-controller"
+        /></span>
+        <span>
+          <i
+            @click="review(2)"
+            :style="'color: ' + this.reviewFlag3"
+            class="bi bi-controller"
+        /></span>
+        <span>
+          <i
+            @click="review(3)"
+            :style="'color: ' + this.reviewFlag4"
+            class="bi bi-controller"
+        /></span>
+        <span>
+          <i
+            @click="review(4)"
+            :style="'color: ' + this.reviewFlag5"
+            class="bi bi-controller"
+        /></span>
+      </div>
+    </div>
   </b-card>
 </template>
 
@@ -129,5 +196,14 @@
 
   .line-throw {
     text-decoration: line-through;
+  }
+
+  .bi {
+    color: #000;
+    font-size: 30px;
+  }
+  #rate {
+    color: #000;
+    margin: 0;
   }
 </style>
