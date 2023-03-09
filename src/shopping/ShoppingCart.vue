@@ -107,8 +107,12 @@
                 />
               </div>
               <p class="productPrice" v-if="product.sale_price">
-                <span class="sale">{{ product.sale_price }}€</span>
-                <span class="line">{{ product.price }}€</span>
+                <span class="sale"
+                  >{{ product.sale_price * product.quantity }}€</span
+                >
+                <span class="line"
+                  >{{ product.price * product.quantity }}€</span
+                >
               </p>
               <p class="productPrice" v-else>{{ product.price }}€</p>
             </div>
