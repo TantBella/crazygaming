@@ -114,7 +114,9 @@
                   >{{ product.price * product.quantity }}€</span
                 >
               </p>
-              <p class="productPrice" v-else>{{ product.price }}€</p>
+              <p class="productPrice" v-else>
+                {{ product.price * product.quantity }}€
+              </p>
             </div>
           </div>
         </div>
