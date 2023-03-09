@@ -56,7 +56,6 @@
       />
     </div>
   </div>
-  >>>>>>> aa71f04b221272f4083a6f0630e0ba61b642b2db
 </template>
 
 <style lang="scss" scoped>
