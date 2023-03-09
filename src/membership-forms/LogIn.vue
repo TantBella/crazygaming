@@ -34,20 +34,22 @@
 </script>
 
 <template>
-  <h2>Log in</h2>
-  <form>
-    <p>
-      <label for="email">Email</label>
-      <input type="text" v-model="login.email" id="email" />
-      <span v-if="v$.login.email.$error">Email required</span>
-    </p>
-    <p>
-      <label for="password">Password</label>
-      <input type="password" v-model="login.password" />
-      <span v-if="v$.login.password.$error">Password required</span>
-    </p>
-    <button @click.prevent="Login">Login</button>
-  </form>
+  <div>
+    <h2>Log in</h2>
+    <form>
+      <p>
+        <label for="email">Email</label>
+        <input type="text" v-model="login.email" id="email" />
+        <span v-if="v$.login.email.$error">Email required</span>
+      </p>
+      <p>
+        <label for="password">Password</label>
+        <input type="password" v-model="login.password" />
+        <span v-if="v$.login.password.$error">Password required</span>
+      </p>
+      <button @click.prevent="Login">Login</button>
+    </form>
+  </div>
 </template>
 
 <style scoped>
