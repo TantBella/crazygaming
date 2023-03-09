@@ -68,7 +68,6 @@
         >Firstname required</span
       >
     </p>
-
     <p>
       <label for="lastname">Lastname:</label>
       <input id="lastname" v-model="lastname" />
@@ -93,13 +92,6 @@
       <input id="birthday" v-model="birthday" />
       <span id="inline-errors" v-if="v$.birthday.$error">{{
         v$.birthday.$errors[0].$message
-      }}</span>
-    </p>
-    <p>
-      <label for="id">ID/ personnumber:</label>
-      <input id="id" v-model="id" />
-      <span id="inline-errors" v-if="v$.id.$error">{{
-        v$.id.$errors[0].$message
       }}</span>
     </p>
     <p>
@@ -139,7 +131,6 @@
         <li v-if="v$.email.$error">Email required</li>
         <li v-if="v$.adress.$error">Adress required</li>
         <li v-if="v$.birthday.$error">Date of birth required</li>
-        <li v-if="v$.id.$error">ID required</li>
         <li v-if="v$.password.new.$error">Password required</li>
         <li v-if="v$.password.same.$error">Repeat/same password required</li>
         <li v-if="v$.conditions.$error">

@@ -136,6 +136,7 @@
     max-height: 100px;
     width: 65%;
     padding-left: 0.5em;
+    z-index: 1000;
   }
   // ^inspo: https://stackoverflow.com/questions/65252244/aligning-search-results-under-search-bar
   a {

@@ -12,7 +12,7 @@
   <h1>Welcome to Crazy Gaming's clubhouse</h1>
   <p>You can log into your account and sign up for membership.</p>
   <div>
-    <LogIn />
+    <LogIn class="login" />
   </div>
   <div class="link">
     <p class="account">

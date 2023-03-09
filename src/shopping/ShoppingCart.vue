@@ -31,7 +31,11 @@
         for (const productId in products) {
           const product = products[productId]
           const productQuantity = product.quantity
-          total += product.price * productQuantity
+          if (product.sale_price) {
+            total += product.sale_price * productQuantity
+          } else {
+            total += product.price * productQuantity
+          }
         }
 
         return total
@@ -102,9 +106,11 @@
                   @click="deleteButton(index)"
                 />
               </div>
-              <p class="productPrice">
-                {{ product.price * product.quantity }} €
+              <p class="productPrice" v-if="product.sale_price">
+                <span class="sale">{{ product.sale_price }}€</span>
+                <span class="line">{{ product.price }}€</span>
               </p>
+              <p class="productPrice" v-else>{{ product.price }}€</p>
             </div>
           </div>
         </div>
@@ -126,6 +132,24 @@
 </template>
 
 <style lang="scss" scoped>
+  .sale {
+    color: red;
+    padding-right: 5px;
+  }
+
+  .line {
+    text-decoration: line-through;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
   .cart {
     display: none;
   }
