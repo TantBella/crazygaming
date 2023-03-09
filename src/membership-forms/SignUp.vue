@@ -1,13 +1,6 @@
 <script>
   import useVuelidate from '@vuelidate/core'
-  import {
-    required,
-    email,
-    sameAs,
-    numeric,
-    maxLength,
-    minLength
-  } from '@vuelidate/validators'
+  import { required, email, sameAs, numeric } from '@vuelidate/validators'
 
   export default {
     data() {
@@ -34,12 +27,6 @@
         email: { required, email },
         adress: { required },
         birthday: { required, numeric },
-        id: {
-          required,
-          numeric,
-          minLength: minLength(10),
-          maxLength: maxLength(12)
-        },
         password: {
           new: { required },
           same: { required, sameAs: sameAs(this.password.new) }
@@ -51,6 +38,13 @@
       register() {
         this.v$.$validate()
         if (!this.v$.$error) {
+          this.$store.commit('registerUser', {
+            firstname: this.firstname,
+            lastname: this.lastname,
+            email: this.email,
+            birthday: this.birthday,
+            password: this.password.same
+          })
           this.$router.push({ path: '/my-pages' })
         }
       }
@@ -68,7 +62,6 @@
         >Firstname required</span
       >
     </p>
-
     <p>
       <label for="lastname">Lastname:</label>
       <input id="lastname" v-model="lastname" />
@@ -96,19 +89,14 @@
       }}</span>
     </p>
     <p>
-      <label for="id">ID/ personnumber:</label>
-      <input id="id" v-model="id" />
-      <span id="inline-errors" v-if="v$.id.$error">{{
-        v$.id.$errors[0].$message
-      }}</span>
-    </p>
-    <p>
       <label for="new-password">New password:</label>
       <input type="password" id="new-password" v-model="password.new" />
       <span id="inline-errors" v-if="v$.password.new.$error"
         >Password required</span
       >
     </p>
+    <h1>Welcome Testsson!</h1>
+    <p>{{ this.$store.state.registeredUser.password }}</p>
     <p>
       <label for="same-password">Repeat password:</label>
       <input type="password" id="same-password" v-model="password.same" />
@@ -139,7 +127,6 @@
         <li v-if="v$.email.$error">Email required</li>
         <li v-if="v$.adress.$error">Adress required</li>
         <li v-if="v$.birthday.$error">Date of birth required</li>
-        <li v-if="v$.id.$error">ID required</li>
         <li v-if="v$.password.new.$error">Password required</li>
         <li v-if="v$.password.same.$error">Repeat/same password required</li>
         <li v-if="v$.conditions.$error">

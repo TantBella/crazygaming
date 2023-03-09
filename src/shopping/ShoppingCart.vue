@@ -31,8 +31,11 @@
         for (const productId in products) {
           const product = products[productId]
           const productQuantity = product.quantity
-          total += product.price * productQuantity
-          console.log(product.quantity)
+          if (product.sale_price) {
+            total += product.sale_price * productQuantity
+          } else {
+            total += product.price * productQuantity
+          }
         }
 
         return total
@@ -77,7 +80,6 @@
           Free shipping available
         </p>
       </div>
-      <!-- <p>You have {{ this.$store.state.products.length }} items in your cart</p> -->
 
       <div
         v-for="(product, index) in this.$store.state.products"
@@ -94,7 +96,7 @@
                 <button class="creaseButtons" @click="increaseButton(index)">
                   +
                 </button>
-                <p class="productPrice">{{ product.quantity }}</p>
+                <p id="productQuantity">{{ product.quantity }}</p>
                 <button class="creaseButtons" @click="decreaseButton(index)">
                   -
                 </button>
@@ -104,12 +106,18 @@
                   @click="deleteButton(index)"
                 />
               </div>
-              <p class="productPrice">{{ product.price }} €</p>
+              <p class="productPrice" v-if="product.sale_price">
+                <span class="sale">{{ product.sale_price }}€</span>
+                <span class="line">{{ product.price }}€</span>
+              </p>
+              <p class="productPrice" v-else>{{ product.price }}€</p>
             </div>
           </div>
         </div>
       </div>
-      <p v-if="productCount > 0">Total price: {{ getTotalPrice() }} €</p>
+
+      <p id="totalPrice">Total price: {{ getTotalPrice() }} €</p>
+
       <p v-if="productCount < 1">You have no items in your shopping cart.</p>
       <div id="buttons">
         <button v-if="productCount > 0" id="checkoutButton">
@@ -124,6 +132,15 @@
 </template>
 
 <style lang="scss" scoped>
+  .sale {
+    color: red;
+    padding-right: 5px;
+  }
+
+  .line {
+    text-decoration: line-through;
+  }
+
   .overlay {
     position: fixed;
     top: 0;
@@ -146,6 +163,10 @@
     max-width: 100px;
     padding-right: 1rem;
   }
+  #productQuantity {
+    color: #000;
+    margin: 0;
+  }
 
   .productPrice {
     margin: 0;
@@ -155,6 +176,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 0;
+    width: 30rem;
   }
 
   .productBox {
@@ -175,7 +198,7 @@
   #cartBoxBottom {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   #productButtons {
@@ -203,10 +226,10 @@
   #cartBox::-webkit-scrollbar {
     display: none;
   }
-  p {
-    color: #fffdfa;
+  #totalPrice {
+    padding: 0.5rem;
+    text-align: right;
   }
-
   h3 {
     font-size: 15px;
     color: #000;
@@ -269,11 +292,6 @@
     width: 14px;
     height: 14px;
     padding: 0;
-  }
-
-  #removeButton {
-    width: 30px;
-    cursor: pointer;
   }
 
   @media (min-width: 600px) {
