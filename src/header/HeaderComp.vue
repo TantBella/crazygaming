@@ -12,9 +12,8 @@
 
 <template>
   <header>
-    <Transition name="slide">
-      <ShoppingCart />
-    </Transition>
+    <ShoppingCart />
+
     <div id="container">
       <div id="logo">
         <RouterLink to="/">

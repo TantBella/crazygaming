@@ -43,6 +43,7 @@ const store = createStore({
       const product = state.products[productId]
       {
         product.quantity++
+        product.price++
       }
     },
     addToFavorites(state, someObject) {
