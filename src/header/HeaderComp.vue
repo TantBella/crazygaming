@@ -50,6 +50,9 @@
         <RouterLink to="/user">
           <img id="user" src="/assets/user-icon-white.png" alt="User icon" />
         </RouterLink>
+        <RouterLink to="/favorites"
+          ><img id="fav" src="/assets/favorite-icon.png" alt="Heart icon"
+        /></RouterLink>
       </div>
     </div>
     <div id="category">
@@ -120,13 +123,18 @@
 
     #user {
       width: 30px;
-      margin-left: 1.6em;
-      margin-right: 5em;
+      margin-left: 0.5em;
+      // margin-right: 5em;
     }
 
     #basket {
       width: 35px;
+      // margin-left: 0.5em;
+    }
+    #fav {
+      width: 28px;
       margin-left: 0.5em;
+      margin-right: 1em;
     }
     #counterProducts {
       float: left;
