@@ -24,7 +24,7 @@
       Login() {
         this.v$.$validate()
         if (!this.v$.$error) {
-          alert('Right')
+          this.$router.push({ path: '/my-pages' })
         } else {
           alert('Wrong')
         }

@@ -68,7 +68,6 @@
         >Firstname required</span
       >
     </p>
-
     <p>
       <label for="lastname">Lastname:</label>
       <input id="lastname" v-model="lastname" />
