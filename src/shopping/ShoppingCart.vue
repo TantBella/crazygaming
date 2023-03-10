@@ -1,9 +1,5 @@
 <script>
-  import vClickOutside from 'click-outside-vue3'
   export default {
-    directives: {
-      clickOutside: vClickOutside.directive
-    },
     computed: {
       productsInCart() {
         return this.$store.state.products
@@ -52,11 +48,7 @@
 </script>
 
 <template>
-  <div
-    id="cartBox"
-    :class="{ cart: !cartIsOpen }"
-    v-click-outside="onClickOutside"
-  >
+  <div id="cartBox" :class="{ cart: !cartIsOpen }">
     <div id="cart">
       <div id="cartTop">
         <h2>Your cart</h2>
