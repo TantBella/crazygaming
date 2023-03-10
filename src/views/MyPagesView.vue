@@ -1,8 +1,10 @@
+<script></script>
+
 <template>
   <div class="mypages">
     <h1>Welcome Testsson!</h1>
     <div class="userbtn">
-      <RouterLink to="/user"> My Wishlist </RouterLink>
+      <RouterLink to="/favorites"> My Wishlist </RouterLink>
       <img
         src="/assets/arrow_right.png"
         alt="buttonpng"
@@ -11,7 +13,7 @@
       />
     </div>
     <div class="userbtn">
-      <RouterLink to="/user"> My Purchases </RouterLink>
+      <RouterLink to="/Purchases"> My Purchases </RouterLink>
       <img
         src="/assets/arrow_right.png"
         alt="buttonpng"
@@ -20,7 +22,7 @@
       />
     </div>
     <div class="userbtn">
-      <RouterLink to="/user"> Track My Order </RouterLink>
+      <RouterLink to="/Trackorder"> Track My Order </RouterLink>
       <img
         src="/assets/arrow_right.png"
         alt="buttonpng"
@@ -29,7 +31,7 @@
       />
     </div>
     <div class="userbtn">
-      <RouterLink to="/user"> My Discounts </RouterLink>
+      <RouterLink to="/Memberdiscount"> My Discounts </RouterLink>
       <img
         src="/assets/arrow_right.png"
         alt="buttonpng"
@@ -38,7 +40,7 @@
       />
     </div>
     <div class="userbtn">
-      <RouterLink to="/user"> Customer Support </RouterLink>
+      <RouterLink to="/contact"> Customer Support </RouterLink>
       <img
         src="/assets/arrow_right.png"
         alt="buttonpng"
@@ -47,7 +49,7 @@
       />
     </div>
     <div class="userbtn">
-      <RouterLink to="/user"> Log Out </RouterLink>
+      <RouterLink to="/Logout"> Log Out </RouterLink>
       <img
         src="/assets/arrow_right.png"
         alt="buttonpng"

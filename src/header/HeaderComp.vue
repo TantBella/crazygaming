@@ -1,19 +1,15 @@
 <script>
   import Search from './SearchField.vue'
-  import ShoppingCart from '../shopping/ShoppingCart.vue'
 
   export default {
     components: {
-      Search,
-      ShoppingCart
+      Search
     }
   }
 </script>
 
 <template>
   <header>
-    <ShoppingCart />
-
     <div id="container">
       <div id="logo">
         <RouterLink to="/">

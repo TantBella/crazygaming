@@ -55,13 +55,11 @@ const store = createStore({
       }
     },
     addToFavorites(state, someObject) {
-      if (state.favorites.indexOf(someObject) === -1) {
-        state.favorites.push(someObject)
-      } else {
-        const findIndex = state.favorites
-          .map((item) => item.id)
-          .indexOf(someObject)
+      const findIndex = state.favorites.find((obj) => obj.id === someObject.id)
+      if (findIndex) {
         state.favorites.splice(findIndex, 1)
+      } else {
+        state.favorites.push(someObject)
       }
     },
     removeFavorites(state, objectID) {

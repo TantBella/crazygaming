@@ -4,6 +4,7 @@
   import Footern from './footer/FooterComp.vue'
   import Shipping from './components/FreeShipping.vue'
   import ArrowUp from './components/ArrowUp.vue'
+  import ShoppingCart from './shopping/ShoppingCart.vue'
 
   export default {
     components: {
@@ -11,7 +12,8 @@
       Navbar,
       Footern,
       Shipping,
-      ArrowUp
+      ArrowUp,
+      ShoppingCart
     },
 
     data: function () {
@@ -34,6 +36,8 @@
       <Headern />
       <Shipping />
     </div>
+
+    <ShoppingCart />
     <Navbar />
     <main>
       <RouterView />
