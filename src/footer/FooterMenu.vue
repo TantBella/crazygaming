@@ -20,8 +20,8 @@
           >
             <ul class="card-text">
               <li><RouterLink to="/user"> My Account </RouterLink></li>
-              <li><RouterLink to="/">My Wishlist </RouterLink></li>
-              <li><RouterLink to="/"> Purchases </RouterLink></li>
+              <li><RouterLink to="/user">My Wishlist </RouterLink></li>
+              <li><RouterLink to="/user"> Purchases </RouterLink></li>
             </ul>
           </b-card>
         </b-collapse>
@@ -44,9 +44,9 @@
             <ul class="card-text">
               <li><RouterLink to="/contact"> Contact </RouterLink></li>
               <li>
-                <RouterLink to="/"> Track Your Order </RouterLink>
+                <RouterLink to="/user"> Track Your Order </RouterLink>
               </li>
-              <li><RouterLink to="/"> Feedback </RouterLink></li>
+              <li><RouterLink to="/contact"> Feedback </RouterLink></li>
             </ul>
           </b-card>
         </b-collapse>
