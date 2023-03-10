@@ -202,6 +202,10 @@
     color: #000;
     font-size: 30px;
   }
+  .bi:hover {
+    background-color: rgb(54, 54, 58, 0.1);
+    border-radius: 5px;
+  }
   #rate {
     color: #000;
     margin: 0;
