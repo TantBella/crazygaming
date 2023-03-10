@@ -177,11 +177,11 @@
                 </svg>
                 <p class="stockText" style="color: #b20202">SOLD OUT</p>
               </div>
-              <b-col md="6" style="text-align: center">
-                <b-button @click="addToCart">Add to cart</b-button>
+              <b-col id="addButtons" md="6" style="text-align: center">
+                <b-button class="addB" @click="addToCart">Add to cart</b-button>
                 <b-button
                   @click="addOrRemoveToFavorites"
-                  class="heart"
+                  class="heart addB"
                   :class="{ active: isFavorite }"
                 >
                   &#9825;
@@ -256,6 +256,17 @@
 
   .line-throw {
     text-decoration: line-through;
+  }
+  #addButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: fit-content;
+  }
+  .addB {
+    width: 200px;
+    height: 61px;
+    background-color: #3a0ca3;
   }
   .stock {
     display: flex;
