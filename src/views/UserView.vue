@@ -10,7 +10,10 @@
 
 <template>
   <h1>Welcome to Crazy Gaming's clubhouse</h1>
-  <p>You can log into your account and sign up for membership.</p>
+  <p>
+    You can log into your account by using the emailadress that you used when
+    you registered the account. Or sign up and get your membership now!
+  </p>
   <div>
     <LogIn class="login" />
   </div>
