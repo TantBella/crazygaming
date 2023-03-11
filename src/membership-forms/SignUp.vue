@@ -95,8 +95,6 @@
         >Password required</span
       >
     </p>
-    <h1>Welcome Testsson!</h1>
-    <p>{{ this.$store.state.registeredUser.password }}</p>
     <p>
       <label for="same-password">Repeat password:</label>
       <input type="password" id="same-password" v-model="password.same" />
