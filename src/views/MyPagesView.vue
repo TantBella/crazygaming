@@ -9,11 +9,11 @@
         border="0"
         class="arrowside"
     /></RouterLink>
-
     <div class="welcome">
       <h1>
         Welcome {{ this.$store.state.registeredUser.firstname }}
-        {{ this.$store.state.registeredUser.lastname }}! Ready to game?
+        {{ this.$store.state.registeredUser.lastname }}! Are you ready to
+        enhance your gaming experience?
       </h1>
       <p>
         This is were you find personalised links to your account, your wishlist,
@@ -24,7 +24,16 @@
     </div>
     <!-- Kanske hade varit bra att ha "mitt konto" typ också som en länk? -->
     <div class="userbtn">
-      <RouterLink to="/favorites"> My Wishlist </RouterLink>
+      <RouterLink to="/myaccount"> My Account </RouterLink>
+      <img
+        src="/assets/arrow_right.png"
+        alt="buttonpng"
+        border="0"
+        class="arrowside"
+      />
+    </div>
+    <div class="userbtn">
+      <RouterLink to="/wishlist"> My Wishlist </RouterLink>
       <img
         src="/assets/arrow_right.png"
         alt="buttonpng"

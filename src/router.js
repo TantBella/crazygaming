@@ -19,10 +19,15 @@ import MemberDiscount from './Userviews/MemberDiscount.vue'
 import DeleteAccount from './Userviews/DeleteAccount.vue'
 import UserSettings from './Userviews/UserSettings.vue'
 import LogOut from './Userviews/LogOut.vue'
+import MyAccount from './Userviews/MyAccount.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
+    {
+      component: MyAccount,
+      path: '/myaccount'
+    },
     {
       component: DeleteAccount,
       path: '/deleteaccount'
@@ -97,7 +102,7 @@ export default createRouter({
     },
     {
       component: FavoriteList,
-      path: '/favorites'
+      path: '/wishlist'
     }
   ],
   // https://router.vuejs.org/guide/advanced/navigation-guards.html
