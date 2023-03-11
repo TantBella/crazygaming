@@ -2,6 +2,13 @@
 
 <template>
   <div class="mypages">
+    <RouterLink to="/settings">
+      <img
+        src="/assets/settings.png"
+        alt="buttonpng"
+        border="0"
+        class="arrowside"
+    /></RouterLink>
     <h1>Welcome Testsson!</h1>
     <div class="userbtn">
       <RouterLink to="/favorites"> My Wishlist </RouterLink>
