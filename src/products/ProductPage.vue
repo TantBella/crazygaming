@@ -31,8 +31,8 @@
         this.$store.commit('addToCart', this.filteredProductByID)
         this.$store.commit('openCart')
       },
-      addOrRemoveToFavorites() {
-        this.$store.commit('addToFavorites', this.filteredProductByID)
+      addOrRemoveFavorite() {
+        this.$store.commit('addOrRemoveFavorites', this.filteredProductByID)
         this.isFavorite = this.isFavorite ? false : true
       },
       review(i) {
@@ -180,7 +180,7 @@
               <b-col id="addButtons" md="6" style="text-align: center">
                 <b-button class="addB" @click="addToCart">Add to cart</b-button>
                 <b-button
-                  @click="addOrRemoveToFavorites"
+                  @click="addOrRemoveFavorite"
                   class="heart addB"
                   :class="{ active: isFavorite }"
                 >
