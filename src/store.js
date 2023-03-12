@@ -6,7 +6,7 @@ const store = createStore({
       counter: 0,
       cartIsOpen: false,
       products: {},
-      favorites: [],
+      favorites: {},
       registeredUser: {
         firstname: '',
         lastname: '',
@@ -54,19 +54,15 @@ const store = createStore({
         product.price++
       }
     },
-    addToFavorites(state, someObject) {
-      const findIndex = state.favorites.find((obj) => obj.id === someObject.id)
-      if (findIndex) {
-        state.favorites.splice(findIndex, 1)
+    addOrRemoveFavorites(state, product) {
+      if (state.favorites[product.id] !== undefined) {
+        delete state.favorites[product.id]
       } else {
-        state.favorites.push(someObject)
+        state.favorites[product.id] = product
       }
     },
     removeFavorites(state, objectID) {
-      const findObjectIDToRemove = state.favorites
-        .map((item) => item.id)
-        .indexOf(objectID)
-      state.favorites.splice(findObjectIDToRemove, 1)
+      delete state.favorites[objectID]
     },
     registerUser(state, registeredUser) {
       state.registeredUser = registeredUser
