@@ -41,7 +41,7 @@
     <div class="topbrands">
       <h2>Xbox</h2>
       <h3>
-        <RouterLink to="/products/Xbox">Visa alla</RouterLink>
+        <RouterLink to="/products/Xbox" class="show-all">Visa alla</RouterLink>
       </h3>
       <div class="links">
         <router-link
@@ -50,11 +50,15 @@
           :to="`/product/${game.id}`"
         >
           <img :src="game.image" :alt="game.name" />
-        </router-link>
+          {{ game.name }} <br />
+          Price: {{ game.price }}€</router-link
+        >
       </div>
       <h2>Playstation 5</h2>
       <h3>
-        <RouterLink to="/products/Playstation">Visa alla</RouterLink>
+        <RouterLink to="/products/Playstation" class="show-all"
+          >Visa alla</RouterLink
+        >
       </h3>
       <div class="links">
         <router-link
@@ -63,6 +67,8 @@
           :to="`/product/${game.id}`"
         >
           <img :src="game.image" :alt="game.name" />
+          {{ game.name }} <br />
+          Price: {{ game.price }}€
         </router-link>
       </div>
     </div>
@@ -85,26 +91,28 @@
     color: white;
     margin-bottom: 10px;
   }
+  .show-all {
+    color: white;
+    text-decoration: underline;
+    font-weight: 400;
+    font-size: small;
+  }
   .links {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
     /* width: 29vw; */
-    color: white;
+    color: rgb(33, 32, 32);
     background-color: rgb(238, 234, 234);
     padding: 20px;
     font-size: small;
     text-decoration: none;
-    margin: 0;
-  }
-
-  .links:hover {
-    text-decoration: underline;
   }
 
   h2 {
     color: white;
-    font-size: large;
+    font-size: 20px;
+    margin-top: 10px;
   }
 
   h3 {
@@ -114,7 +122,13 @@
     font-size: small;
   }
   a {
-    color: #fff;
+    color: #151515;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+  }
+  a:hover {
+    text-decoration: none;
   }
 
   .homepage {
