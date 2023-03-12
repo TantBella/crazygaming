@@ -76,13 +76,13 @@
   }
 
   img {
-    width: 100px;
+    height: 200px;
     padding: 10px;
   }
 
   h1 {
     text-align: center;
-    color: #fff;
+    color: white;
     margin-bottom: 10px;
   }
   .links {
@@ -91,8 +91,11 @@
     overflow-x: scroll;
     /* width: 29vw; */
     color: white;
+    background-color: rgb(238, 234, 234);
+    padding: 20px;
     font-size: small;
     text-decoration: none;
+    margin: 0;
   }
 
   .links:hover {
