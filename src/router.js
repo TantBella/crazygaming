@@ -20,6 +20,7 @@ import DeleteAccount from './Userviews/DeleteAccount.vue'
 import UserSettings from './Userviews/UserSettings.vue'
 import LogOut from './Userviews/LogOut.vue'
 import MyAccount from './Userviews/MyAccount.vue'
+import Categories from './products/CategoriePage.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -103,9 +104,14 @@ export default createRouter({
     {
       component: FavoriteList,
       path: '/wishlist'
+    },
+    {
+      component: Categories,
+      path: '/categories'
     }
   ],
   // https://router.vuejs.org/guide/advanced/navigation-guards.html
+  // https://router.vuejs.org/guide/advanced/scroll-behavior.html
   scrollBehavior(t, f, s) {
     if (s) {
       return s
