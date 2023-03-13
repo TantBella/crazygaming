@@ -12,8 +12,24 @@
     <div v-else-if="currentSection === 'payment'">
       <PaymentSection @next-section="setCurrentSection" />
     </div>
-    <button v-if="previousSection" @click="goToPreviousSection">Go back</button>
-    <button v-if="nextSection" @click="goToNextSection">Next</button>
+    <div class="buttons">
+      <button
+        id="leftBtn"
+        class="btn"
+        v-if="previousSection"
+        @click="goToPreviousSection"
+      >
+        Go back
+      </button>
+      <button
+        id="rightBtn"
+        class="btn"
+        v-if="nextSection"
+        @click="goToNextSection"
+      >
+        Next
+      </button>
+    </div>
   </div>
 </template>
 
@@ -85,26 +101,37 @@
   #details-section,
   #shipping-section,
   #payment-section {
-    border: 1px solid #ccc;
     padding: 20px;
     margin-bottom: 20px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
   }
-  .btn {
-    display: block;
+  .buttons {
+    display: flex;
     margin: 0 auto;
+    justify-content: center;
+  }
+  .btn {
+    background-color: #3a0ca3;
+    color: #fffdfa;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     padding: 10px 20px;
-    background-color: #fff;
-    color: #000000;
+    text-transform: uppercase;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: large;
-    width: 7rem;
+    width: 35vw;
+    max-width: 450px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+    border: 2px solid transparent;
+  }
+  #rightBtn {
+    margin-left: 0.5rem;
   }
   .btn:hover {
-    transform: scale(1.1);
+    border: 2px solid #ccc;
+  }
+  @media (max-width: 399px) {
   }
 </style>

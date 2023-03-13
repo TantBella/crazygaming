@@ -1,8 +1,9 @@
 <template>
-  <div class="details-section">
+  <div class="detailsSection">
     <h2>Delivery details</h2>
+    <div class="line" />
     <form>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="name">
           <input
             placeholder="Name"
@@ -13,7 +14,7 @@
           />
         </label>
       </div>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="email">
           <input
             placeholder="Email"
@@ -24,7 +25,7 @@
           />
         </label>
       </div>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="phone">
           <input
             placeholder="Phone"
@@ -35,7 +36,7 @@
           />
         </label>
       </div>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="address">
           <input
             placeholder="Address"
@@ -46,7 +47,7 @@
           />
         </label>
       </div>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="city">
           <input
             placeholder="City"
@@ -57,7 +58,7 @@
           />
         </label>
       </div>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="zip">
           <input
             placeholder="Zip Code"
@@ -75,8 +76,9 @@
 <script></script>
 
 <style lang="scss" scoped>
-  .details-section {
-    max-width: 800px;
+  .detailsSection {
+    width: 75vw;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
     background-color: #3a0ca370;
@@ -85,13 +87,12 @@
     margin-bottom: 1.5rem;
     color: #fff;
   }
-
-  .details-section h2 {
+  .detailsSection h2 {
     margin-bottom: 20px;
     text-align: center;
   }
 
-  .form-group {
+  .formGroup {
     margin-bottom: 20px;
   }
 
@@ -108,27 +109,18 @@
     border: 1px solid #fff;
     border-radius: 5px;
   }
-
-  .btn {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    background-color: #fff;
-    color: #000000;
+  h2 {
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+  }
+  .line {
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    width: 6rem;
-  }
-  .button-group {
-    display: flex;
-    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin: 1rem 0;
   }
 
-  .btn:hover {
-    transform: scale(1.1);
-  }
   @media (max-width: 599px) {
     .details-section {
       width: 90vw;
