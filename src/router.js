@@ -116,7 +116,9 @@ export default createRouter({
     if (s) {
       return s
     } else {
-      window.scrollTo(0, 0)
+      setTimeout(() => {
+        window.scrollTo(0, 0)
+      }, 0)
     }
   }
 })
