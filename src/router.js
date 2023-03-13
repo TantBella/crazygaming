@@ -20,6 +20,7 @@ import DeleteAccount from './Userviews/DeleteAccount.vue'
 import UserSettings from './Userviews/UserSettings.vue'
 import LogOut from './Userviews/LogOut.vue'
 import MyAccount from './Userviews/MyAccount.vue'
+import Categories from './products/CategoriePage.vue'
 // admin
 import Admin from './admin/AdminView.vue'
 import Orders from './admin/OrdersView.vue'
@@ -113,6 +114,10 @@ export default createRouter({
       path: '/wishlist'
     },
     {
+      component: Categories,
+      path: '/categories'
+    },
+    {
       component: Admin,
       path: '/admin'
     },
@@ -142,11 +147,14 @@ export default createRouter({
     }
   ],
   // https://router.vuejs.org/guide/advanced/navigation-guards.html
+  // https://router.vuejs.org/guide/advanced/scroll-behavior.html
   scrollBehavior(t, f, s) {
     if (s) {
       return s
     } else {
-      window.scrollTo(0, 0)
+      setTimeout(() => {
+        window.scrollTo(0, 0)
+      }, 0)
     }
   }
 })

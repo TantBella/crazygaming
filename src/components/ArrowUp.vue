@@ -22,8 +22,8 @@
     width: 25px;
   }
   button {
-    background-color: #d9d9d924;
-    border: solid 3px white;
+    background-color: #d9d9d931;
+    border: solid 3px rgb(201, 199, 199);
     border-radius: 20px;
     bottom: 65px;
     right: 50px;

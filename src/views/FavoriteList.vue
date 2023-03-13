@@ -28,7 +28,7 @@
   >
     <b-container>
       <b-row>
-        <h1>My Favorites</h1>
+        <h1>My Wishlist</h1>
         <p v-if="$store.state.favorites.length === 0">
           You have not added any products to your favorites.
         </p>

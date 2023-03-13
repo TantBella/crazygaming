@@ -8,6 +8,9 @@
         }
 
         return this.dataResult.find((obj) => obj.id === +this.$route.params.id)
+      },
+      isFavorite() {
+        return this.$store.state.favorites[this.$route.params.id] !== undefined
       }
     },
     created() {
@@ -18,7 +21,6 @@
     data() {
       return {
         dataResult: null,
-        isFavorite: false,
         reviewFlag1: 'black',
         reviewFlag2: 'black',
         reviewFlag3: 'black',
@@ -33,7 +35,6 @@
       },
       addOrRemoveFavorite() {
         this.$store.commit('addOrRemoveFavorites', this.filteredProductByID)
-        this.isFavorite = this.isFavorite ? false : true
       },
       review(i) {
         /* eslint-disable no-fallthrough */

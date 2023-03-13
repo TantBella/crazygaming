@@ -1,50 +1,4 @@
-<script>
-  export default {
-    data() {
-      return {
-        showMenu: false
-      }
-    },
-    methods: {
-      toggleMenu() {
-        this.showMenu = !this.showMenu
-      },
-      hideMenu() {
-        this.showMenu = false
-      }
-    }
-  }
-</script>
-
 <template>
-  <div id="menuBox" class="collapse" :class="{ show: showMenu }">
-    <h2>Categories</h2>
-    <h3>
-      <RouterLink class="links" to="/all-products" @click="hideMenu"
-        >All Games</RouterLink
-      >
-    </h3>
-    <h3>
-      <RouterLink class="links" to="/products/Xbox" @click="hideMenu"
-        >Xbox</RouterLink
-      >
-    </h3>
-    <h3>
-      <RouterLink class="links" to="/products/Playstation" @click="hideMenu"
-        >Playstation</RouterLink
-      >
-    </h3>
-    <h3>
-      <RouterLink class="links" to="/products/Nintendo" @click="hideMenu"
-        >Nintendo</RouterLink
-      >
-    </h3>
-    <h3>
-      <RouterLink class="links" to="/products/PC" @click="hideMenu"
-        >PC</RouterLink
-      >
-    </h3>
-  </div>
   <nav>
     <div>
       <ul>
@@ -65,7 +19,7 @@
           </RouterLink>
         </li>
         <li>
-          <button class="navbar-toggler" type="button" @click="toggleMenu">
+          <RouterLink to="/categories" class="navbar-toggler">
             <svg
               width="35"
               height="31"
@@ -78,7 +32,7 @@
                 fill="black"
               />
             </svg>
-          </button>
+          </RouterLink>
         </li>
         <li>
           <button
@@ -131,11 +85,6 @@
 </template>
 
 <style lang="scss" scoped>
-  #menuBox {
-    color: #fff;
-    text-align: center;
-  }
-
   .links {
     color: #fff;
     text-decoration: none;
@@ -145,18 +94,6 @@
   .links:hover {
     color: #fff;
     background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  h2 {
-    font-size: 35px;
-    font-weight: normal;
-    padding-bottom: 1.3rem;
-  }
-
-  h3 {
-    padding: 1.3rem;
-    font-size: 30px;
-    font-weight: normal;
   }
 
   nav {
