@@ -51,8 +51,12 @@
         >
           <img :src="game.image" :alt="game.name" />
           {{ game.name }} <br />
-          Price: {{ game.price }}€</router-link
-        >
+          <p v-if="game.sale_price">
+            Price: <span class="sale">{{ game.sale_price }}€</span>
+            <span class="line">{{ game.price }}€</span>
+          </p>
+          <p v-else>Price: {{ game.price }}€</p>
+        </router-link>
       </div>
       <h2>Playstation 5</h2>
       <h3>
@@ -68,7 +72,11 @@
         >
           <img :src="game.image" :alt="game.name" />
           {{ game.name }} <br />
-          Price: {{ game.price }}€
+          <p v-if="game.sale_price">
+            Price: <span class="sale">{{ game.sale_price }}€</span>
+            <span class="line">{{ game.price }}€</span>
+          </p>
+          <p v-else>Price: {{ game.price }}€</p>
         </router-link>
       </div>
     </div>
@@ -76,6 +84,15 @@
 </template>
 
 <style scoped>
+  .sale {
+    color: red;
+    padding-right: 5px;
+  }
+
+  .line {
+    text-decoration: line-through;
+  }
+
   .topbrands {
     display: flex;
     flex-direction: column;
