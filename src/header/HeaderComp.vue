@@ -45,7 +45,7 @@
         <RouterLink to="/user">
           <img id="user" src="/assets/user-icon-white.png" alt="User icon" />
         </RouterLink>
-        <RouterLink to="/favorites"
+        <RouterLink to="/wishlist"
           ><img id="fav" src="/assets/favorite-icon.png" alt="Heart icon"
         /></RouterLink>
       </div>
