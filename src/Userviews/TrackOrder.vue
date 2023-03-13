@@ -27,8 +27,7 @@
     </div>
   </div>
   <div class="tracker">
-    <div class="line" />
-    <div class="item active">
+    <div class="item">
       <div class="circle">
         <svg
           width="36"
@@ -43,6 +42,7 @@
           />
         </svg>
       </div>
+      <div class="line" />
       <div class="label">
         <p class="orderText">Order placed</p>
         <p>March 14, 2023</p>
@@ -63,6 +63,7 @@
           />
         </svg>
       </div>
+      <div class="line" />
       <div class="label">
         <p class="orderText">Order packed</p>
         <p>March 15, 2023</p>
@@ -83,6 +84,7 @@
           />
         </svg>
       </div>
+      <div class="line" id="lastLine" />
       <div class="label">
         <p class="orderText">Order in transit</p>
         <p>Gothenburg, Sweden</p>
@@ -164,14 +166,13 @@
     height: 5rem;
     border-radius: 50%;
     background-color: #3a0ca3;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
   }
   #lastCircle {
-    background-color: #fff;
+    background-color: #fffdfa;
   }
   .label {
     margin-left: 10px;
@@ -180,16 +181,14 @@
   .item:not(:last-child) {
     margin-bottom: 20px;
   }
-
-  .item.active .progress-circle {
-    background-color: white;
-    color: #3a0ca3;
-    border: 2px solid #3a0ca3;
+  #lastLine {
+    background: linear-gradient(#3a0ca3, #fffdfa);
   }
   .line {
-    margin: 2.4rem;
+    margin-left: 2.4rem;
+    margin-top: 6.2rem;
     width: 5px;
-    height: 36%;
+    height: 3.3rem;
     background-color: #3a0ca3;
     position: absolute;
   }
