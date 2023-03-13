@@ -95,7 +95,7 @@
     text-align: center;
   }
   .mypages {
-    background-color: #a180f698;
+    // background-color: #926afa98;
     padding: 5px 0 20px 0;
   }
   .userbtn {
