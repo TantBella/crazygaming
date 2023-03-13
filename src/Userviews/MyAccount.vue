@@ -2,7 +2,8 @@
   export default {
     data() {
       return {
-        show: false
+        show: false,
+        unSubscribe: false
       }
     },
     methods: {
@@ -23,8 +24,9 @@
       {{ this.$store.state.registeredUser.lastname }}!
     </h1>
 
+    <h5>Menu:</h5>
     <div>
-      <RouterLink to="/favorites"> My Wishlist </RouterLink>
+      <RouterLink to="/wishlist"> My Wishlist </RouterLink>
     </div>
     <div>
       <RouterLink to="/Purchases"> My Purchases </RouterLink>
@@ -34,6 +36,20 @@
     </div>
     <div>
       <RouterLink to="/Memberdiscount"> My Discounts </RouterLink>
+    </div>
+
+    <div>
+      <RouterLink to="/Logout"> Log Out </RouterLink>
+    </div>
+    <div class="unsubscribe">
+      <h5>Unsubscribe from Newsletter</h5>
+      <label v-if="unSubscribe === false">Are you sure?</label>
+      <label v-else>Click again to subscribe</label>
+      <input type="checkbox" v-model="unSubscribe" />
+      <p v-if="unSubscribe !== false">
+        You have successfuly unsubscribed and will no longer receive any emails
+        from us.
+      </p>
     </div>
     <div>
       <b-button class="deleteBtn" @click="show = !show"
@@ -47,13 +63,10 @@
         >Are you sure you want to leave us? :[
       </b-modal>
     </div>
-    <div>
-      <RouterLink to="/Logout"> Log Out </RouterLink>
-    </div>
   </div>
 </template>
 
-<style>
+<style scoped>
   a {
     color: white;
   }
@@ -63,4 +76,17 @@
   .deleteBtn:hover {
     background-color: rgba(69, 1, 1, 0.5);
   }
+
+  input[type='checkbox'] {
+    height: 16px;
+    width: 16px;
+  }
+  label {
+    margin-right: 5px;
+  }
+
+  .unsubscribe {
+    margin-top: 20px;
+  }
 </style>
+<!-- länk till my account rutnät med alla uppgifter man lagt ini formuläret vid registrering  reisterd user som sparas i ett object i store -->

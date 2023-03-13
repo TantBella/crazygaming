@@ -1,14 +1,59 @@
+<script>
+  import useVuelidate from '@vuelidate/core'
+  import { required, email } from '@vuelidate/validators'
+
+  export default {
+    data() {
+      return {
+        tabIndex: 0,
+        v$: useVuelidate(),
+        inputMail: null
+      }
+    },
+
+    validations() {
+      return {
+        inputMail: {
+          required,
+          email
+        }
+      }
+    },
+
+    methods: {
+      submitMail() {
+        alert("Thanks for Joining! You're in good company.")
+      },
+
+      // Nedan är för att brevet ska snurra
+      linkClass(idx) {
+        if (this.tabIndex === idx) {
+          return ['bg-primary', 'text-light']
+        } else {
+          return ['bg-light', 'text-info']
+        }
+      }
+    },
+
+    watch: {
+      inputMail(t) {
+        console.log(`Användaren har angett denna mail: ${t}, för nyhetsbrev.`)
+      }
+    }
+  }
+</script>
+
 <template>
   <div class="mail">
     <h2>Subscribe To Our Newsletter</h2>
-    <form class="mailinputbtn">
+    <form action="#" method="post" class="mailinputbtn">
       <input
         @keyup.enter="submitMail()"
         type="email"
         class="email"
         v-model="inputMail"
-        placeholder="example@mail.com"
         name="email"
+        placeholder="example@mail.com"
         required
       />
       <button
@@ -22,35 +67,6 @@
     <p>Subscribe to our newsletter to get exclusive offers!</p>
   </div>
 </template>
-
-<script>
-  export default {
-    methods: {
-      submitMail() {
-        alert("Thanks for Joining! You're in good company.")
-      },
-      linkClass(idx) {
-        if (this.tabIndex === idx) {
-          return ['bg-primary', 'text-light']
-        } else {
-          return ['bg-light', 'text-info']
-        }
-      }
-    },
-    data() {
-      return {
-        inputMail: null,
-        tabIndex: 0
-      }
-    },
-
-    watch: {
-      inputMail(t) {
-        console.log(`Användaren har angett denna mail: ${t}, för nyhetsbrev.`)
-      }
-    }
-  }
-</script>
 
 <style lang="scss" scoped>
   .mail {
