@@ -57,16 +57,11 @@
         />
       </div>
     </div>
-
-    <!-- <div class="admin-grid">
-      <ul>
-        <li>Orders</li>
-        <li>Custumers Wishlist</li>
-        <li>Custumers Cart</li>
-        <li>Sales chart</li>
-        <li>Products</li>
-        <li>Rating</li>
-      </ul>
-    </div> -->
   </div>
 </template>
+
+<style>
+  a {
+    color: white;
+  }
+</style>
