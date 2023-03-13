@@ -31,3 +31,4 @@
     color: white;
   }
 </style>
+<!-- länk till my account rutnät med alla uppgifter man lagt ini formuläret vid registrering  reisterd user som sparas i ett object i store -->
