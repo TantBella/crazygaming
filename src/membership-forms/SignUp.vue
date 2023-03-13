@@ -6,6 +6,7 @@
     data() {
       return {
         v$: useVuelidate(),
+        username: '',
         firstname: '',
         lastname: '',
         email: '',
@@ -22,6 +23,7 @@
     },
     validations() {
       return {
+        username: { required },
         firstname: { required },
         lastname: { required },
         email: { required, email },
@@ -39,6 +41,7 @@
         this.v$.$validate()
         if (!this.v$.$error) {
           this.$store.commit('registerUser', {
+            username: this.username,
             firstname: this.firstname,
             lastname: this.lastname,
             email: this.email,
@@ -55,6 +58,13 @@
 <template>
   <h2>Register new user</h2>
   <form>
+    <p>
+      <label for="username">Pick your username:</label>
+      <input id="username" v-model="username" />
+      <span id="inline-errors" v-if="v$.username.$error"
+        >Username required</span
+      >
+    </p>
     <p>
       <label for="firstname">Firstname:</label>
       <input id="firstname" v-model="firstname" />
