@@ -30,6 +30,9 @@
         console.log(this.v$)
         console.log(this.firstname)
         if (!this.v$.$error) {
+          this.$store.commit('contactform', {
+            email: this.email
+          })
           this.$router.push({ path: '/confirmation' })
         }
       }
@@ -49,7 +52,7 @@
 <template>
   <div>
     <p class="question">
-      Do you have any questions? Don't hesitate to call us, or send us a email
+      Do you have any questions? Don't hesitate to call us, or send us an email
       down below!
     </p>
   </div>

@@ -14,6 +14,9 @@ const store = createStore({
         email: '',
         birthday: '',
         password: ''
+      },
+      contact: {
+        email: ''
       }
     }
   },
@@ -66,6 +69,9 @@ const store = createStore({
     },
     registerUser(state, registeredUser) {
       state.registeredUser = registeredUser
+    },
+    contactform(state, contact) {
+      state.contact = contact
     }
   }
 })

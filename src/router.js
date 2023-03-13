@@ -21,6 +21,14 @@ import UserSettings from './Userviews/UserSettings.vue'
 import LogOut from './Userviews/LogOut.vue'
 import MyAccount from './Userviews/MyAccount.vue'
 import Categories from './products/CategoriePage.vue'
+// admin
+import Admin from './admin/AdminView.vue'
+import Orders from './admin/OrdersView.vue'
+import Customerscart from './admin/CustomersCartView.vue'
+import CustomersWishlist from './admin/CustomersWishlistView.vue'
+import ProductsAdmin from './admin/ProductsAdminView.vue'
+import Rating from './admin/RatingView.vue'
+import Saleschart from './admin/SaleschartView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -108,6 +116,34 @@ export default createRouter({
     {
       component: Categories,
       path: '/categories'
+    },
+    {
+      component: Admin,
+      path: '/admin'
+    },
+    {
+      component: Orders,
+      path: '/admin-orders'
+    },
+    {
+      component: Customerscart,
+      path: '/admin-cart'
+    },
+    {
+      component: CustomersWishlist,
+      path: '/admin-wish'
+    },
+    {
+      component: ProductsAdmin,
+      path: '/admin-products'
+    },
+    {
+      component: Rating,
+      path: '/admin-rating'
+    },
+    {
+      component: Saleschart,
+      path: '/admin-sales'
     }
   ],
   // https://router.vuejs.org/guide/advanced/navigation-guards.html

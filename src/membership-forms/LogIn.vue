@@ -1,13 +1,13 @@
 <script>
   import useVuelidate from '@vuelidate/core'
-  import { required, email } from '@vuelidate/validators'
+  import { required } from '@vuelidate/validators'
 
   export default {
     data() {
       return {
         v$: useVuelidate(),
         login: {
-          email: '',
+          username: '',
           password: ''
         }
       }
@@ -15,7 +15,7 @@
     validations() {
       return {
         login: {
-          email: { required, email },
+          username: { required },
           password: { required }
         }
       }
@@ -23,10 +23,10 @@
     methods: {
       Login() {
         this.v$.$validate()
-        if (!this.v$.$error) {
+        if (!this.v$.$error && this.login.username !== 'Admin') {
           this.$router.push({ path: '/my-pages' })
-        } else {
-          alert('Wrong')
+        } else if (this.login.username === 'Admin') {
+          this.$router.push({ path: '/admin' })
         }
       }
     }
@@ -38,9 +38,9 @@
     <h2>Log in</h2>
     <form>
       <p>
-        <label for="email">Email</label>
-        <input type="text" v-model="login.email" id="email" />
-        <span v-if="v$.login.email.$error">Email required</span>
+        <label for="username">Username</label>
+        <input type="text" v-model="login.username" id="username" />
+        <span v-if="v$.login.username.$error">Username required</span>
       </p>
       <p>
         <label for="password">Password</label>
@@ -68,6 +68,7 @@
   }
   input {
     border-radius: 5px;
+    width: 300px;
     background-color: rgba(50, 50, 93, 0.25);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px;
     font-size: 16px;
@@ -76,7 +77,8 @@
     margin: 10px;
   }
   form,
-  label {
+  label,
+  p {
     margin: 10px;
     box-sizing: border-box;
     display: flex;
