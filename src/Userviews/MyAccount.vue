@@ -41,16 +41,6 @@
     <div>
       <RouterLink to="/Logout"> Log Out </RouterLink>
     </div>
-    <div class="unsubscribe">
-      <h5>Unsubscribe from Newsletter</h5>
-      <label v-if="unSubscribe === false">Are you sure?</label>
-      <label v-else>Click again to subscribe</label>
-      <input type="checkbox" v-model="unSubscribe" />
-      <p v-if="unSubscribe !== false">
-        You have successfuly unsubscribed and will no longer receive any emails
-        from us.
-      </p>
-    </div>
     <div>
       <b-button class="deleteBtn" @click="show = !show"
         >Delete account</b-button
@@ -62,6 +52,16 @@
         v-model="show"
         >Are you sure you want to leave us? :[
       </b-modal>
+    </div>
+    <div class="unsubscribe">
+      <h5>Unsubscribe from Newsletter</h5>
+      <label v-if="unSubscribe === false">Are you sure?</label>
+      <label v-else>Click again to subscribe</label>
+      <input type="checkbox" v-model="unSubscribe" />
+      <p v-if="unSubscribe !== false">
+        You have successfuly unsubscribed and will no longer receive any emails
+        from us.
+      </p>
     </div>
   </div>
 </template>
