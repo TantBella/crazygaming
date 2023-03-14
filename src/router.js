@@ -18,7 +18,7 @@ import MyPurchase from './Userviews/MyPurchase.vue'
 import MemberDiscount from './Userviews/MemberDiscount.vue'
 import DeleteAccount from './Userviews/DeleteAccount.vue'
 import UserSettings from './Userviews/UserSettings.vue'
-import LogOut from './Userviews/LogOut.vue'
+
 import Categories from './products/CategoriePage.vue'
 // admin
 import Admin from './admin/AdminView.vue'
@@ -40,10 +40,7 @@ export default createRouter({
       component: UserSettings,
       path: '/settings'
     },
-    {
-      component: LogOut,
-      path: '/Logout'
-    },
+
     {
       component: MemberDiscount,
       path: '/Memberdiscount'

@@ -21,60 +21,61 @@
         personalised space.
       </p>
     </div>
-
-    <div class="userbtn">
-      <RouterLink to="/wishlist"> My Wishlist </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/Purchases"> My Purchases </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/Trackorder"> Track My Order </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/Memberdiscount"> My Discounts </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/contact"> Customer Support </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/Logout"> Log Out </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
+    <div class="container">
+      <div class="userbtn">
+        <RouterLink to="/wishlist"> My Wishlist </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
+      <div class="userbtn">
+        <RouterLink to="/Purchases"> My Purchases </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
+      <div class="userbtn">
+        <RouterLink to="/Trackorder"> Track My Order </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
+      <div class="userbtn">
+        <RouterLink to="/Memberdiscount"> My Discounts </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
+      <div class="userbtn">
+        <RouterLink to="/contact"> Customer Support </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
+      <div class="userbtn">
+        <RouterLink to="/"> Log Out </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -93,6 +94,8 @@
     border-radius: 17px;
     padding: 10px;
     margin: 5px;
+    display: flex;
+    justify-content: space-between;
   }
 
   a {
@@ -109,5 +112,14 @@
     display: flex;
     // justify-self: flex-end;
     // align-self: flex-end;
+  }
+  @media (min-width: 600px) {
+    .settings {
+      width: 2vw;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 </style>
