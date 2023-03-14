@@ -14,9 +14,9 @@
         >
           <b-img src="./assets/birthday.png" fluid alt="Responsive image" />
           <b-card-text
-            >You recently had your birthday and therefore we offer you a 10%
-            discount on your next purchase. Use the code: "crazy10" in
-            checkout.</b-card-text
+            >We wanna celebrate your birthday! Instead of a wrapped gift we
+            wanna give you get a 10% discount on your next purchase. Use the
+            code: "HAPPY10" in checkout.</b-card-text
           >
           <b-card-text>Valid to 2023-04-31</b-card-text>
         </b-card>
@@ -30,8 +30,8 @@
         >
           <b-img src="./assets/loyal.png" fluid alt="Responsive image" />
           <b-card-text
-            >You are a loyal customer, therefore we offer you a 25% discount on
-            your next purchase. Use the code: "crazy25" in
+            >Thanks for being a loyal customer! As a 'thank you' we wanna give
+            you 5% discount on your next purchase. Use the code: "THANKS" in
             checkout.</b-card-text
           >
           <b-card-text>Valid to 2023-04-11</b-card-text>

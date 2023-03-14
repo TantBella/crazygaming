@@ -7,7 +7,7 @@
         src="/assets/settings.png"
         alt="buttonpng"
         border="0"
-        class="arrowside"
+        class="settings"
     /></RouterLink>
     <div class="welcome">
       <h1>
@@ -100,6 +100,11 @@
     color: white;
   }
 
+  .settings {
+    float: right;
+    width: 5vw;
+    margin: 10px;
+  }
   .arrowside {
     display: flex;
     // justify-self: flex-end;
