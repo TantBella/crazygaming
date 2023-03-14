@@ -72,10 +72,10 @@
   }
 
   input {
+    color: #000;
     display: block;
     padding: 10px 45px;
-    background: rgba(255, 255, 255, 0.172);
-    background: rgba(255, 255, 255, 0.172) no-repeat 15px center;
+    background: rgba(255, 255, 255) no-repeat 15px center;
     background-size: 15px 15px;
     font-size: 16px;
     border: none;

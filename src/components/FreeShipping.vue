@@ -12,7 +12,7 @@
 <style scoped>
   .shippingContainer {
     color: #fff;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
     height: 45px;
     display: flex;
     justify-content: center;
