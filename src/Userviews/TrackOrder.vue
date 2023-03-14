@@ -138,9 +138,9 @@
   }
 
   #itemPrice {
-    color: #3a0ca3;
+    color: #616161;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .tracker {
     width: 20rem;
