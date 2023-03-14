@@ -12,6 +12,7 @@
       @sliding-end="onSlideEnd"
     >
       <b-carousel-slide class="desktopImage" img-src="/assets/hogwarts.avif" />
+
       <b-carousel-slide class="desktopImage" img-src="/assets/gow.webp" />
       <b-carousel-slide class="desktopImage" img-src="/assets/cod.jpg" />
     </b-carousel>
@@ -33,6 +34,7 @@
         img-src="/assets/hogwartsmobile.jpg"
       />
       <b-carousel-slide class="mobileImage" img-src="/assets/gowmobile.jpg" />
+
       <b-carousel-slide class="mobileImage" img-src="/assets/codmobile.jpg" />
     </b-carousel>
   </div>

@@ -11,9 +11,8 @@
     /></RouterLink>
     <div class="welcome">
       <h1>
-        Welcome {{ this.$store.state.registeredUser.firstname }}
-        {{ this.$store.state.registeredUser.lastname }}! Are you ready to
-        enhance your gaming experience?
+        Welcome {{ this.$store.state.registeredUser.firstname }}! Are you ready
+        to enhance your gaming experience?
       </h1>
       <p>
         This is were you find personalised links to your account, your wishlist,
@@ -22,16 +21,7 @@
         personalised space.
       </p>
     </div>
-    <!-- Kanske hade varit bra att ha "mitt konto" typ också som en länk? -->
-    <div class="userbtn">
-      <RouterLink to="/myaccount"> My Account </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
+
     <div class="userbtn">
       <RouterLink to="/wishlist"> My Wishlist </RouterLink>
       <img

@@ -5,7 +5,7 @@
       src="/assets/Shipping-icon.png"
       alt="Shipping truck icon."
     />
-    <p>Free shipping over 75 €</p>
+    <p>Free shipping when your purchase is over 75 €</p>
   </div>
 </template>
 

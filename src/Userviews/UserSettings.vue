@@ -1,8 +1,13 @@
 <script>
+  import DeleteAccount from './DeleteAccount.vue'
   import useVuelidate from '@vuelidate/core'
   import { required, email, sameAs } from '@vuelidate/validators'
 
   export default {
+    components: {
+      DeleteAccount
+    },
+
     data() {
       return {
         unSubscribe: false,
@@ -31,7 +36,6 @@
           new: { required },
           same: { required, sameAs: sameAs(this.password.new) }
         }
-        // conditions: { required, sameAS: sameAs(true) }
       }
     },
     methods: {
@@ -53,79 +57,94 @@
 </script>
 
 <template>
-  <h1>Change your settings</h1>
+  <h1 style="padding-top: 10px">Change your settings</h1>
 
   <form>
-    <p>
-      <label for="firstname">Firstname:</label>
-      <input id="firstname" v-model="firstname" />
-    </p>
-    <p>
-      <label for="lastname">Lastname:</label>
-      <input id="lastname" v-model="lastname" />
-    </p>
-
-    <p>
-      <label for="email">Email:</label>
-      <input id="email" v-model="email" />
-    </p>
-    <p>
-      <label for="address">Address:</label>
-      <input id="address" v-model="address" />
-    </p>
-    <p>
-      <label for="old-password">Old password:</label>
-      <input type="password" id="old-password" v-model="password.old" />
-      <span id="inline-errors" v-if="v$.password.old.$error"
-        >Password required</span
-      >
-    </p>
-    <p>
-      <label for="new-password">New password:</label>
-      <input type="password" id="new-password" v-model="password.new" />
-      <span id="inline-errors" v-if="v$.password.new.$error"
-        >Password required</span
-      >
-    </p>
-    <p>
-      <label for="same-password">Repeat password:</label>
-      <input type="password" id="same-password" v-model="password.same" />
-      <span id="inline-errors" v-if="v$.password.same.$error">{{
-        v$.password.same.$errors[0].$message
-      }}</span>
-    </p>
-
-    <div class="unsubscribe">
-      <h5>Unsubscribe from Newsletter</h5>
-      <label v-if="unSubscribe === false">Are you sure?</label>
-      <label v-else>Click again to subscribe</label>
-      <input type="checkbox" v-model="unSubscribe" />
-      <p v-if="unSubscribe !== false">
-        You have successfuly unsubscribed and will no longer receive any emails
-        from us.
-      </p>
+    <div class="form">
+      <div>
+        <p>
+          <label for="firstname">Firstname:</label>
+          <input id="firstname" v-model="firstname" />
+        </p>
+      </div>
+      <div>
+        <p>
+          <label for="lastname">Lastname:</label>
+          <input id="lastname" v-model="lastname" />
+        </p>
+      </div>
+      <div>
+        <p>
+          <label for="email">Email:</label>
+          <input id="email" v-model="email" />
+        </p>
+      </div>
+      <div>
+        <p>
+          <label for="address">Address:</label>
+          <input id="address" v-model="address" />
+        </p>
+      </div>
+      <div>
+        <p>
+          <label for="old-password">Old password:</label>
+          <input type="password" id="old-password" v-model="password.old" />
+          <span id="inline-errors" v-if="v$.password.old.$error"
+            >Password required</span
+          >
+        </p>
+      </div>
+      <div>
+        <p>
+          <label for="new-password">New password:</label>
+          <input type="password" id="new-password" v-model="password.new" />
+          <span id="inline-errors" v-if="v$.password.new.$error"
+            >Password required</span
+          >
+        </p>
+        <p>
+          <label for="same-password">Repeat password:</label>
+          <input type="password" id="same-password" v-model="password.same" />
+          <span id="inline-errors" v-if="v$.password.same.$error">{{
+            v$.password.same.$errors[0].$message
+          }}</span>
+        </p>
+      </div>
     </div>
-    <div>
+    <div style="display: flex; justify-content: center">
       <button @click.prevent="saveChanges">Save settings</button>
     </div>
   </form>
-  <div>
-    <b-button class="deleteBtn" @click="show = !show">Delete account</b-button>
-    <b-modal
-      @ok="homePage()"
-      @cancel="myPage()"
-      ok-title="Confirm"
-      v-model="show"
-      >Are you sure you want to leave us? :[
-    </b-modal>
+  <h5>Unsubscribe from Newsletter</h5>
+  <div class="unsubscribe">
+    <label v-if="unSubscribe === false">Are you sure?</label>
+    <label v-else>Click again to subscribe</label>
+    <input type="checkbox" v-model="unSubscribe" />
+    <p v-if="unSubscribe !== false">
+      <br />
+      You have successfuly unsubscribed and will no longer receive any emails
+      from us.
+    </p>
+  </div>
+  <div class="test">
+    <h5>Do you want to delete your account?</h5>
+    <DeleteAccount />
   </div>
 </template>
 
 <style lang="scss" scoped>
-  form {
-    margin: 10px;
-    color: white;
+  * {
     box-sizing: border-box;
+  }
+
+  label {
+    margin-right: 5px;
+  }
+
+  .unsubscribe {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
   }
 
   #inline-errors {
@@ -135,13 +154,13 @@
   }
 
   p,
-  div,
   button,
-  h2 {
+  h2,
+  h5 {
     text-align: center;
   }
-  h2,
-  div {
+
+  h2 {
     color: white;
     margin: 10px;
     white-space: break-spaces;
@@ -153,8 +172,6 @@
     font-size: 16px;
     color: white;
     border: none;
-    font-family: inherit;
-    font-size: inherit;
     margin: 10px;
   }
 
@@ -172,25 +189,37 @@
   a {
     text-decoration: none;
     color: white;
+    padding: 0 10%;
   }
-  form,
-  p,
-  h1,
-  div {
+  form {
     display: flex;
     flex-direction: column;
-    align-items: left;
     margin: 10px;
   }
 
-  input {
-    display: inline-block;
-  }
   button,
   h1 {
     margin-bottom: 30px;
   }
 
+  input[type='checkbox'] {
+    height: 16px;
+    width: 16px;
+  }
+  .test {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
   @media (min-width: 600px) {
+    .form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    input {
+      width: 60%;
+    }
   }
 </style>
