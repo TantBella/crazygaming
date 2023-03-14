@@ -1,6 +1,13 @@
 <template>
-  <h1>Discounts</h1>
+  <div id="top">
+    <div>
+      <RouterLink to="/my-pages">
+        <img src="/assets/arrowBack.png" alt="White arrow pointing left" />
+      </RouterLink>
+    </div>
 
+    <h1>MY DISCOUNTS</h1>
+  </div>
   <div class="offers">
     <b-card style="background-color: transparent">
       <b-card-group deck>
@@ -42,6 +49,11 @@
 </template>
 
 <style scoped>
+  #top {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
   p {
     color: #000;
   }
@@ -57,10 +69,6 @@
 
   img {
     margin-bottom: 10px;
-  }
-
-  h1 {
-    padding-top: 20px;
   }
 
   @media (max-width: 600px) {
