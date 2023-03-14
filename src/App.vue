@@ -53,7 +53,7 @@
   #wrapper {
     color: white;
     min-height: 100vh;
-    background-image: linear-gradient(#9857c2, #4361ee 10%, #9857c2);
+    background-image: linear-gradient(#6f2ba7, #4361ee 10%, #6f2ba7);
     overflow-x: hidden;
     margin: 0 auto;
     font-family: 'Inter', sans-serif;

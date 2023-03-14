@@ -38,7 +38,12 @@
           <router-link :to="`/product/${product.id}`">
             <b-card-img :src="product.image" :alt="product.name" />
           </router-link>
-          <p>
+          <p v-if="product.sale_price">
+            {{ product.name }}
+            <span class="sales">{{ product.sale_price }}€</span
+            ><span class="line-throw">{{ product.price }}€</span>
+          </p>
+          <p v-else>
             {{ product.name }} <span>{{ product.price }}€</span>
           </p>
         </div>
@@ -60,7 +65,12 @@
           <router-link :to="`/product/${action.id}`">
             <b-card-img :src="action.image" :alt="action.name" />
           </router-link>
-          <p>
+          <p v-if="action.sale_price">
+            {{ action.name }}
+            <span class="sales">{{ action.sale_price }}€</span
+            ><span class="line-throw">{{ action.price }}€</span>
+          </p>
+          <p v-else>
             {{ action.name }} <span>{{ action.price }}€</span>
           </p>
         </div>
@@ -70,7 +80,12 @@
           <router-link :to="`/product/${adventure.id}`">
             <b-card-img :src="adventure.image" :alt="adventure.name" />
           </router-link>
-          <p>
+          <p v-if="adventure.sale_price">
+            {{ adventure.name }}
+            <span class="sales">{{ adventure.sale_price }}€</span
+            ><span class="line-throw">{{ adventure.price }}€</span>
+          </p>
+          <p v-else>
             {{ adventure.name }} <span>{{ adventure.price }}€</span>
           </p>
         </div>
@@ -80,7 +95,12 @@
           <router-link :to="`/product/${simulator.id}`">
             <b-card-img :src="simulator.image" :alt="simulator.name" />
           </router-link>
-          <p>
+          <p v-if="simulator.sale_price">
+            {{ simulator.name }}
+            <span class="sales">{{ simulator.sale_price }}€</span
+            ><span class="line-throw">{{ simulator.price }}€</span>
+          </p>
+          <p v-else>
             {{ simulator.name }} <span>{{ simulator.price }}€</span>
           </p>
         </div>
@@ -90,7 +110,12 @@
           <router-link :to="`/product/${sport.id}`">
             <b-card-img :src="sport.image" :alt="sport.name" />
           </router-link>
-          <p>
+          <p v-if="sport.sale_price">
+            {{ sport.name }}
+            <span class="sales">{{ sport.sale_price }}€</span
+            ><span class="line-throw">{{ sport.price }}€</span>
+          </p>
+          <p v-else>
             {{ sport.name }} <span>{{ sport.price }}€</span>
           </p>
         </div>
@@ -100,7 +125,12 @@
           <router-link :to="`/product/${roleplay.id}`">
             <b-card-img :src="roleplay.image" :alt="roleplay.name" />
           </router-link>
-          <p>
+          <p v-if="roleplay.sale_price">
+            {{ roleplay.name }}
+            <span class="sales">{{ roleplay.sale_price }}€</span
+            ><span class="line-throw">{{ roleplay.price }}€</span>
+          </p>
+          <p v-else>
             {{ roleplay.name }} <span>{{ roleplay.price }}€</span>
           </p>
         </div>
@@ -150,7 +180,7 @@
   }
   .sales {
     color: red;
-    padding-right: 10px;
+    padding-right: 5px;
   }
   .line-throw {
     text-decoration: line-through;
