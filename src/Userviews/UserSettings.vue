@@ -57,7 +57,7 @@
 </script>
 
 <template>
-  <h1>Change your settings</h1>
+  <h1 style="padding-top: 10px">Change your settings</h1>
 
   <form>
     <div class="form">
@@ -110,34 +110,31 @@
           }}</span>
         </p>
       </div>
-      <div class="unsubscribe">
-        <h5>Unsubscribe from Newsletter</h5>
-        <label v-if="unSubscribe === false">
-          <p>Are you sure?</p>
-          <input type="checkbox" v-model="unSubscribe" />
-        </label>
-        <label v-else>Click again to subscribe</label>
-        <p v-if="unSubscribe !== false">
-          You have successfuly unsubscribed and will no longer receive any
-          emails from us.
-        </p>
-      </div>
     </div>
-    <div>
+    <div style="display: flex; justify-content: center">
       <button @click.prevent="saveChanges">Save settings</button>
     </div>
   </form>
-  <div class="test"><DeleteAccount /></div>
+  <h5>Unsubscribe from Newsletter</h5>
+  <div class="unsubscribe">
+    <label v-if="unSubscribe === false">Are you sure?</label>
+    <label v-else>Click again to subscribe</label>
+    <input type="checkbox" v-model="unSubscribe" />
+    <p v-if="unSubscribe !== false">
+      <br />
+      You have successfuly unsubscribed and will no longer receive any emails
+      from us.
+    </p>
+  </div>
+  <div class="test">
+    <h5>Do you want to delete your account?</h5>
+    <DeleteAccount />
+  </div>
 </template>
 
 <style lang="scss" scoped>
   * {
     box-sizing: border-box;
-  }
-
-  input[type='checkbox'] {
-    height: 16px;
-    width: 16px;
   }
 
   label {
@@ -146,11 +143,8 @@
 
   .unsubscribe {
     margin-top: 20px;
-  }
-
-  form {
-    margin: 10px;
-    color: white;
+    margin-bottom: 20px;
+    text-align: center;
   }
 
   #inline-errors {
@@ -160,9 +154,9 @@
   }
 
   p,
-  div,
   button,
-  h2 {
+  h2,
+  h5 {
     text-align: center;
   }
 
@@ -197,12 +191,9 @@
     color: white;
     padding: 0 10%;
   }
-  form,
-  p,
-  h1 {
+  form {
     display: flex;
     flex-direction: column;
-    align-items: left;
     margin: 10px;
   }
 
@@ -210,9 +201,16 @@
   h1 {
     margin-bottom: 30px;
   }
+
+  input[type='checkbox'] {
+    height: 16px;
+    width: 16px;
+  }
   .test {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
   }
 
   @media (min-width: 600px) {
