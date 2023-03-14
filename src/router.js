@@ -19,7 +19,6 @@ import MemberDiscount from './Userviews/MemberDiscount.vue'
 import DeleteAccount from './Userviews/DeleteAccount.vue'
 import UserSettings from './Userviews/UserSettings.vue'
 import LogOut from './Userviews/LogOut.vue'
-import MyAccount from './Userviews/MyAccount.vue'
 import Categories from './products/CategoriePage.vue'
 // admin
 import Admin from './admin/AdminView.vue'
@@ -33,10 +32,6 @@ import Saleschart from './admin/SaleschartView.vue'
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
-    {
-      component: MyAccount,
-      path: '/myaccount'
-    },
     {
       component: DeleteAccount,
       path: '/deleteaccount'

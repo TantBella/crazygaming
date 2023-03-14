@@ -1,8 +1,13 @@
 <script>
+  import DeleteAccount from './DeleteAccount.vue'
   import useVuelidate from '@vuelidate/core'
   import { required, email, sameAs } from '@vuelidate/validators'
 
   export default {
+    components: {
+      DeleteAccount
+    },
+
     data() {
       return {
         unSubscribe: false,
@@ -31,7 +36,6 @@
           new: { required },
           same: { required, sameAs: sameAs(this.password.new) }
         }
-        // conditions: { required, sameAS: sameAs(true) }
       }
     },
     methods: {
@@ -109,19 +113,21 @@
       <button @click.prevent="saveChanges">Save settings</button>
     </div>
   </form>
-  <div>
-    <b-button class="deleteBtn" @click="show = !show">Delete account</b-button>
-    <b-modal
-      @ok="homePage()"
-      @cancel="myPage()"
-      ok-title="Confirm"
-      v-model="show"
-      >Are you sure you want to leave us? :[
-    </b-modal>
-  </div>
+  <div class="test"><DeleteAccount /></div>
 </template>
 
 <style lang="scss" scoped>
+  input[type='checkbox'] {
+    height: 16px;
+    width: 16px;
+  }
+  label {
+    margin-right: 5px;
+  }
+
+  .unsubscribe {
+    margin-top: 20px;
+  }
   form {
     margin: 10px;
     color: white;
@@ -172,6 +178,7 @@
   a {
     text-decoration: none;
     color: white;
+    padding: 0 10%;
   }
   form,
   p,
@@ -189,6 +196,10 @@
   button,
   h1 {
     margin-bottom: 30px;
+  }
+  .test {
+    display: flex;
+    justify-content: center;
   }
 
   @media (min-width: 600px) {

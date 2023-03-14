@@ -23,11 +23,11 @@
   }
   button {
     background-color: #d9d9d931;
-    border: solid 3px rgb(201, 199, 199);
+    border: solid 3px rgb(88, 86, 86);
     border-radius: 20px;
     bottom: 65px;
     right: 50px;
-    padding: 5px;
+    padding: 3px;
     position: fixed;
   }
 </style>
