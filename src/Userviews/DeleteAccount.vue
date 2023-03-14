@@ -1,5 +1,4 @@
 <template>
-  <h1>DONT DELETE PLS</h1>
   <div class="delete">
     <b-button class="deleteBtn" @click="show = !show">Delete account</b-button>
     <b-modal
