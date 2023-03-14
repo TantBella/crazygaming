@@ -60,7 +60,7 @@
 <style lang="scss" scoped>
   .carousel1 {
     width: 90vw;
-    max-width: 1200px;
+    max-width: 1400px;
     height: 650px;
     margin: 0 auto;
     margin-top: 1.5rem;
