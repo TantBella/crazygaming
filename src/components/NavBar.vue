@@ -18,13 +18,13 @@
 
 <template>
   <div class="hideBtn">
-    <button class="hide" @click="hide()" v-if="navbar === true">
+    <button class="hide" @click="hide()" v-if="navbar">
       <p>
         Hide
         <img class="arrow" src="/assets/whiteDown.png" alt="White arrow down" />
       </p>
     </button>
-    <button class="show" @click="show()" v-if="navbar === false">
+    <button class="show" @click="show()" v-else>
       <p>
         Show
         <img class="arrow" src="/assets/whiteUp.png" alt="White arrow up" />
@@ -32,7 +32,7 @@
     </button>
   </div>
 
-  <nav v-if="navbar === true">
+  <nav v-if="navbar">
     <div>
       <ul>
         <li>
