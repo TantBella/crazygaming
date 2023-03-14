@@ -1,5 +1,38 @@
+<script>
+  export default {
+    data() {
+      return {
+        navbar: true
+      }
+    },
+    methods: {
+      hide() {
+        this.navbar = false
+      },
+      show() {
+        this.navbar = true
+      }
+    }
+  }
+</script>
+
 <template>
-  <nav>
+  <div class="hideBtn">
+    <button class="hide" @click="hide()" v-if="navbar === true">
+      <p>
+        Hide
+        <img class="arrow" src="/assets/whiteDown.png" alt="White arrow down" />
+      </p>
+    </button>
+    <button class="show" @click="show()" v-if="navbar === false">
+      <p>
+        Show
+        <img class="arrow" src="/assets/whiteUp.png" alt="White arrow up" />
+      </p>
+    </button>
+  </div>
+
+  <nav v-if="navbar === true">
     <div>
       <ul>
         <li>
@@ -125,8 +158,42 @@
     height: 16px;
     border-radius: 40%;
   }
+  .hide {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    background: #9857c2;
+    position: fixed;
+    bottom: 6.5vh;
+    left: 4px;
+    z-index: 1;
+    width: 89px;
+    height: 32px;
+    border: none;
+    border-radius: 10px;
+  }
+  .show {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    background-color: #9857c2;
+    position: fixed;
+    bottom: 5px;
+    left: 4px;
+    z-index: 1;
+    height: 32px;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+  }
+  .arrow {
+    width: 30px;
+  }
   @media (min-width: 600px) {
     nav {
+      display: none;
+    }
+    .hideBtn {
       display: none;
     }
   }
