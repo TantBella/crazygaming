@@ -68,8 +68,11 @@
 
 <style scoped>
   a {
-    color: white;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10%;
   }
+
   .deleteBtn {
     background-color: #550001;
   }
