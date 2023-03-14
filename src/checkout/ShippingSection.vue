@@ -41,32 +41,32 @@
           {
             id: 'option1',
             name: '  Instabox',
-            price: '5 £',
+            price: '5 €',
             src: 'assets/instabox.png'
           },
           {
             id: 'option2',
             name: '  Postnord Ombud',
-            price: '5 £',
+            price: '5 €',
             src: 'assets/postnord.png'
           },
           {
             id: 'option3',
             name: 'Postnord Express',
-            price: '10 £',
+            price: '10 €',
             src: 'assets/postnord.png'
           },
           {
             id: 'option4',
             name: 'DHL',
-            price: '5 £',
+            price: '5 €',
             src: 'assets/dhl.png'
           },
           {
             id: 'option5',
             name: 'Email',
-            price: '5 £',
-            src: 'assets/email-icon.png'
+            price: '5 €',
+            src: 'assets/mail_.png'
           }
         ],
         selectedOption: null
