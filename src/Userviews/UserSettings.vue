@@ -1,6 +1,6 @@
 <script>
   import useVuelidate from '@vuelidate/core'
-  import { required, email, sameAs, numeric } from '@vuelidate/validators'
+  import { required, email, sameAs } from '@vuelidate/validators'
 
   export default {
     data() {
@@ -9,11 +9,10 @@
         v$: useVuelidate(),
         firstname: '',
         lastname: '',
+        address: '',
         email: '',
-        adress: '',
-        birthday: '',
-        id: '',
         password: {
+          old: '',
           new: '',
           same: ''
         },
@@ -26,26 +25,26 @@
         firstname: { required },
         lastname: { required },
         email: { required, email },
-        adress: { required },
-        birthday: { required, numeric },
+        address: { required },
         password: {
+          old: { required },
           new: { required },
           same: { required, sameAs: sameAs(this.password.new) }
-        },
-        conditions: { required, sameAS: sameAs(true) }
+        }
+        // conditions: { required, sameAS: sameAs(true) }
       }
     },
     methods: {
-      register() {
+      saveChanges() {
         this.v$.$validate()
         if (!this.v$.$error) {
           this.$store.commit('registerUser', {
             firstname: this.firstname,
             lastname: this.lastname,
-            email: this.email,
-            birthday: this.birthday,
-            password: this.password.same
+            email: this.email
           })
+          alert(' Your new settings have been saved :]')
+          console.log(this.$store.state.registeredUser)
           this.$router.push({ path: '/my-pages' })
         }
       }
@@ -54,96 +53,72 @@
 </script>
 
 <template>
-  <h1>Settings</h1>
+  <h1>Change your settings</h1>
 
-  <div class="unsubscribe">
-    <h5>Unsubscribe from Newsletter</h5>
-    <label v-if="unSubscribe === false">Are you sure?</label>
-    <label v-else>Click again to subscribe</label>
-    <input type="checkbox" v-model="unSubscribe" />
-    <p v-if="unSubscribe !== false">
-      You have successfuly unsubscribed and will no longer receive any emails
-      from us.
-    </p>
-  </div>
-
-  <h2>Change your settings:</h2>
   <form>
     <p>
       <label for="firstname">Firstname:</label>
       <input id="firstname" v-model="firstname" />
-      <span id="inline-errors" v-if="v$.firstname.$error"
-        >Firstname required</span
-      >
     </p>
     <p>
       <label for="lastname">Lastname:</label>
       <input id="lastname" v-model="lastname" />
-      <span id="inline-errors" v-if="v$.lastname.$error"
-        >Lastname required</span
-      >
     </p>
 
     <p>
       <label for="email">Email:</label>
       <input id="email" v-model="email" />
-      <span id="inline-errors" v-if="v$.email.$error">Email required</span>
     </p>
-
     <p>
-      <label for="adress">Adress:</label>
-      <input id="adress" v-model="adress" />
-      <span id="inline-errors" v-if="v$.adress.$error">Adress required</span>
+      <label for="address">Address:</label>
+      <input id="address" v-model="address" />
     </p>
-
     <p>
-      <label for="new-password">Old password:</label>
+      <label for="old-password">Old password:</label>
+      <input type="password" id="old-password" v-model="password.old" />
+      <span id="inline-errors" v-if="v$.password.old.$error"
+        >Password required</span
+      >
+    </p>
+    <p>
+      <label for="new-password">New password:</label>
       <input type="password" id="new-password" v-model="password.new" />
       <span id="inline-errors" v-if="v$.password.new.$error"
         >Password required</span
       >
     </p>
     <p>
-      <label for="same-password">New password:</label>
+      <label for="same-password">Repeat password:</label>
       <input type="password" id="same-password" v-model="password.same" />
       <span id="inline-errors" v-if="v$.password.same.$error">{{
         v$.password.same.$errors[0].$message
       }}</span>
     </p>
-    <p>
-      <label for="conditions">I accept the terms and conditions:</label>
-      <input
-        class="check"
-        type="checkbox"
-        id="conditions"
-        v-model="conditions"
-      />
-      <span id="inline-errors" v-if="v$.conditions.$error"
-        >You need to accept the terms and conditions to become a member.</span
-      >
-    </p>
-    <div class="errors" v-show="this.v$.$error">
-      <h3>
-        Oh no! Looks like you missed a few steps trying to register, please
-        correct the mistakes.
-      </h3>
-      <ul>
-        <li v-if="v$.firstname.$error">Firstname required</li>
-        <li v-if="v$.lastname.$error">Lastname required</li>
-        <li v-if="v$.email.$error">Email required</li>
-        <li v-if="v$.adress.$error">Adress required</li>
-        <li v-if="v$.birthday.$error">Date of birth required</li>
-        <li v-if="v$.password.new.$error">Password required</li>
-        <li v-if="v$.password.same.$error">Repeat/same password required</li>
-        <li v-if="v$.conditions.$error">
-          You need to accept the terms and conditions to become a member.
-        </li>
-      </ul>
+
+    <div class="unsubscribe">
+      <h5>Unsubscribe from Newsletter</h5>
+      <label v-if="unSubscribe === false">Are you sure?</label>
+      <label v-else>Click again to subscribe</label>
+      <input type="checkbox" v-model="unSubscribe" />
+      <p v-if="unSubscribe !== false">
+        You have successfuly unsubscribed and will no longer receive any emails
+        from us.
+      </p>
     </div>
     <div>
-      <button @click.prevent="register">Register</button>
+      <button @click.prevent="saveChanges">Save settings</button>
     </div>
   </form>
+  <div>
+    <b-button class="deleteBtn" @click="show = !show">Delete account</b-button>
+    <b-modal
+      @ok="homePage()"
+      @cancel="myPage()"
+      ok-title="Confirm"
+      v-model="show"
+      >Are you sure you want to leave us? :[
+    </b-modal>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -152,37 +127,16 @@
     color: white;
     box-sizing: border-box;
   }
+
   #inline-errors {
     text-decoration: underline;
     color: rgb(112, 13, 13);
     font-weight: bold;
   }
-  .errors {
-    color: rgb(112, 13, 13);
-    background-color: rgb(252, 245, 245);
-    width: 450px;
-    border: 2px solid rgb(112, 13, 13);
-    margin: 10px;
-    padding: 10px;
-  }
-  .errors li {
-    list-style-type: disc;
-    text-decoration: underline;
-    font-weight: bolder;
-  }
-  .errors h3 {
-    text-decoration: none;
-    font-size: 20px;
-  }
+
   p,
   div,
   button,
-  .errors {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
   h2 {
     text-align: center;
   }
@@ -203,11 +157,7 @@
     font-size: inherit;
     margin: 10px;
   }
-  .check {
-    width: 40px;
-    height: 25px;
-    border-color: white;
-  }
+
   button {
     background-color: rgb(50, 50, 93);
     border-radius: 5px;
@@ -223,27 +173,24 @@
     text-decoration: none;
     color: white;
   }
+  form,
+  p,
+  h1,
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 10px;
+  }
 
-  @media (min-width: 375px) and (max-width: 500px) {
-    form,
-    p,
-    h1,
-    div,
-    .errors {
-      display: flex;
-      flex-direction: column;
-      align-items: left;
-      margin: 10px;
-    }
-    .errors {
-      width: auto;
-    }
-    input {
-      display: inline-block;
-    }
-    button,
-    h1 {
-      margin-bottom: 30px;
-    }
+  input {
+    display: inline-block;
+  }
+  button,
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 600px) {
   }
 </style>
