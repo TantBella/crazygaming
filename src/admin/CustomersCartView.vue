@@ -56,6 +56,14 @@
 </script>
 
 <style lang="scss" scoped>
+  .sale {
+    color: red;
+    padding-right: 5px;
+  }
+
+  .line {
+    text-decoration: line-through;
+  }
   #cartSection {
     width: 75vw;
     max-width: 1000px;
