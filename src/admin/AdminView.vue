@@ -2,66 +2,46 @@
   <div>
     <h1>Admin</h1>
     <div class="admin-grid">
-      <div>
+      <div class="box">
         <RouterLink to="/admin-orders">Orders</RouterLink>
-        <img
-          src="/assets/arrow_right.png"
-          alt="buttonpng"
-          border="0"
-          class="arrowside"
-        />
       </div>
-      <div>
+      <div class="box">
         <RouterLink to="/admin-wish">Custumers Wishlist</RouterLink>
-        <img
-          src="/assets/arrow_right.png"
-          alt="buttonpng"
-          border="0"
-          class="arrowside"
-        />
       </div>
-      <div>
-        <RouterLink to="/admin-cart">Custumers Cart</RouterLink>
-        <img
-          src="/assets/arrow_right.png"
-          alt="buttonpng"
-          border="0"
-          class="arrowside"
-        />
+      <div class="box">
+        <RouterLink to="/admin-cart">Customers Cart</RouterLink>
       </div>
-      <div>
+      <div class="box">
         <RouterLink to="/admin-sales">Sales chart</RouterLink>
-        <img
-          src="/assets/arrow_right.png"
-          alt="buttonpng"
-          border="0"
-          class="arrowside"
-        />
       </div>
-      <div>
+      <div class="box">
         <RouterLink to="/admin-products">Products</RouterLink>
-        <img
-          src="/assets/arrow_right.png"
-          alt="buttonpng"
-          border="0"
-          class="arrowside"
-        />
-      </div>
-      <div>
-        <RouterLink to="/admin-rating">Rating</RouterLink>
-        <img
-          src="/assets/arrow_right.png"
-          alt="buttonpng"
-          border="0"
-          class="arrowside"
-        />
       </div>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
+  .admin-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }
+  .box {
+    background-color: white;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 150px;
+    border-radius: 10%;
+    margin: 10px;
+  }
   a {
-    color: white;
+    color: black;
+    font-weight: 600;
+    margin: 20px;
   }
 </style>
