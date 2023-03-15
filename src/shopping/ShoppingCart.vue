@@ -131,9 +131,15 @@
 
       <p v-if="productCount < 1">You have no items in your shopping cart.</p>
       <div id="buttons">
-        <button v-if="productCount > 0" id="checkoutButton">
-          <RouterLink @click="closeCart" to="/checkout">Checkout</RouterLink>
-        </button>
+        <RouterLink to="/checkout" id="checkoutRouter"
+          ><button
+            @click="closeCart"
+            v-if="productCount > 0"
+            id="checkoutButton"
+          >
+            Checkout
+          </button></RouterLink
+        >
         <button id="continueButton" @click="closeCart">
           Continue Shopping
         </button>
@@ -286,7 +292,9 @@
     border-radius: 30px;
     font-weight: bold;
   }
-
+  #checkoutRouter {
+    width: 100%;
+  }
   #checkoutButton:hover,
   #continueButton:hover {
     cursor: pointer;
