@@ -1,5 +1,5 @@
 <template>
-  <div id="top">
+  <div id="title">
     <div>
       <RouterLink to="/my-pages">
         <img src="/assets/arrowBack.png" alt="White arrow pointing left" />
@@ -49,7 +49,7 @@
 </template>
 
 <style scoped>
-  #top {
+  #title {
     display: flex;
     justify-content: center;
     margin-top: 20px;
