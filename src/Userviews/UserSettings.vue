@@ -51,6 +51,9 @@
           console.log(this.$store.state.registeredUser)
           this.$router.push({ path: '/my-pages' })
         }
+      },
+      backToProfile() {
+        this.$router.push({ path: '/my-pages' })
       }
     }
   }
@@ -112,7 +115,12 @@
       </div>
     </div>
     <div style="display: flex; justify-content: center">
-      <button @click.prevent="saveChanges">Save settings</button>
+      <button @click.prevent="backToProfile" style="margin: 5px">
+        Back to my profile
+      </button>
+      <button @click.prevent="saveChanges" style="margin: 5px">
+        Save settings
+      </button>
     </div>
   </form>
   <h5>Unsubscribe from Newsletter</h5>
@@ -220,6 +228,9 @@
     }
     input {
       width: 60%;
+    }
+    button {
+      margin: 3px;
     }
   }
 </style>
