@@ -25,7 +25,9 @@
         reviewFlag2: 'black',
         reviewFlag3: 'black',
         reviewFlag4: 'black',
-        reviewFlag5: 'black'
+        reviewFlag5: 'black',
+        show: true,
+        showAll: false
       }
     },
     methods: {
@@ -91,9 +93,30 @@
         </b-col>
         <b-col md="7">
           <b-card-body :title="filteredProductByID.name">
-            <b-card-text>
+            <b-card-text id="desktopDescription">
               {{ filteredProductByID.description }}
             </b-card-text>
+            <b-card-text v-if="show"
+              ><div id="mobileDescription">
+                {{ filteredProductByID.description }}
+              </div>
+              <button
+                class="showButton"
+                @click=";(show = !show), (showAll = !showAll)"
+              >
+                Read more
+              </button>
+            </b-card-text>
+            <b-card-text id="mobileFullDescription" v-if="showAll">
+              {{ filteredProductByID.description }}
+              <button
+                class="showButton"
+                @click=";(show = !show), (showAll = !showAll)"
+              >
+                Read less
+              </button>
+            </b-card-text>
+
             <b-row style="justify-content: center; align-items: center">
               <b-col md="6">
                 <b-card-text
@@ -293,5 +316,30 @@
   #rate {
     color: #000;
     margin: 0;
+  }
+  #mobileDescription {
+    max-height: 3em;
+    overflow: hidden;
+  }
+  .showButton {
+    background: none !important;
+    border: none;
+    padding: 0;
+    color: #3a0ca3;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  @media (min-width: 600px) {
+    #mobileDescription,
+    #mobileFullDescription,
+    .showButton {
+      display: none;
+    }
+  }
+  @media (max-width: 600px) {
+    #desktopDescription {
+      display: none;
+    }
   }
 </style>

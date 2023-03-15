@@ -26,7 +26,6 @@ import Orders from './admin/OrdersView.vue'
 import Customerscart from './admin/CustomersCartView.vue'
 import CustomersWishlist from './admin/CustomersWishlistView.vue'
 import ProductsAdmin from './admin/ProductsAdminView.vue'
-import Rating from './admin/RatingView.vue'
 import Saleschart from './admin/SaleschartView.vue'
 
 export default createRouter({
@@ -128,10 +127,6 @@ export default createRouter({
     {
       component: ProductsAdmin,
       path: '/admin-products'
-    },
-    {
-      component: Rating,
-      path: '/admin-rating'
     },
     {
       component: Saleschart,
