@@ -12,6 +12,17 @@
       back() {
         window.history.back(1)
       }
+    },
+    data() {
+      return {
+        titleFavorites: this.changeTitleFavorites
+      }
+    },
+    props: {
+      changeTitleFavorites: {
+        type: String,
+        default: 'MY WISHLIST'
+      }
     }
   }
 </script>
@@ -26,7 +37,7 @@
           alt="White arrow pointing left"
         />
       </div>
-      <h1>MY WISHLIST</h1>
+      <h1>{{ titleFavorites }}</h1>
     </div>
     <div>
       <p v-if="Object.keys(this.$store.state.favorites).length === 0">
