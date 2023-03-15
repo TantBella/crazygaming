@@ -18,6 +18,7 @@
               :id="option.id"
               :value="option"
               v-model="selectedOption"
+              required
             />
             <label :for="option.id">
               <img :src="option.src" alt="" class="optionImage" />
@@ -65,7 +66,7 @@
           {
             id: 'option5',
             name: 'Email',
-            price: '5 £',
+            price: 'Free!',
             src: 'assets/email-icon.png'
           }
         ],
@@ -134,8 +135,8 @@
   .shipping-option-selected {
     border: 2px solid #ccc;
     border-radius: 10px;
-    width: 70vw;
-    max-width: 950px;
+    width: 100%;
+    max-width: 936px;
     padding: 0.25rem;
   }
   ul {
@@ -176,31 +177,7 @@
     }
     .shipping-option-selected {
       padding: 0.25rem;
-      width: 80vw;
-    }
-  }
-  @media (max-width: 419px) {
-    #shippingSection {
-      width: 95vw;
-      padding: 0.5rem;
-    }
-    .optionImage {
-      width: 33px;
-      height: 33px;
-      margin-right: 0.3rem;
-      border-radius: 10px;
-    }
-    .shipping-option-selected {
-      padding: 0.25rem;
-      width: 85vw;
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin: 0.8rem;
-    }
-    .list {
-      font-size: 0.8rem;
-      margin-bottom: 1rem;
+      width: 100%;
     }
   }
 </style>
