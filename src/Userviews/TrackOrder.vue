@@ -23,7 +23,7 @@
     <h3>Order #123456789</h3>
     <div id="itemPrice">
       <p>1 Item</p>
-      <p>19,99 €</p>
+      <p>50 €</p>
     </div>
   </div>
   <div class="tracker">

@@ -69,7 +69,7 @@
     <div class="purchaseBox">
       <div class="purchaseTop">
         <h3>Delivered</h3>
-        <p>March 15, 2023</p>
+        <p>January 15, 2023</p>
       </div>
       <p class="grayText">Order #123456787</p>
       <img
