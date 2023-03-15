@@ -1,7 +1,7 @@
 <template>
   <div id="cartSection">
     <h2>Customer Cart</h2>
-    <p v-if="productCount < 1">Cart is empty</p>
+    <p id="emptyCart" v-if="productCount < 1">Cart is empty</p>
     <div v-for="product in this.$store.state.products" :key="product.id">
       <div class="productBox">
         <img :src="product.image" :alt="product.name" />
@@ -91,7 +91,7 @@
   }
 
   img {
-    max-width: 30px;
+    max-width: 60px;
   }
 
   h2 {
@@ -112,7 +112,7 @@
     margin-top: 0.5rem;
     color: #fff;
   }
-  p {
+  #emptyCart {
     color: #fff;
     text-align: center;
   }
