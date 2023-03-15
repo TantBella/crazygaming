@@ -18,8 +18,7 @@ import MyPurchase from './Userviews/MyPurchase.vue'
 import MemberDiscount from './Userviews/MemberDiscount.vue'
 import DeleteAccount from './Userviews/DeleteAccount.vue'
 import UserSettings from './Userviews/UserSettings.vue'
-import LogOut from './Userviews/LogOut.vue'
-import MyAccount from './Userviews/MyAccount.vue'
+
 import Categories from './products/CategoriePage.vue'
 // admin
 import Admin from './admin/AdminView.vue'
@@ -27,16 +26,11 @@ import Orders from './admin/OrdersView.vue'
 import Customerscart from './admin/CustomersCartView.vue'
 import CustomersWishlist from './admin/CustomersWishlistView.vue'
 import ProductsAdmin from './admin/ProductsAdminView.vue'
-import Rating from './admin/RatingView.vue'
 import Saleschart from './admin/SaleschartView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
-    {
-      component: MyAccount,
-      path: '/myaccount'
-    },
     {
       component: DeleteAccount,
       path: '/deleteaccount'
@@ -45,10 +39,7 @@ export default createRouter({
       component: UserSettings,
       path: '/settings'
     },
-    {
-      component: LogOut,
-      path: '/Logout'
-    },
+
     {
       component: MemberDiscount,
       path: '/Memberdiscount'
@@ -136,10 +127,6 @@ export default createRouter({
     {
       component: ProductsAdmin,
       path: '/admin-products'
-    },
-    {
-      component: Rating,
-      path: '/admin-rating'
     },
     {
       component: Saleschart,

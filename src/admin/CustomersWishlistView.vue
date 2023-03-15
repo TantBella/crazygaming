@@ -1,3 +1,9 @@
+<script>
+  import favorite from '../views/FavoriteList.vue'
+  export default {
+    components: { favorite }
+  }
+</script>
 <template>
-  <h1>Customers Wishlist</h1>
+  <favorite change-title-favorites="CUSTOMERS WISHLIST" />
 </template>

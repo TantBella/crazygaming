@@ -7,13 +7,12 @@
         src="/assets/settings.png"
         alt="buttonpng"
         border="0"
-        class="arrowside"
+        class="settings"
     /></RouterLink>
     <div class="welcome">
       <h1>
-        Welcome {{ this.$store.state.registeredUser.firstname }}
-        {{ this.$store.state.registeredUser.lastname }}! Are you ready to
-        enhance your gaming experience?
+        Welcome {{ this.$store.state.registeredUser.firstname }}! Are you ready
+        to enhance your gaming experience?
       </h1>
       <p>
         This is were you find personalised links to your account, your wishlist,
@@ -22,69 +21,61 @@
         personalised space.
       </p>
     </div>
-    <!-- Kanske hade varit bra att ha "mitt konto" typ också som en länk? -->
-    <div class="userbtn">
-      <RouterLink to="/myaccount"> My Account </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/wishlist"> My Wishlist </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/Purchases"> My Purchases </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/Trackorder"> Track My Order </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/Memberdiscount"> My Discounts </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/contact"> Customer Support </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
-    </div>
-    <div class="userbtn">
-      <RouterLink to="/Logout"> Log Out </RouterLink>
-      <img
-        src="/assets/arrow_right.png"
-        alt="buttonpng"
-        border="0"
-        class="arrowside"
-      />
+    <div class="container">
+      <div class="userbtn">
+        <RouterLink to="/wishlist"> My Wishlist </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
+      <div class="userbtn">
+        <RouterLink to="/Purchases"> My Purchases </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
+      <div class="userbtn">
+        <RouterLink to="/Trackorder"> Track My Order </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
+      <div class="userbtn">
+        <RouterLink to="/Memberdiscount"> My Discounts </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
+      <div class="userbtn">
+        <RouterLink to="/contact"> Customer Support </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
+      <div class="userbtn">
+        <RouterLink to="/"> Log Out </RouterLink>
+        <img
+          src="/assets/arrow_right.png"
+          alt="buttonpng"
+          border="0"
+          class="arrowside"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -103,6 +94,8 @@
     border-radius: 17px;
     padding: 10px;
     margin: 5px;
+    display: flex;
+    justify-content: space-between;
   }
 
   a {
@@ -110,9 +103,23 @@
     color: white;
   }
 
+  .settings {
+    float: right;
+    width: 5vw;
+    margin: 10px;
+  }
   .arrowside {
     display: flex;
     // justify-self: flex-end;
     // align-self: flex-end;
+  }
+  @media (min-width: 600px) {
+    .settings {
+      width: 2vw;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 </style>

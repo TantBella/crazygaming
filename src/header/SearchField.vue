@@ -72,6 +72,7 @@
   }
 
   input {
+    color: #000;
     display: block;
     padding: 10px 45px;
     background: rgba(255, 255, 255, 0.172);
