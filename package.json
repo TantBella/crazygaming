@@ -11,6 +11,7 @@
     "chart.js": "^4.2.1",
     "click-outside-vue3": "^4.0.1",
     "vue": "^3.2.47",
+    "vue-chartjs": "^5.2.0",
     "vue-router": "^4.1.6",
     "vuex": "^4.1.0"
   },
