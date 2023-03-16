@@ -5,7 +5,7 @@
       <p v-if="product.items_available < 11">
         {{
           product.name +
-          'Has only ' +
+          ' has only ' +
           product.items_available +
           ' items in stock!'
         }}

@@ -12,6 +12,7 @@
 <style scoped>
   .shippingContainer {
     color: #fff;
+    font-size: 90%;
     background-color: rgba(255, 255, 255, 0.2);
     height: 45px;
     display: flex;
