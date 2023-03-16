@@ -26,7 +26,7 @@ import Orders from './admin/OrdersView.vue'
 import Customerscart from './admin/CustomersCartView.vue'
 import CustomersWishlist from './admin/CustomersWishlistView.vue'
 import ProductsAdmin from './admin/ProductsAdminView.vue'
-import Saleschart from './admin/SaleschartView.vue'
+import Saleschart from './admin/AdminSalesView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
