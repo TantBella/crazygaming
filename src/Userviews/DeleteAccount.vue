@@ -20,7 +20,7 @@
     },
     methods: {
       myPage() {
-        this.$router.push('/my-pages')
+        this.$router.push('/settings')
       },
       homePage() {
         this.$router.push('/')
