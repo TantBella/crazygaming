@@ -1,7 +1,7 @@
 <template>
   <div id="cartSection">
     <h2>checkout</h2>
-    <div class="line" />
+    <div class="h2line" />
     <div
       v-for="(product, index) in this.$store.state.products"
       :key="product.id"
@@ -28,7 +28,17 @@
               />
             </div>
             <div id="productPrice">
-              <p class="productPrice">{{ product.price }} €</p>
+              <p class="productPrice" v-if="product.sale_price">
+                <span class="sale"
+                  >{{ product.sale_price * product.quantity }}€</span
+                >
+                <span class="line"
+                  >{{ product.price * product.quantity }}€</span
+                >
+              </p>
+              <p class="productPrice" v-else>
+                {{ product.price * product.quantity }}€
+              </p>
             </div>
           </div>
         </div>
@@ -74,7 +84,6 @@
           const product = products[productId]
           const productQuantity = product.quantity
           total += product.price * productQuantity
-          console.log(product.quantity)
         }
 
         return total
@@ -169,10 +178,18 @@
     margin-top: 0.5rem;
     color: #fff;
   }
-  .line {
+  .h2line {
     border: none;
     border-bottom: 1px solid #ccc;
     margin: 1rem 0;
+  }
+  .sale {
+    color: red;
+    padding-right: 5px;
+  }
+
+  .line {
+    text-decoration: line-through;
   }
   @media (max-width: 599px) {
     #cartSection {

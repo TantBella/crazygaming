@@ -69,28 +69,13 @@
       },
       goToPreviousSection() {
         const tempSection = this.currentSection
-        this.currentSection = this.previousSection
+        this.setCurrentSection(this.previousSection)
         this.previousSection = tempSection
-        if (this.currentSection === 'cart') {
-          this.nextSection = 'details'
-        } else if (this.currentSection === 'details') {
-          this.nextSection = 'shipping'
-        } else if (this.currentSection === 'shipping') {
-          this.nextSection = 'payment'
-        }
       },
       goToNextSection() {
-        this.previousSection = this.currentSection
-        this.currentSection = this.nextSection
-        if (this.currentSection === 'cart') {
-          this.nextSection = 'details'
-        } else if (this.currentSection === 'details') {
-          this.nextSection = 'shipping'
-        } else if (this.currentSection === 'shipping') {
-          this.nextSection = 'payment'
-        } else {
-          this.nextSection = null
-        }
+        const tempSection = this.currentSection
+        this.setCurrentSection(this.nextSection)
+        this.previousSection = tempSection
       }
     }
   }

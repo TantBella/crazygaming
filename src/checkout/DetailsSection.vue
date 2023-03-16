@@ -2,69 +2,15 @@
   <div class="detailsSection">
     <h2>Delivery details</h2>
     <div class="line" />
-    <form>
-      <div class="formGroup">
-        <label for="name">
+    <form @submit.prevent="submitDetails">
+      <div class="formGroup" v-for="(field, index) in fields" :key="index">
+        <label :for="field.name">
           <input
-            placeholder="Name"
-            type="text"
+            :placeholder="field.placeholder"
+            :type="field.type"
             class="form-control"
-            id="name"
-            required
-          />
-        </label>
-      </div>
-      <div class="formGroup">
-        <label for="email">
-          <input
-            placeholder="Email"
-            type="email"
-            class="form-control"
-            id="email"
-            required
-          />
-        </label>
-      </div>
-      <div class="formGroup">
-        <label for="phone">
-          <input
-            placeholder="Phone"
-            type="tel"
-            class="form-control"
-            id="phone"
-            required
-          />
-        </label>
-      </div>
-      <div class="formGroup">
-        <label for="address">
-          <input
-            placeholder="Address"
-            type="text"
-            class="form-control"
-            id="address"
-            required
-          />
-        </label>
-      </div>
-      <div class="formGroup">
-        <label for="city">
-          <input
-            placeholder="City"
-            type="text"
-            class="form-control"
-            id="city"
-            required
-          />
-        </label>
-      </div>
-      <div class="formGroup">
-        <label for="zip">
-          <input
-            placeholder="Zip Code"
-            type="text"
-            class="form-control"
-            id="zip"
+            :id="field.name"
+            v-model="details[field.name]"
             required
           />
         </label>
@@ -73,7 +19,36 @@
   </div>
 </template>
 
-<script></script>
+<script>
+  export default {
+    emits: ['next-section'],
+    data() {
+      return {
+        details: {
+          name: '',
+          email: '',
+          phone: '',
+          address: '',
+          city: '',
+          zip: ''
+        },
+        fields: [
+          { name: 'name', placeholder: 'Name', type: 'text' },
+          { name: 'email', placeholder: 'Email', type: 'email' },
+          { name: 'phone', placeholder: 'Phone', type: 'tel' },
+          { name: 'address', placeholder: 'Address', type: 'text' },
+          { name: 'city', placeholder: 'City', type: 'text' },
+          { name: 'zip', placeholder: 'Zip Code', type: 'text' }
+        ]
+      }
+    },
+    methods: {
+      submitDetails() {
+        this.$emit('next-section', 'shipping')
+      }
+    }
+  }
+</script>
 
 <style lang="scss" scoped>
   .detailsSection {
@@ -100,7 +75,12 @@
     display: block;
     margin-bottom: 5px;
   }
-
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+  }
   input[type='text'],
   input[type='email'],
   input[type='tel'] {
