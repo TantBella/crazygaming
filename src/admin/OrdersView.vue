@@ -14,7 +14,7 @@
 </script>
 
 <template>
-  <h1>Orders</h1>
+  <h1>ORDERS</h1>
   <div v-if="products !== null" class="cOrders">
     <div class="express">
       <h2>Express delivery</h2>

@@ -55,4 +55,10 @@
     font-size: 30px;
     font-weight: normal;
   }
+  a {
+    text-decoration: none;
+  }
+  a:visited {
+    color: #fff;
+  }
 </style>
