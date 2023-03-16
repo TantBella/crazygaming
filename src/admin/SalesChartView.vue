@@ -1,4 +1,8 @@
-<script>
+<template>
+  <h1>hej</h1>
+</template>
+
+<!-- <script>
   import { Bar } from 'vue-chartjs'
   import {
     Chart as ChartJS,
@@ -7,7 +11,8 @@
     Legend,
     BarElement,
     CategoryScale,
-    LinearScale
+    LinearScale,
+    Color
   } from 'chart.js'
 
   ChartJS.register(
@@ -16,7 +21,8 @@
     Legend,
     BarElement,
     CategoryScale,
-    LinearScale
+    LinearScale,
+    Color
   )
 
   export default {
@@ -25,8 +31,8 @@
     data() {
       return {
         chartData: {
-          labels: ['January', 'February', 'March'],
-          datasets: [{ data: [80, 100, 134] }],
+          labels: ['December', 'January', 'February', 'March'],
+          datasets: [{ data: [73, 80, 100, 134], labels: 'Products' }],
           Color: '#A020F0'
         },
         chartOptions: {
@@ -38,7 +44,7 @@
 </script>
 
 <template>
-  <h1>Sales over the last three months</h1>
+  <h1>Sales over the last months</h1>
   <div>
     <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
   </div>
@@ -48,4 +54,4 @@
   #my-chart-id {
     background-color: aliceblue;
   }
-</style>
+</style> -->
