@@ -7,7 +7,7 @@
       return {
         tabIndex: 0,
         v$: useVuelidate(),
-        inputMail: null
+        inputMail: ''
       }
     },
 
@@ -16,22 +16,18 @@
         inputMail: {
           required,
           email
-        }
+        },
+        errors: false
       }
     },
 
     methods: {
       submitMail() {
-        alert("Thanks for Joining! You're in good company.")
-      },
-
-      // Nedan är för att brevet ska snurra
-      linkClass(idx) {
-        if (this.tabIndex === idx) {
-          return ['bg-primary', 'text-light']
-        } else {
-          return ['bg-light', 'text-info']
+        this.v$.$validate()
+        if (!this.v$.$error) {
+          this.inputMail
         }
+        alert("Thanks for Joining! You're in good company.")
       }
     },
 

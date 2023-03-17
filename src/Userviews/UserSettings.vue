@@ -3,6 +3,7 @@
   import useVuelidate from '@vuelidate/core'
   import { required, email, sameAs } from '@vuelidate/validators'
 
+  // INSP/REF: https://vuelidate-next.netlify.app/#getting-started-1
   export default {
     components: {
       DeleteAccount
