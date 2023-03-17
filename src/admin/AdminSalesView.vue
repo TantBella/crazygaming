@@ -40,7 +40,7 @@
             {
               label: 'Products',
               data: [100, 120, 230, 300],
-              backgroundColor: '#f87979',
+              backgroundColor: '#a724c8',
               Color: '#000000'
             }
           ]
